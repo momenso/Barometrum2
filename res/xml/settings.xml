@@ -13,6 +13,7 @@
             android:entryValues="@array/pressureMode"/>
         <ListPreference 
             android:title="Measuring Unit" 
+            android:key="BarometerUnit"
             android:summary="Barr, inches, torr or pascal"
             android:entries="@array/pressureUnit" 
             android:defaultValue="@string/default_unit"
@@ -21,6 +22,7 @@
     <PreferenceCategory android:title="History">
         <ListPreference 
             android:title="Time scale"
+            android:key="GraphTimeScale"
             android:summary="Define the time interval used in the history chart" 
             android:entries="@array/logInterval"
             android:defaultValue="@string/default_time_interval"
@@ -28,10 +30,12 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="Altimeter">
     	<SwitchPreference 
+                android:key="AltimeterGPSEnabled"
         	android:switchTextOff="GPS Disabled" 
                 android:defaultValue="Off"
         	android:switchTextOn="GPS Enabled"/>
     	<EditTextPreference
+            android:key="KnownAltitude"
     	    android:title="Current altitude" 
     	    android:defaultValue="0"/>
     </PreferenceCategory>

@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class PressureDataPoint implements Serializable {
 
-	public static enum PressureMode { BAROMETRIC, MSLP };
+	public static enum PressureMode { Absolute, MSLP };
 	public static enum PressureUnit { Bar, Torr, Pascal, InHg };
 
 	private static final long serialVersionUID = -3959936631531969908L;

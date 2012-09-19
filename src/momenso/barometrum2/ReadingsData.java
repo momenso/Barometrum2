@@ -1,5 +1,6 @@
 package momenso.barometrum2;
 
+import android.content.Context;
 import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -9,11 +10,8 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import momenso.barometrum2.PressureDataPoint.PressureMode;
 import momenso.barometrum2.PressureDataPoint.PressureUnit;
-
-import android.content.Context;
 
 
 public class ReadingsData {
@@ -25,7 +23,7 @@ public class ReadingsData {
 	private PressureDataPoint maxValue;
 
 	private PressureDataPoint average;
-	private static PressureMode mode = PressureMode.BAROMETRIC;
+	private static PressureMode mode = PressureMode.Absolute;
 	private static PressureUnit unit = PressureUnit.Bar;
 	private static float currentElevation = 0;
 	private static int loggingInterval = 60000;

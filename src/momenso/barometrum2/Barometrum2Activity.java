@@ -1,40 +1,32 @@
 package momenso.barometrum2;
 
-import java.util.Observable;
-import java.util.Observer;
-
-import momenso.barometrum2.R;
-import momenso.barometrum2.PressureDataPoint.PressureMode;
-import momenso.barometrum2.PressureDataPoint.PressureUnit;
-import momenso.barometrum2.gui.ChartView;
-import momenso.barometrum2.gui.BorderedTextView;
-
-import momenso.barometrum2.Altimeter;
-import momenso.barometrum2.Preferences;
-import momenso.barometrum2.ReadingsData;
-import momenso.barometrum2.Barometer;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
+import java.util.Observable;
+import java.util.Observer;
+import momenso.barometrum2.PressureDataPoint.PressureMode;
+import momenso.barometrum2.PressureDataPoint.PressureUnit;
+import momenso.barometrum2.gui.BorderedTextView;
+import momenso.barometrum2.gui.ChartView;
 
 public class Barometrum2Activity extends Activity implements Observer {
 
     private Barometer barometer;
     private Altimeter altimeter;
     private ReadingsData pressureData;
-    private Preferences preferences;
+    //private Preferences preferences;
 
     /**
      * Called when the activity is first created.
@@ -45,7 +37,7 @@ public class Barometrum2Activity extends Activity implements Observer {
         setContentView(R.layout.main);
 
         Context context = getApplicationContext();
-        preferences = new Preferences(context);
+        //preferences = new Preferences(context);
 
         barometer = new Barometer(context);
         barometer.addObserver(this);
@@ -54,9 +46,11 @@ public class Barometrum2Activity extends Activity implements Observer {
         altimeter.addObserver(this);
 
         pressureData = ReadingsData.getInstance(context);
-        pressureData.setMode(preferences.getPressureMode(),
+        
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        pressureData.setMode(PressureMode.valueOf(preferences.getString("BarometerMode", "Absolute")),
                 altimeter.getAltitude());
-        pressureData.setUnit(preferences.getPressureUnit());
+        pressureData.setUnit(PressureUnit.valueOf(preferences.getString("BarometerUnit", "Bar")));
 
         // initialize pressure reading display
         final TextView currentReading = (TextView) findViewById(R.id.currentReading);
@@ -139,39 +133,39 @@ public class Barometrum2Activity extends Activity implements Observer {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()) {
-
-            case R.id.itemBarometerMode:
-                selectBarometerMode();
-                return true;
-
-            case R.id.itemPressureUnit:
-                selectPressureUnit();
-                return true;
-
-            case R.id.itemLogInterval:
-                selectLoggingInterval();
-                return true;
-
-            case R.id.itemAltimeter:
-                if (altimeter.switchSensor()) {
-                    item.setTitle(R.string.altimeterDisable);
-                } else {
-                    item.setTitle(R.string.altimeterEnable);
-                }
-                return true;
-
-            case R.id.itemMenuClear:
-                pressureData.clear();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//
+//        switch (item.getItemId()) {
+//
+//            case R.id.itemBarometerMode:
+//                selectBarometerMode();
+//                return true;
+//
+//            case R.id.itemPressureUnit:
+//                selectPressureUnit();
+//                return true;
+//
+//            case R.id.itemLogInterval:
+//                selectLoggingInterval();
+//                return true;
+//
+//            case R.id.itemAltimeter:
+//                if (altimeter.switchSensor()) {
+//                    item.setTitle(R.string.altimeterDisable);
+//                } else {
+//                    item.setTitle(R.string.altimeterEnable);
+//                }
+//                return true;
+//
+//            case R.id.itemMenuClear:
+//                pressureData.clear();
+//                return true;
+//
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+//    }
 
     @Override
     public void update(Observable observable, Object data) {
@@ -227,80 +221,80 @@ public class Barometrum2Activity extends Activity implements Observer {
         }
     }
 
-    private void selectPressureUnit() {
-        final CharSequence[] items = {"Bar", "Inches of Mercury", "Torr", "Pascal"};
+//    private void selectPressureUnit() {
+//        final CharSequence[] items = {"Bar", "Inches of Mercury", "Torr", "Pascal"};
+//
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setTitle("Pressure Unit");
+//        builder.setItems(items, new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialog, int item) {
+//                //Toast.makeText(getApplicationContext(), items[item], Toast.LENGTH_SHORT).show();
+//
+//                if (item == 0) {
+//                    pressureData.setUnit(PressureUnit.Bar);
+//                    preferences.setPressureUnit(PressureUnit.Bar);
+//                } else if (item == 1) {
+//                    pressureData.setUnit(PressureUnit.InHg);
+//                    preferences.setPressureUnit(PressureUnit.InHg);
+//                } else if (item == 2) {
+//                    pressureData.setUnit(PressureUnit.Torr);
+//                    preferences.setPressureUnit(PressureUnit.Torr);
+//                } else if (item == 3) {
+//                    pressureData.setUnit(PressureUnit.Pascal);
+//                    preferences.setPressureUnit(PressureUnit.Pascal);
+//                }
+//                /*
+//                 BlockView maxReading = (BlockView) findViewById(R.id.maximumReading);
+//                 maxReading.setUnit(ReadingsData.getUnitName());
+//                 BlockView minReading = (BlockView) findViewById(R.id.minimumReading);
+//                 minReading.setUnit(ReadingsData.getUnitName());
+//                 */
+//            }
+//        });
+//        AlertDialog alert = builder.create();
+//        alert.show();
+//    }
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Pressure Unit");
-        builder.setItems(items, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int item) {
-                //Toast.makeText(getApplicationContext(), items[item], Toast.LENGTH_SHORT).show();
-
-                if (item == 0) {
-                    pressureData.setUnit(PressureUnit.Bar);
-                    preferences.setPressureUnit(PressureUnit.Bar);
-                } else if (item == 1) {
-                    pressureData.setUnit(PressureUnit.InHg);
-                    preferences.setPressureUnit(PressureUnit.InHg);
-                } else if (item == 2) {
-                    pressureData.setUnit(PressureUnit.Torr);
-                    preferences.setPressureUnit(PressureUnit.Torr);
-                } else if (item == 3) {
-                    pressureData.setUnit(PressureUnit.Pascal);
-                    preferences.setPressureUnit(PressureUnit.Pascal);
-                }
-                /*
-                 BlockView maxReading = (BlockView) findViewById(R.id.maximumReading);
-                 maxReading.setUnit(ReadingsData.getUnitName());
-                 BlockView minReading = (BlockView) findViewById(R.id.minimumReading);
-                 minReading.setUnit(ReadingsData.getUnitName());
-                 */
-            }
-        });
-        AlertDialog alert = builder.create();
-        alert.show();
-    }
-
-    private void selectBarometerMode() {
-        final CharSequence[] items = {"Absolute", "Weather (MSLP)"};
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Reading Mode");
-        builder.setItems(items, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int item) {
-                //Toast.makeText(getApplicationContext(), items[item], Toast.LENGTH_SHORT).show();
-                if (item == 0) {
-                    pressureData.setMode(PressureMode.BAROMETRIC);
-                    preferences.setPressureMode(PressureMode.BAROMETRIC);
-                } else if (item == 1) {
-                    pressureData.setMode(PressureMode.MSLP);
-                    preferences.setPressureMode(PressureMode.MSLP);
-                }
-            }
-        });
-        AlertDialog alert = builder.create();
-        alert.show();
-    }
-
-    private void selectLoggingInterval() {
-        final CharSequence[] items = {"1 min", "5 min", "30 min"};
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Logging Interval");
-        builder.setItems(items, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int item) {
-                int interval = 60000;
-                if (item == 1) {
-                    interval *= 5;
-                } else if (item == 2) {
-                    interval *= 30;
-                }
-
-                pressureData.setHistoryInterval(interval);
-                preferences.setLoggingInterval(interval);
-            }
-        });
-        AlertDialog alert = builder.create();
-        alert.show();
-    }
+//    private void selectBarometerMode() {
+//        final CharSequence[] items = {"Absolute", "Weather (MSLP)"};
+//
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setTitle("Reading Mode");
+//        builder.setItems(items, new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialog, int item) {
+//                //Toast.makeText(getApplicationContext(), items[item], Toast.LENGTH_SHORT).show();
+//                if (item == 0) {
+//                    pressureData.setMode(PressureMode.ABSOLUTE);
+//                    preferences.setPressureMode(PressureMode.ABSOLUTE);
+//                } else if (item == 1) {
+//                    pressureData.setMode(PressureMode.MSLP);
+//                    preferences.setPressureMode(PressureMode.MSLP);
+//                }
+//            }
+//        });
+//        AlertDialog alert = builder.create();
+//        alert.show();
+//    }
+//
+//    private void selectLoggingInterval() {
+//        final CharSequence[] items = {"1 min", "5 min", "30 min"};
+//
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setTitle("Logging Interval");
+//        builder.setItems(items, new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialog, int item) {
+//                int interval = 60000;
+//                if (item == 1) {
+//                    interval *= 5;
+//                } else if (item == 2) {
+//                    interval *= 30;
+//                }
+//
+//                pressureData.setHistoryInterval(interval);
+//                preferences.setLoggingInterval(interval);
+//            }
+//        });
+//        AlertDialog alert = builder.create();
+//        alert.show();
+//    }
 }
