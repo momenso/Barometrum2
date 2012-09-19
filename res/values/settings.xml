@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="logInterval">
+        <item >1min</item>
+        <item >5min</item>
+        <item >30min</item>
+    </string-array>
+    <string-array name="timeValues">
+        <item >1</item>
+        <item >5</item>
+        <item >30</item>
+    </string-array>
+    <string-array name="pressureMode">
+        <item >Absolute</item>
+        <item >MSLP</item>
+    </string-array>
+    <string-array name="pressureUnit">
+        <item >Bar</item>
+        <item >Inches of mercury</item>
+        <item >Torr</item>
+        <item >Pascal</item>
+    </string-array>
+    
+</resources>

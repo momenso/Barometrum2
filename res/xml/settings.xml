@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory 
+        android:title="Barometer"
+        android:summary="Atmosferic pressure measurements are not affected by this settings, only the presentation values">
+        <ListPreference
+            android:title="Mode"
+            android:summary="Select between absolute or mean sea level"
+            android:key="BarometerMode" 
+            android:dialogTitle="Barometer Mode" 
+            android:entries="@array/pressureMode"
+            android:entryValues="@array/pressureMode"/>
+        <ListPreference 
+            android:title="Measuring Unit" 
+            android:summary="Barr, inches, torr or pascal"
+            android:entries="@array/pressureUnit" 
+            android:entryValues="@array/pressureUnit"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="History">
+        <ListPreference 
+            android:title="Time scale"
+            android:summary="Define the time interval used in the history chart" 
+            android:entries="@array/logInterval"
+            android:entryValues="@array/timeValues"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Altimeter">
+    	<SwitchPreference 
+        	android:switchTextOff="GPS Disabled" 
+        	android:switchTextOn="GPS Enabled"/>
+    	<EditTextPreference
+    	    android:title="Current altitude" 
+    	    android:defaultValue="0"/>
+    </PreferenceCategory>
+</PreferenceScreen>

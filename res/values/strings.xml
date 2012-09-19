@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="pressureValue">---</string>
+    <string name="app_name">Barometrum 2</string>
+    <string name="altitudeValue">---</string>
+    <string name="altimeterDisable">Disable Altimeter</string>
+    <string name="altimeterEnable">Enable Altimeter</string>
+
+</resources>

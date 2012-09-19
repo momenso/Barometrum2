@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/currentReading"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/pressureValue"
+        android:textSize="76dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <momenso.barometrum2.gui.BorderedTextView
+            android:id="@+id/minimumReading"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_weight="1"
+            android:textSize="28dp"
+            android:text="@string/altitudeValue" />
+
+        <momenso.barometrum2.gui.BorderedTextView
+            android:id="@+id/maximumReading"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_weight="1"
+            android:textSize="28dp"
+            android:text="@string/altitudeValue" />
+    </LinearLayout>
+    
+    <momenso.barometrum2.gui.BorderedTextView
+        android:id="@+id/altitudeReading"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/altitudeValue"
+        android:textSize="28dp" />
+    
+    <momenso.barometrum2.gui.ChartView
+        android:id="@+id/historyChart"
+        android:layout_width="fill_parent"
+        android:layout_height="350dp"
+        android:layout_gravity="bottom"
+        android:layout_weight="0" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:gravity="center_horizontal|center_vertical" >
+
+        <Button
+            android:id="@+id/clearButton"
+            android:onClick="clearReadings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/delete"
+            android:text="Clear Readings" />
+        
+        <Button
+            android:id="@+id/settingsButton"
+            android:onClick="adjustSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/settings"
+            android:text="Settings" />
+
+    </LinearLayout>
+    
+</LinearLayout>
