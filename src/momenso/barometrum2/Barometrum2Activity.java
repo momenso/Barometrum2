@@ -71,7 +71,7 @@ public class Barometrum2Activity extends Activity implements Observer {
         // initialize altimeter display
         final BorderedTextView altitudeReading = (BorderedTextView) findViewById(R.id.altitudeReading);
         altitudeReading.setTypeface(normalFont);
-        altitudeReading.setText(String.format("%.0fm", altimeter.getAltitude()));
+        altitudeReading.setText(String.format("%sm", preferences.getString("KnownAltitude", "0")));
 
     }
     
