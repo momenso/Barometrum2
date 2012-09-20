@@ -49,7 +49,7 @@ public class Barometrum2Activity extends Activity implements Observer {
         
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         pressureData.setMode(PressureMode.valueOf(preferences.getString("BarometerMode", "Absolute")),
-                altimeter.getAltitude());
+                Integer.valueOf(preferences.getString("KnownAltitude", "0")));
         pressureData.setUnit(PressureUnit.valueOf(preferences.getString("BarometerUnit", "Bar")));
 
         // initialize pressure reading display
@@ -81,7 +81,7 @@ public class Barometrum2Activity extends Activity implements Observer {
 //            }
 //        });
     }
-
+    
     public void clearReadings(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Are you sure you want to clear all readings?")
