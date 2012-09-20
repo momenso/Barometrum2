@@ -1,7 +1,6 @@
 package momenso.barometrum2;
 
 import android.content.Context;
-import android.util.Log;
 import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -13,6 +12,7 @@ import java.util.Date;
 import java.util.List;
 import momenso.barometrum2.PressureDataPoint.PressureMode;
 import momenso.barometrum2.PressureDataPoint.PressureUnit;
+
 
 public class ReadingsData {
 
@@ -153,35 +153,6 @@ public class ReadingsData {
         updateMinMax(average);
     }
 
-    /*public float getTrend()
-     {
-     // wait for a minimum reading samples
-     if (readingSamples.size() < 1) {
-     return 0;
-     }
-		
-     // calculates the slope of the trend line
-     float sumX = 0;
-     float y = 0;
-     for (PressureDataPoint point : readingSamples) {
-     float x = point.getValue();
-     sumX += x;
-     y++;
-     }
-
-     average = sumX / y;
-    	    	
-     PressureDataPoint mark;
-     PressureDataPoint last = readingSamples.get(readingSamples.size() - 1);
-     if ((last.getValue() - minValue.getValue()) > (maxValue.getValue() - last.getValue())) {
-     mark = minValue;
-     } else {
-     mark = maxValue;
-     }
-    	
-     return (last.getValue() - mark.getValue()) / 
-     ((last.getTime() - mark.getTime()) / 2000);
-     }*/
     public void set(List<PressureDataPoint> data) {
         this.readingSamples.clear();
         this.readingSamples.addAll(data);

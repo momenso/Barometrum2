@@ -48,15 +48,11 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
     protected void onResume() {
         super.onResume();
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
-//        getPreferenceScreen().getSharedPreferences()
-//                .registerOnSharedPreferenceChangeListener(this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-//        getPreferenceScreen().getSharedPreferences()
-//                .unregisterOnSharedPreferenceChangeListener(this);
         sharedPreferences.unregisterOnSharedPreferenceChangeListener(this);
     }
 }
