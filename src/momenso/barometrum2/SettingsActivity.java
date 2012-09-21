@@ -42,6 +42,12 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
             String unit = sharedPreferences.getString("KnownAltitude", "0");
             pressureData.setCurrentElevation(Integer.valueOf(unit));
         }
+        else if (key.equals("AltimeterGPSEnabled")) {
+           boolean altimeterEnabled = sharedPreferences.getBoolean("AltimeterGPSEnabled", false);
+           if (altimeterEnabled) {
+               
+           }
+        }
     }
 
     @Override
