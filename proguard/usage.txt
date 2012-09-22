@@ -1,0 +1,33 @@
+android.annotation.SuppressLint
+android.annotation.TargetApi
+momenso.barometrum2.Barometer:
+    77:83:public boolean switchSensor()
+momenso.barometrum2.BuildConfig
+momenso.barometrum2.PressureDataPoint:
+    private static final long serialVersionUID
+    51:53:public void reset()
+momenso.barometrum2.R
+momenso.barometrum2.R$array
+momenso.barometrum2.R$attr
+momenso.barometrum2.R$drawable
+momenso.barometrum2.R$id
+momenso.barometrum2.R$layout
+momenso.barometrum2.R$string
+momenso.barometrum2.R$xml
+momenso.barometrum2.ReadingsData:
+    private static synthetic int[] $SWITCH_TABLE$momenso$barometrum2$PressureDataPoint$PressureUnit
+    108:108:public java.util.List get()
+    112:117:public java.util.List getPressure()
+    158:166:public void set(java.util.List)
+    178:180:public java.util.Date getDateMinimum()
+    196:198:public java.util.Date getDateMaximum()
+    206:206:public static float getReadingValue(momenso.barometrum2.PressureDataPoint)
+    242:242:public momenso.barometrum2.PressureDataPoint$PressureUnit getUnit()
+    246:260:public static java.lang.String getUnitName()
+    18:18:static synthetic int[] $SWITCH_TABLE$momenso$barometrum2$PressureDataPoint$PressureUnit()
+momenso.barometrum2.gui.LabeledTextView:
+    24:26:public LabeledTextView(android.content.Context)
+    131:132:public void setText(java.lang.String)
+    135:136:public void setLabel(java.lang.String)
+    139:140:public void setUnit(java.lang.String)
+    143:144:public void setLabelWidth(int)

@@ -1,0 +1,25 @@
+momenso.barometrum2.Barometrum2Activity
+momenso.barometrum2.Barometrum2Activity: Barometrum2Activity()
+momenso.barometrum2.Barometrum2Activity: void clearReadings(android.view.View)
+momenso.barometrum2.Barometrum2Activity: void adjustSettings(android.view.View)
+momenso.barometrum2.PressureDataPoint$PressureMode: momenso.barometrum2.PressureDataPoint$PressureMode[] values()
+momenso.barometrum2.PressureDataPoint$PressureMode: momenso.barometrum2.PressureDataPoint$PressureMode valueOf(java.lang.String)
+momenso.barometrum2.PressureDataPoint$PressureUnit: momenso.barometrum2.PressureDataPoint$PressureUnit[] values()
+momenso.barometrum2.PressureDataPoint$PressureUnit: momenso.barometrum2.PressureDataPoint$PressureUnit valueOf(java.lang.String)
+momenso.barometrum2.SettingsActivity
+momenso.barometrum2.SettingsActivity: SettingsActivity()
+momenso.barometrum2.gui.BorderedTextView
+momenso.barometrum2.gui.BorderedTextView: BorderedTextView(android.content.Context)
+momenso.barometrum2.gui.BorderedTextView: BorderedTextView(android.content.Context,android.util.AttributeSet)
+momenso.barometrum2.gui.BorderedTextView: BorderedTextView(android.content.Context,android.util.AttributeSet,int)
+momenso.barometrum2.gui.BorderedTextView$Corner: momenso.barometrum2.gui.BorderedTextView$Corner[] values()
+momenso.barometrum2.gui.BorderedTextView$Corner: momenso.barometrum2.gui.BorderedTextView$Corner valueOf(java.lang.String)
+momenso.barometrum2.gui.BorderedTextView$Position: momenso.barometrum2.gui.BorderedTextView$Position[] values()
+momenso.barometrum2.gui.BorderedTextView$Position: momenso.barometrum2.gui.BorderedTextView$Position valueOf(java.lang.String)
+momenso.barometrum2.gui.ChartView
+momenso.barometrum2.gui.ChartView: ChartView(android.content.Context)
+momenso.barometrum2.gui.ChartView: ChartView(android.content.Context,android.util.AttributeSet)
+momenso.barometrum2.gui.ChartView: ChartView(android.content.Context,android.util.AttributeSet,int)
+momenso.barometrum2.gui.LabeledTextView
+momenso.barometrum2.gui.LabeledTextView: LabeledTextView(android.content.Context,android.util.AttributeSet)
+momenso.barometrum2.gui.LabeledTextView: LabeledTextView(android.content.Context,android.util.AttributeSet,int)
