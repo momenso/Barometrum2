@@ -7,6 +7,7 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.util.Log;
 
+
 public class SettingsFragment extends PreferenceFragment {
 
     //private Preferences preferences;

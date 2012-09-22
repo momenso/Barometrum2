@@ -1,6 +1,7 @@
 package momenso.barometrum2;
 
 import android.content.Context;
+
 import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -265,7 +266,7 @@ public class ReadingsData {
     // -------------------------------------------------------------------------
     public void saveReadings() {
         try {
-            persistReadings(get(), "readings");
+            //persistReadings(get(), "readings");
             persistReadings(getHistory(), "history");
         } catch (IOException e) {
             /*AlertDialog alertDialog;
@@ -273,6 +274,7 @@ public class ReadingsData {
              alertDialog.setTitle("Save");
              alertDialog.setMessage("Failed to save readings: " + e.getLocalizedMessage());
              alertDialog.show();*/
+            e.printStackTrace();
         }
     }
 
@@ -288,9 +290,6 @@ public class ReadingsData {
 
     private void loadReadings() {
         try {
-            List<PressureDataPoint> readings = restoreReadings("readings");
-            set(readings);
-
             List<PressureDataPoint> history = restoreReadings("history");
             setHistory(history);
         } catch (Exception e) {
@@ -299,6 +298,7 @@ public class ReadingsData {
              alertDialog.setTitle("Load");
              alertDialog.setMessage("Failed to load readings: " + e.getLocalizedMessage());
              alertDialog.show();*/
+        	e.printStackTrace();
         } finally {
             //registerPressureSensor();
             //updateGraph();
@@ -325,6 +325,4 @@ public class ReadingsData {
 
         return data;
     }
-
-    
 }

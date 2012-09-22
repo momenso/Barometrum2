@@ -6,25 +6,20 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 
 
 public class Altimeter implements LocationListener {
 
     private Context context;
     //private float currentAltitude;
-    private boolean isSensorActive;
+    //private boolean isSensorActive;
     private AltimeterListener listener;
     private int numberOfMeasurements;
 
     public Altimeter(Context context, AltimeterListener listener) {
         this.context = context;
         this.listener = listener;
-        this.isSensorActive = false;
+        //this.isSensorActive = false;
         this.numberOfMeasurements = 0;
         //this.currentAltitude = retreiveAltitude();
 

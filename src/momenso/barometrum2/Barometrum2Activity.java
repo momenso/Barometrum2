@@ -11,7 +11,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.widget.TextView;
 import java.util.Observable;
@@ -21,10 +20,10 @@ import momenso.barometrum2.PressureDataPoint.PressureUnit;
 import momenso.barometrum2.gui.BorderedTextView;
 import momenso.barometrum2.gui.ChartView;
 
+
 public class Barometrum2Activity extends Activity implements Observer {
 
     private Barometer barometer;
-    //private Altimeter altimeter;
     private ReadingsData pressureData;
 
     /**
@@ -39,9 +38,6 @@ public class Barometrum2Activity extends Activity implements Observer {
 
         barometer = new Barometer(context);
         barometer.addObserver(this);
-
-        //altimeter = new Altimeter(context);
-        //altimeter.addObserver(this);
 
         pressureData = ReadingsData.getInstance(context);
 
@@ -91,26 +87,27 @@ public class Barometrum2Activity extends Activity implements Observer {
         AlertDialog alert = builder.create();
         alert.show();
     }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+    	return false;
+    }
 
     public void adjustSettings(View view) {
         Intent settingsIntent = new Intent(view.getContext(), SettingsActivity.class);
         startActivity(settingsIntent);
     }
-
+    
     @Override
-    protected void onStop() {
-        pressureData.saveReadings();
-
-//		altimeter.disable();
-//		barometer.terminate();			
-
-        super.onStop();
+    protected void onPause() {
+    	super.onPause();
+    	
+    	pressureData.saveReadings();
     }
 
     @Override
     protected void onDestroy() {
         if (isFinishing()) {
-            //altimeter.disable();
             barometer.terminate();
         }
 
@@ -118,24 +115,8 @@ public class Barometrum2Activity extends Activity implements Observer {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_options, menu);
-
-        return true;
-    }
-
-    @Override
     public void update(Observable observable, Object data) {
-        /*if (observable.getClass() == Altimeter.class) {
-
-         float altitude = (Float) data;
-         pressureData.setCurrentElevation(altitude);
-
-         BorderedTextView altitudeText = (BorderedTextView) findViewById(R.id.altitudeReading);
-         altitudeText.setText(String.format("%.0fm", altitude));
-
-         } else*/ if (observable.getClass() == Barometer.class) {
+        if (observable.getClass() == Barometer.class) {
 
             float pressure = (Float) data;
             pressureData.add(pressure);
@@ -157,16 +138,14 @@ public class Barometrum2Activity extends Activity implements Observer {
 
             // update altimeter display
             final BorderedTextView altitudeReading = (BorderedTextView) findViewById(R.id.altitudeReading);
-            altitudeReading.setText(String.format("%sm", pressureData.getCurrentElevation()));
+            altitudeReading.setText(String.format("%sm", Math.round(pressureData.getCurrentElevation())));
 
             updateHistoryChart();
         }
-
     }
 
     private void updateHistoryChart() {
-        ChartView historyChart = (ChartView) this
-                .findViewById(R.id.historyChart);
+        ChartView historyChart = (ChartView) this.findViewById(R.id.historyChart);
         if (historyChart != null) {
             historyChart.updateData(pressureData);
         }

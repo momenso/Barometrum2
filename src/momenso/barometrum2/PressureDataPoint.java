@@ -1,7 +1,7 @@
 package momenso.barometrum2;
 
 import java.io.Serializable;
-import java.util.Date;
+
 
 public class PressureDataPoint implements Serializable {
 
@@ -129,10 +129,5 @@ public class PressureDataPoint implements Serializable {
 
         return true;
     }
-
-    public String getTimeString() {
-        Date date = new Date(this.time);
-
-        return date.toLocaleString();
-    }
+    
 }

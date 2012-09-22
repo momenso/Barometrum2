@@ -11,6 +11,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+
 public class LabeledTextView extends TextView {
 
 	private Paint paint;
