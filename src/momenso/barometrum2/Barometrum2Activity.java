@@ -21,11 +21,10 @@ import momenso.barometrum2.PressureDataPoint.PressureUnit;
 import momenso.barometrum2.gui.BorderedTextView;
 import momenso.barometrum2.gui.ChartView;
 
-
 public class Barometrum2Activity extends Activity implements Observer {
 
     private Barometer barometer;
-    private Altimeter altimeter;
+    //private Altimeter altimeter;
     private ReadingsData pressureData;
 
     /**
@@ -41,11 +40,11 @@ public class Barometrum2Activity extends Activity implements Observer {
         barometer = new Barometer(context);
         barometer.addObserver(this);
 
-        altimeter = new Altimeter(context);
-        altimeter.addObserver(this);
+        //altimeter = new Altimeter(context);
+        //altimeter.addObserver(this);
 
         pressureData = ReadingsData.getInstance(context);
-        
+
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         pressureData.setMode(PressureMode.valueOf(preferences.getString("BarometerMode", "Absolute")),
                 Integer.valueOf(preferences.getString("KnownAltitude", "0")));
@@ -74,7 +73,7 @@ public class Barometrum2Activity extends Activity implements Observer {
         altitudeReading.setText(String.format("%sm", preferences.getString("KnownAltitude", "0")));
 
     }
-    
+
     public void clearReadings(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Are you sure you want to clear all readings?")
@@ -111,7 +110,7 @@ public class Barometrum2Activity extends Activity implements Observer {
     @Override
     protected void onDestroy() {
         if (isFinishing()) {
-            altimeter.disable();
+            //altimeter.disable();
             barometer.terminate();
         }
 
@@ -128,15 +127,15 @@ public class Barometrum2Activity extends Activity implements Observer {
 
     @Override
     public void update(Observable observable, Object data) {
-        if (observable.getClass() == Altimeter.class) {
+        /*if (observable.getClass() == Altimeter.class) {
 
-            float altitude = (Float) data;
-            pressureData.setCurrentElevation(altitude);
+         float altitude = (Float) data;
+         pressureData.setCurrentElevation(altitude);
 
-            BorderedTextView altitudeText = (BorderedTextView) findViewById(R.id.altitudeReading);
-            altitudeText.setText(String.format("%.0fm", altitude));
+         BorderedTextView altitudeText = (BorderedTextView) findViewById(R.id.altitudeReading);
+         altitudeText.setText(String.format("%.0fm", altitude));
 
-        } else if (observable.getClass() == Barometer.class) {
+         } else*/ if (observable.getClass() == Barometer.class) {
 
             float pressure = (Float) data;
             pressureData.add(pressure);
@@ -156,6 +155,10 @@ public class Barometrum2Activity extends Activity implements Observer {
             currentValueText.setText(String.format("%.2f",
                     Math.round(pressureData.getAverage() * 100.0) / 100.0));
 
+            // update altimeter display
+            final BorderedTextView altitudeReading = (BorderedTextView) findViewById(R.id.altitudeReading);
+            altitudeReading.setText(String.format("%sm", pressureData.getCurrentElevation()));
+
             updateHistoryChart();
         }
 
@@ -168,5 +171,4 @@ public class Barometrum2Activity extends Activity implements Observer {
             historyChart.updateData(pressureData);
         }
     }
-
 }

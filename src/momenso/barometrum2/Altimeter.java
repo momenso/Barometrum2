@@ -11,82 +11,86 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.Observable;
 
 
-public class Altimeter extends Observable implements LocationListener {
+public class Altimeter implements LocationListener {
 
     private Context context;
-    private float altitude;
+    //private float currentAltitude;
     private boolean isSensorActive;
+    private AltimeterListener listener;
+    private int numberOfMeasurements;
 
-    public Altimeter(Context context) {
+    public Altimeter(Context context, AltimeterListener listener) {
         this.context = context;
+        this.listener = listener;
         this.isSensorActive = false;
-        this.altitude = retreiveAltitude();
+        this.numberOfMeasurements = 0;
+        //this.currentAltitude = retreiveAltitude();
 
-        Log.v("ALTITUDE", "Altitude=" + altitude);
+        //Log.v("ALTITUDE", "Altitude=" + currentAltitude);
+        enable();
     }
 
-    public float getAltitude() {
-        return altitude;
-    }
+//    public float getAltitude() {
+//        return currentAltitude;
+//    }
 
-    public void setAltitude(float altitude) {
-        if (altitude != this.altitude) {
-            this.altitude = altitude;
-            persistAltitude(altitude);
-        }
-    }
+//    public void setAltitude(float altitude) {
+//        if (altitude != this.currentAltitude) {
+//            this.currentAltitude = altitude;
+//            persistAltitude(altitude);
+//        }
+//    }
 
-    private void persistAltitude(float altitude) {
-        try {
-            FileOutputStream fos = context.openFileOutput("altitude", Context.MODE_PRIVATE);
-            ObjectOutputStream os = new ObjectOutputStream(fos);
-            Float altitudeObject = altitude;
+//    private void persistAltitude(float altitude) {
+//        try {
+//            FileOutputStream fos = context.openFileOutput("altitude", Context.MODE_PRIVATE);
+//            ObjectOutputStream os = new ObjectOutputStream(fos);
+//            Float altitudeObject = altitude;
+//
+//            os.writeObject(altitudeObject);
+//            os.close();
+//
+//        } catch (IOException ex) {
+//            Log.v("ALTITUDE", "Exception persisting altitude: " + ex.getMessage());
+//        }
+//    }
 
-            os.writeObject(altitudeObject);
-            os.close();
+//    private float retreiveAltitude() {
+//        try {
+//            FileInputStream fis = context.openFileInput("altitude");
+//            ObjectInputStream is = new ObjectInputStream(fis);
+//
+//            Object item = is.readObject();
+//            is.close();
+//            fis.close();
+//
+//            if (item instanceof Float) {
+//                Log.v("ALTITUDE", "Retrieved altitude = " + item);
+//                return (Float) item;
+//            }
+//        } catch (Exception ex) {
+//            Log.v("ALTITUDE", "Exception retreiving altitude: " + ex.getMessage());
+//        }
+//
+//        Log.v("ALTITUDE", "Got nothing! Returning 0");
+//        return 0;
+//    }
 
-        } catch (IOException ex) {
-            Log.v("ALTITUDE", "Exception persisting altitude: " + ex.getMessage());
-        }
-    }
-
-    private float retreiveAltitude() {
-        try {
-            FileInputStream fis = context.openFileInput("altitude");
-            ObjectInputStream is = new ObjectInputStream(fis);
-
-            Object item = is.readObject();
-            is.close();
-            fis.close();
-
-            if (item instanceof Float) {
-                Log.v("ALTITUDE", "Retrieved altitude = " + item);
-                return (Float) item;
-            }
-        } catch (Exception ex) {
-            Log.v("ALTITUDE", "Exception retreiving altitude: " + ex.getMessage());
-        }
-
-        Log.v("ALTITUDE", "Got nothing! Returning 0");
-        return 0;
-    }
-
-    public boolean switchSensor() {
-        if (!isSensorActive) {
-            enable();
-            isSensorActive = true;
-        } else {
-            disable();
-            isSensorActive = false;
-        }
-
-        Log.v("ALTITUDE", "Switing sensor to " + (isSensorActive ? "ON" : "FALSE"));
-
-        return isSensorActive;
-    }
+//    public boolean switchSensor() {
+//        if (!isSensorActive) {
+//            enable();
+//            isSensorActive = true;
+//        } else {
+//            disable();
+//            isSensorActive = false;
+//        }
+//
+//        Log.v("ALTITUDE", "Switing sensor to " + (isSensorActive ? "ON" : "FALSE"));
+//
+//        return isSensorActive;
+//    }
 
     public void enable() {
         LocationManager lm =
@@ -107,14 +111,18 @@ public class Altimeter extends Observable implements LocationListener {
     }
 
     public void onLocationChanged(Location location) {
-        //float accuracy = location.getAccuracy();
+        float accuracy = location.getAccuracy();
 
-        Log.v("ALTITUDE", "Got altitude: " + location.getAltitude());
+        Log.i("ALTITUDE", "Got altitude: " + location.getAltitude());
 
         Float altitude = (float) location.getAltitude();
-        setAltitude(altitude);
-        setChanged();
-        notifyObservers(altitude);
+        //setAltitude(altitude);
+        
+        listener.altitudeRefresh(altitude, accuracy);
+        
+        if (numberOfMeasurements++ > 5) {
+            disable();
+        }
     }
 
     public void onProviderDisabled(String provider) {

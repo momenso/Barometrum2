@@ -12,94 +12,94 @@ import android.hardware.SensorManager;
 import android.util.Log;
 
 public class Barometer extends Observable implements SensorEventListener {
-	
-	private Context context;
-	//private long startReadingTime;
-	private boolean isSensorActive;
-	private Timer workerTimer;
-	
-	public Barometer(Context context) {
-		this.context = context;
-		this.isSensorActive = false;
-		//this.startReadingTime = 0;
-		
-		workerTimer = new Timer();
-		workerTimer.schedule(new TimerTask() { 
-			@Override
-			public void run() {
-				active();
-			}}, 0, 2000);
-	}
-	
-	private void active() {
-		Log.v("Barometer", "Active: enabling barometer");
-		
-		enable();
-	}
-	
-	public void enable() {
-		Log.v("Barometer", "Enable: registering sensor");
-		
-		if (!isSensorActive) {
-	    	SensorManager sm = 
-	    		(SensorManager)context.getSystemService(Context.SENSOR_SERVICE);
-	    	Sensor barometer = sm.getDefaultSensor(Sensor.TYPE_PRESSURE);
-		    if (barometer != null) {
-		    	sm.registerListener(this, barometer, SensorManager.SENSOR_DELAY_NORMAL);
-		    	
-		    	isSensorActive = true;
-		    	//startReadingTime = System.currentTimeMillis();
-		    }
-		}
-    }
-    
-	public void disable() {
-		
-		Log.v("Barometer", "Disable: unregistering sensor");
-		
-		SensorManager sm = 
-			(SensorManager)context.getSystemService(Context.SENSOR_SERVICE); 
-		sm.unregisterListener(this);
-		
-		isSensorActive = false;
-	}
-	
-	public void terminate() {
-		disable();
-		workerTimer.cancel();
-	}
-    
-    public boolean switchSensor() {
-    	
-    	Log.v("Barometer", "Switching sensor");
-    	
-    	if (!isSensorActive) {
-		    enable();
-	    } else {
-	    	disable();
-	    }
-	    
-    	return isSensorActive;
-    }
-    
-	public void onAccuracyChanged(Sensor sensor, int accuracy) {
-		// not interested in this event
-		//Log.v("Barometer", "onAccuracyChanged: sensor=" + sensor.getName() + ", accuracy=" + accuracy);
-	}
 
-	public void onSensorChanged(SensorEvent event) {
-		
-		Log.v("Barometer", "onSensorChanged: received new data");
-    	
-		float currentValue = event.values[0];
-		
-		setChanged();
-		notifyObservers(currentValue);
-		
-		/*if (System.currentTimeMillis() - startReadingTime > 1000)*/ {
-			disable();
-		}
-		
-	}
-	
+    private Context context;
+    //private long startReadingTime;
+    private boolean isSensorActive;
+    private Timer workerTimer;
+
+    public Barometer(Context context) {
+        this.context = context;
+        this.isSensorActive = false;
+        //this.startReadingTime = 0;
+
+        workerTimer = new Timer();
+        workerTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                active();
+            }
+        }, 0, 2000);
+    }
+
+    private void active() {
+        //Log.v("Barometer", "Active: enabling barometer");
+
+        enable();
+    }
+
+    public void enable() {
+        //Log.v("Barometer", "Enable: registering sensor");
+
+        if (!isSensorActive) {
+            SensorManager sm =
+                    (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
+            Sensor barometer = sm.getDefaultSensor(Sensor.TYPE_PRESSURE);
+            if (barometer != null) {
+                sm.registerListener(this, barometer, SensorManager.SENSOR_DELAY_NORMAL);
+
+                isSensorActive = true;
+                //startReadingTime = System.currentTimeMillis();
+            }
+        }
+    }
+
+    public void disable() {
+
+        //Log.v("Barometer", "Disable: unregistering sensor");
+
+        SensorManager sm =
+                (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
+        sm.unregisterListener(this);
+
+        isSensorActive = false;
+    }
+
+    public void terminate() {
+        disable();
+        workerTimer.cancel();
+    }
+
+    public boolean switchSensor() {
+
+        //Log.v("Barometer", "Switching sensor");
+
+        if (!isSensorActive) {
+            enable();
+        } else {
+            disable();
+        }
+
+        return isSensorActive;
+    }
+
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+        // not interested in this event
+        //Log.v("Barometer", "onAccuracyChanged: sensor=" + sensor.getName() + ", accuracy=" + accuracy);
+    }
+
+    public void onSensorChanged(SensorEvent event) {
+
+        //Log.v("Barometer", "onSensorChanged: received new data");
+
+        float currentValue = event.values[0];
+
+        setChanged();
+        notifyObservers(currentValue);
+
+        /*if (System.currentTimeMillis() - startReadingTime > 1000)*/ {
+            disable();
+        }
+
+    }
 }

@@ -29,13 +29,13 @@
             android:entryValues="@array/timeValues"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="Altimeter">
-        <CheckBoxPreference 
-            android:title="Use GPS to determine current altitude"
-            android:key="UseGPSAltimeter"
-            android:defaultValue="Off"/>
+        <Preference android:title="Detect altitude automatically"
+                android:key="UseGPSAltimeter"
+                android:summary="Determines the local altitude using location service.">
+        </Preference>
         <EditTextPreference
             android:key="KnownAltitude"
-            android:title="Current altitude"
+            android:title="Define altitude manually"
             android:inputType="number"  
             android:defaultValue="0"/>
     </PreferenceCategory>

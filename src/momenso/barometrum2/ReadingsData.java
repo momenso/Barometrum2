@@ -215,6 +215,10 @@ public class ReadingsData {
     public void setCurrentElevation(float altitude) {
         ReadingsData.currentElevation = altitude;
     }
+    
+    public float getCurrentElevation() {
+        return ReadingsData.currentElevation;
+    }
 
     public void setMode(PressureMode mode) {
         ReadingsData.mode = mode;
