@@ -52,7 +52,7 @@ public class ChartView extends TextView {
     @Override
     protected void onDraw(Canvas canvas) {
         Rect rect = new Rect();
-        getLocalVisibleRect(rect);
+        getDrawingRect(rect);
 
         Paint paint = new Paint();
         paint.setTypeface(getTypeface());

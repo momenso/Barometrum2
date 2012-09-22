@@ -55,7 +55,7 @@ public class LabeledTextView extends TextView {
 	@Override
 	protected void onDraw(Canvas canvas) {
 		Rect rect = new Rect();
-		getLocalVisibleRect(rect);
+		getDrawingRect(rect);
 		
 		float originalTextSize = getTextSize();
 		paint.setTypeface(getTypeface());

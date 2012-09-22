@@ -59,7 +59,7 @@ public class BorderedTextView extends TextView {
 		paint.setStrokeWidth(lineWidth);
 		
 		// define border limits
-		getLocalVisibleRect(rect);
+		getDrawingRect(rect);
 		rect.set(rect.left + lineWidth / 2, rect.top + lineWidth / 2, rect.right - lineWidth / 2 - 1, rect.bottom - lineWidth / 2 - 1);
 		
 		// fill inside the round border
