@@ -76,6 +76,7 @@ momenso.barometrum2.ReadingsData -> momenso.barometrum2.j:
     momenso.barometrum2.ReadingsData getInstance(android.content.Context) -> a
     void add(float) -> a
     java.util.List getHistory() -> a
+    void initializeMinMax() -> j
     void updateMinMax(momenso.barometrum2.PressureDataPoint) -> a
     float getMinimum() -> b
     float getMaximum() -> c

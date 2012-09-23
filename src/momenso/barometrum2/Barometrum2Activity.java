@@ -53,21 +53,21 @@ public class Barometrum2Activity extends Activity implements Observer {
         currentReading.setTextColor(Color.WHITE);
 
         // initialize minimum pressure display
-        final BorderedTextView minPressureReading = (BorderedTextView) findViewById(R.id.minimumReading);
-        final Typeface normalFont = Typeface.createFromAsset(getAssets(), "font/normal.ttf");
-        minPressureReading.setTypeface(normalFont);
-        minPressureReading.setText(String.format("%.2f", pressureData.getMinimum()));
+//        final BorderedTextView minPressureReading = (BorderedTextView) findViewById(R.id.minimumReading);
+
+//        minPressureReading.setTypeface(normalFont);
+//        minPressureReading.setText(String.format("%.2f", pressureData.getMinimum()));
 
         // initialize maximum pressure display
-        final BorderedTextView maxPressureReading = (BorderedTextView) findViewById(R.id.maximumReading);
-        maxPressureReading.setTypeface(normalFont);
-        maxPressureReading.setText(String.format("%.2f", pressureData.getMaximum()));
+//        final BorderedTextView maxPressureReading = (BorderedTextView) findViewById(R.id.maximumReading);
+//        maxPressureReading.setTypeface(normalFont);
+//        maxPressureReading.setText(String.format("%.2f", pressureData.getMaximum()));
 
         // initialize altimeter display
         final BorderedTextView altitudeReading = (BorderedTextView) findViewById(R.id.altitudeReading);
+        final Typeface normalFont = Typeface.createFromAsset(getAssets(), "font/normal.ttf");
         altitudeReading.setTypeface(normalFont);
         altitudeReading.setText(String.format("%sm", preferences.getString("KnownAltitude", "0")));
-
     }
 
     public void clearReadings(View view) {
@@ -122,14 +122,14 @@ public class Barometrum2Activity extends Activity implements Observer {
             pressureData.add(pressure);
 
             // update minimum pressure display
-            final BorderedTextView minPressureReading = (BorderedTextView) findViewById(R.id.minimumReading);
-            minPressureReading.setText(String.format("%.2f",
-                    Math.round(pressureData.getMinimum() * 100.0) / 100.0));
+//            final BorderedTextView minPressureReading = (BorderedTextView) findViewById(R.id.minimumReading);
+//            minPressureReading.setText(String.format("%.2f",
+//                    Math.round(pressureData.getMinimum() * 100.0) / 100.0));
 
             // update maximum pressure display
-            final BorderedTextView maxPressureReading = (BorderedTextView) findViewById(R.id.maximumReading);
-            maxPressureReading.setText(String.format("%.2f",
-                    Math.round(pressureData.getMaximum() * 100.0) / 100.0));
+//            final BorderedTextView maxPressureReading = (BorderedTextView) findViewById(R.id.maximumReading);
+//            maxPressureReading.setText(String.format("%.2f",
+//                    Math.round(pressureData.getMaximum() * 100.0) / 100.0));
 
             // update current pressure value
             final TextView currentValueText = (TextView) findViewById(R.id.currentReading);

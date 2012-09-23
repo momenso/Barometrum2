@@ -75,8 +75,6 @@ public class ReadingsData {
             }
         }
 
-        updateStatistics();
-
         // update history
         // removes obsolete historic reading since
         // an updated reading for the current time frame
@@ -89,15 +87,17 @@ public class ReadingsData {
                 historySamples.remove(historySamples.size() - 1);
             }
         }
-
+        
         PressureDataPoint updatedCurrent =
                 new PressureDataPoint(System.currentTimeMillis(), average.getRawValue());
         historySamples.add(updatedCurrent);
 
         // limit the recorded history
-        if (historySamples.size() > 20) { // 59 
+        if (historySamples.size() > 40) { // 59 
             historySamples.remove(0);
         }
+        
+        updateStatistics();
     }
 
     public List<PressureDataPoint> getHistory() {
@@ -170,6 +170,8 @@ public class ReadingsData {
     public void setHistory(List<PressureDataPoint> data) {
         this.historySamples.clear();
         this.historySamples.addAll(data);
+        
+        updateStatistics();
     }
 
     public float getMinimum() {

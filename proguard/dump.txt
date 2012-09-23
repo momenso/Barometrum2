@@ -2439,7 +2439,7 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 204):
+Constant Pool (count = 206):
   + Integer [60000]
   + Float [1.4E-45]
   + Float [2.25577E-5]
@@ -2501,6 +2501,7 @@ Constant Pool (count = 204):
   + Methodref [momenso/barometrum2/j.<init> (Landroid/content/Context;)V]
   + Methodref [momenso/barometrum2/j.a (Ljava/lang/String;)Ljava/util/List;]
   + Methodref [momenso/barometrum2/j.a (Lmomenso/barometrum2/g;)V]
+  + Methodref [momenso/barometrum2/j.j ()V]
   + InterfaceMethodref [java/util/Iterator.hasNext ()Z]
   + InterfaceMethodref [java/util/Iterator.next ()Ljava/lang/Object;]
   + InterfaceMethodref [java/util/List.add (Ljava/lang/Object;)Z]
@@ -2542,6 +2543,7 @@ Constant Pool (count = 204):
   + NameAndType [i F]
   + NameAndType [isEmpty ()Z]
   + NameAndType [iterator ()Ljava/util/Iterator;]
+  + NameAndType [j ()V]
   + NameAndType [j I]
   + NameAndType [k Lmomenso/barometrum2/j;]
   + NameAndType [next ()Ljava/lang/Object;]
@@ -2678,7 +2680,7 @@ Fields (count = 11):
     Access flags: 0xa
       = private static momenso.barometrum2.j k
 
-Methods (count = 20):
+Methods (count = 21):
   - Method:       <clinit>()V
     Access flags: 0x8
       = static void <clinit>()
@@ -2706,7 +2708,7 @@ Methods (count = 20):
     Access flags: 0x2
       = private j(android.content.Context)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 122, locals = 3, stack = 6):
+    + Code attribute instructions (code length = 82, locals = 3, stack = 3):
       [0] aload_0 v0
       [1] invokespecial #50
         + Methodref [java/lang/Object.<init> ()V]
@@ -2739,65 +2741,36 @@ Methods (count = 20):
       [39] putfield #31
         + Fieldref [momenso/barometrum2/j.b Ljava/util/List;]
       [42] aload_0 v0
-      [43] dup
-      [44] astore_1 v1
-      [45] getfield #33
-        + Fieldref [momenso/barometrum2/j.d Lmomenso/barometrum2/g;]
-      [48] ifnonnull +17 (target=65)
-      [51] aload_1 v1
-      [52] new #22
-        + Class [momenso/barometrum2/g]
-      [55] dup
-      [56] lconst_0
-      [57] ldc #6
-        + Float [3.4028235E38]
-      [59] invokespecial #54
-        + Methodref [momenso/barometrum2/g.<init> (JF)V]
-      [62] putfield #33
-        + Fieldref [momenso/barometrum2/j.d Lmomenso/barometrum2/g;]
-      [65] aload_1 v1
-      [66] getfield #34
-        + Fieldref [momenso/barometrum2/j.e Lmomenso/barometrum2/g;]
-      [69] ifnonnull +17 (target=86)
-      [72] aload_1 v1
-      [73] new #22
-        + Class [momenso/barometrum2/g]
-      [76] dup
-      [77] lconst_0
-      [78] ldc #2
-        + Float [1.4E-45]
-      [80] invokespecial #54
-        + Methodref [momenso/barometrum2/g.<init> (JF)V]
-      [83] putfield #34
-        + Fieldref [momenso/barometrum2/j.e Lmomenso/barometrum2/g;]
-      [86] aload_0 v0
-      [87] astore_1 v1
-      [88] aload_1 v1
-      [89] ldc #7
+      [43] invokespecial #63
+        + Methodref [momenso/barometrum2/j.j ()V]
+      [46] aload_0 v0
+      [47] astore_1 v1
+      [48] aload_1 v1
+      [49] ldc #7
         + String [history]
-      [91] invokespecial #61
+      [51] invokespecial #61
         + Methodref [momenso/barometrum2/j.a (Ljava/lang/String;)Ljava/util/List;]
-      [94] astore_2 v2
-      [95] aload_1 v1
-      [96] dup
-      [97] astore_1 v1
-      [98] getfield #31
+      [54] astore_2 v2
+      [55] aload_1 v1
+      [56] dup
+      [57] astore_1 v1
+      [58] getfield #31
         + Fieldref [momenso/barometrum2/j.b Ljava/util/List;]
-      [101] invokeinterface #67
+      [61] invokeinterface #68
         + InterfaceMethodref [java/util/List.clear ()V]
-      [106] aload_1 v1
-      [107] getfield #31
+      [66] aload_1 v1
+      [67] getfield #31
         + Fieldref [momenso/barometrum2/j.b Ljava/util/List;]
-      [110] aload_2 v2
-      [111] invokeinterface #66
+      [70] aload_2 v2
+      [71] invokeinterface #67
         + InterfaceMethodref [java/util/List.addAll (Ljava/util/Collection;)Z]
-      [116] pop
-      [117] return
-      [118] invokevirtual #48
+      [76] pop
+      [77] return
+      [78] invokevirtual #48
         + Methodref [java/lang/Exception.printStackTrace ()V]
-      [121] return
+      [81] return
       Code attribute exceptions (count = 1):
-      - ExceptionInfo (88 -> 117: 118):
+      - ExceptionInfo (48 -> 77: 78):
       + Class [java/lang/Exception]
       Code attribute attributes (attribute count = 0):
   + Method:       a(Landroid/content/Context;)Lmomenso/barometrum2/j;
@@ -2834,7 +2807,7 @@ Methods (count = 20):
     Access flags: 0x11
       = public final void a(float)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 395, locals = 8, stack = 6):
+    + Code attribute instructions (code length = 399, locals = 8, stack = 6):
       [0] getstatic #38
         + Fieldref [momenso/barometrum2/j.i F]
       [3] fconst_0
@@ -2843,7 +2816,7 @@ Methods (count = 20):
       [8] aload_0 v0
       [9] getfield #32
         + Fieldref [momenso/barometrum2/j.c Ljava/util/List;]
-      [12] invokeinterface #69
+      [12] invokeinterface #70
         + InterfaceMethodref [java/util/List.isEmpty ()Z]
       [17] ifeq +26 (target=43)
       [20] dconst_1
@@ -2879,20 +2852,20 @@ Methods (count = 20):
       [56] getfield #32
         + Fieldref [momenso/barometrum2/j.c Ljava/util/List;]
       [59] aload_1 v1
-      [60] invokeinterface #65
+      [60] invokeinterface #66
         + InterfaceMethodref [java/util/List.add (Ljava/lang/Object;)Z]
       [65] pop
       [66] aload_0 v0
       [67] getfield #32
         + Fieldref [momenso/barometrum2/j.c Ljava/util/List;]
-      [70] invokeinterface #72
+      [70] invokeinterface #73
         + InterfaceMethodref [java/util/List.size ()I]
       [75] ifle +55 (target=130)
       [78] aload_0 v0
       [79] getfield #32
         + Fieldref [momenso/barometrum2/j.c Ljava/util/List;]
       [82] iconst_0
-      [83] invokeinterface #68
+      [83] invokeinterface #69
         + InterfaceMethodref [java/util/List.get (I)Ljava/lang/Object;]
       [88] checkcast #22
         + Class [momenso/barometrum2/g]
@@ -2918,177 +2891,180 @@ Methods (count = 20):
       [120] getfield #32
         + Fieldref [momenso/barometrum2/j.c Ljava/util/List;]
       [123] iconst_0
-      [124] invokeinterface #71
+      [124] invokeinterface #72
         + InterfaceMethodref [java/util/List.remove (I)Ljava/lang/Object;]
       [129] pop
       [130] aload_0 v0
       [131] dup
       [132] astore_2 v2
-      [133] getfield #31
+      [133] invokespecial #63
+        + Methodref [momenso/barometrum2/j.j ()V]
+      [136] aload_2 v2
+      [137] getfield #31
         + Fieldref [momenso/barometrum2/j.b Ljava/util/List;]
-      [136] invokeinterface #70
+      [140] invokeinterface #71
         + InterfaceMethodref [java/util/List.iterator ()Ljava/util/Iterator;]
-      [141] astore v4
-      [143] goto +19 (target=162)
-      [146] aload v4
-      [148] invokeinterface #64
+      [145] astore v4
+      [147] goto +19 (target=166)
+      [150] aload v4
+      [152] invokeinterface #65
         + InterfaceMethodref [java/util/Iterator.next ()Ljava/lang/Object;]
-      [153] checkcast #22
+      [157] checkcast #22
         + Class [momenso/barometrum2/g]
-      [156] astore_3 v3
-      [157] aload_2 v2
-      [158] aload_3 v3
-      [159] invokespecial #62
+      [160] astore_3 v3
+      [161] aload_2 v2
+      [162] aload_3 v3
+      [163] invokespecial #62
         + Methodref [momenso/barometrum2/j.a (Lmomenso/barometrum2/g;)V]
-      [162] aload v4
-      [164] invokeinterface #63
+      [166] aload v4
+      [168] invokeinterface #64
         + InterfaceMethodref [java/util/Iterator.hasNext ()Z]
-      [169] ifne -23 (target=146)
-      [172] fconst_0
-      [173] fstore_3 v3
-      [174] aload_2 v2
-      [175] getfield #32
+      [173] ifne -23 (target=150)
+      [176] fconst_0
+      [177] fstore_3 v3
+      [178] aload_2 v2
+      [179] getfield #32
         + Fieldref [momenso/barometrum2/j.c Ljava/util/List;]
-      [178] invokeinterface #70
+      [182] invokeinterface #71
         + InterfaceMethodref [java/util/List.iterator ()Ljava/util/Iterator;]
-      [183] astore v5
-      [185] goto +23 (target=208)
-      [188] aload v5
-      [190] invokeinterface #64
+      [187] astore v5
+      [189] goto +23 (target=212)
+      [192] aload v5
+      [194] invokeinterface #65
         + InterfaceMethodref [java/util/Iterator.next ()Ljava/lang/Object;]
-      [195] checkcast #22
+      [199] checkcast #22
         + Class [momenso/barometrum2/g]
-      [198] invokevirtual #55
+      [202] invokevirtual #55
         + Methodref [momenso/barometrum2/g.a ()F]
-      [201] fstore v4
-      [203] fload_3 v3
-      [204] fload v4
-      [206] fadd
-      [207] fstore_3 v3
-      [208] aload v5
-      [210] invokeinterface #63
+      [205] fstore v4
+      [207] fload_3 v3
+      [208] fload v4
+      [210] fadd
+      [211] fstore_3 v3
+      [212] aload v5
+      [214] invokeinterface #64
         + InterfaceMethodref [java/util/Iterator.hasNext ()Z]
-      [215] ifne -27 (target=188)
-      [218] aload_2 v2
-      [219] getfield #35
+      [219] ifne -27 (target=192)
+      [222] aload_2 v2
+      [223] getfield #35
         + Fieldref [momenso/barometrum2/j.f Lmomenso/barometrum2/g;]
-      [222] fload_3 v3
-      [223] aload_2 v2
-      [224] getfield #32
+      [226] fload_3 v3
+      [227] aload_2 v2
+      [228] getfield #32
         + Fieldref [momenso/barometrum2/j.c Ljava/util/List;]
-      [227] invokeinterface #72
+      [231] invokeinterface #73
         + InterfaceMethodref [java/util/List.size ()I]
-      [232] i2f
-      [233] fdiv
-      [234] invokevirtual #56
+      [236] i2f
+      [237] fdiv
+      [238] invokevirtual #56
         + Methodref [momenso/barometrum2/g.a (F)V]
-      [237] aload_2 v2
-      [238] getfield #35
+      [241] aload_2 v2
+      [242] getfield #35
         + Fieldref [momenso/barometrum2/j.f Lmomenso/barometrum2/g;]
-      [241] invokestatic #51
+      [245] invokestatic #51
         + Methodref [java/lang/System.currentTimeMillis ()J]
-      [244] invokevirtual #57
+      [248] invokevirtual #57
         + Methodref [momenso/barometrum2/g.a (J)V]
-      [247] aload_2 v2
-      [248] aload_2 v2
-      [249] getfield #35
+      [251] aload_2 v2
+      [252] aload_2 v2
+      [253] getfield #35
         + Fieldref [momenso/barometrum2/j.f Lmomenso/barometrum2/g;]
-      [252] invokespecial #62
+      [256] invokespecial #62
         + Methodref [momenso/barometrum2/j.a (Lmomenso/barometrum2/g;)V]
-      [255] aload_0 v0
-      [256] getfield #31
+      [259] aload_0 v0
+      [260] getfield #31
         + Fieldref [momenso/barometrum2/j.b Ljava/util/List;]
-      [259] invokeinterface #72
+      [263] invokeinterface #73
         + InterfaceMethodref [java/util/List.size ()I]
-      [264] ifle +76 (target=340)
-      [267] aload_0 v0
-      [268] getfield #31
-        + Fieldref [momenso/barometrum2/j.b Ljava/util/List;]
+      [268] ifle +76 (target=344)
       [271] aload_0 v0
       [272] getfield #31
         + Fieldref [momenso/barometrum2/j.b Ljava/util/List;]
-      [275] invokeinterface #72
-        + InterfaceMethodref [java/util/List.size ()I]
-      [280] iconst_1
-      [281] isub
-      [282] invokeinterface #68
-        + InterfaceMethodref [java/util/List.get (I)Ljava/lang/Object;]
-      [287] checkcast #22
-        + Class [momenso/barometrum2/g]
-      [290] invokevirtual #59
-        + Methodref [momenso/barometrum2/g.b ()J]
-      [293] getstatic #39
-        + Fieldref [momenso/barometrum2/j.j I]
-      [296] i2l
-      [297] ldiv
-      [298] lstore v4
-      [300] aload_1 v1
-      [301] invokevirtual #59
-        + Methodref [momenso/barometrum2/g.b ()J]
-      [304] getstatic #39
-        + Fieldref [momenso/barometrum2/j.j I]
-      [307] i2l
-      [308] ldiv
-      [309] lstore v6
-      [311] lload v4
-      [313] lload v6
-      [315] lcmp
-      [316] ifne +24 (target=340)
-      [319] aload_0 v0
-      [320] getfield #31
+      [275] aload_0 v0
+      [276] getfield #31
         + Fieldref [momenso/barometrum2/j.b Ljava/util/List;]
+      [279] invokeinterface #73
+        + InterfaceMethodref [java/util/List.size ()I]
+      [284] iconst_1
+      [285] isub
+      [286] invokeinterface #69
+        + InterfaceMethodref [java/util/List.get (I)Ljava/lang/Object;]
+      [291] checkcast #22
+        + Class [momenso/barometrum2/g]
+      [294] invokevirtual #59
+        + Methodref [momenso/barometrum2/g.b ()J]
+      [297] getstatic #39
+        + Fieldref [momenso/barometrum2/j.j I]
+      [300] i2l
+      [301] ldiv
+      [302] lstore v4
+      [304] aload_1 v1
+      [305] invokevirtual #59
+        + Methodref [momenso/barometrum2/g.b ()J]
+      [308] getstatic #39
+        + Fieldref [momenso/barometrum2/j.j I]
+      [311] i2l
+      [312] ldiv
+      [313] lstore v6
+      [315] lload v4
+      [317] lload v6
+      [319] lcmp
+      [320] ifne +24 (target=344)
       [323] aload_0 v0
       [324] getfield #31
         + Fieldref [momenso/barometrum2/j.b Ljava/util/List;]
-      [327] invokeinterface #72
+      [327] aload_0 v0
+      [328] getfield #31
+        + Fieldref [momenso/barometrum2/j.b Ljava/util/List;]
+      [331] invokeinterface #73
         + InterfaceMethodref [java/util/List.size ()I]
-      [332] iconst_1
-      [333] isub
-      [334] invokeinterface #71
+      [336] iconst_1
+      [337] isub
+      [338] invokeinterface #72
         + InterfaceMethodref [java/util/List.remove (I)Ljava/lang/Object;]
-      [339] pop
-      [340] new #22
+      [343] pop
+      [344] new #22
         + Class [momenso/barometrum2/g]
-      [343] dup
-      [344] invokestatic #51
+      [347] dup
+      [348] invokestatic #51
         + Methodref [java/lang/System.currentTimeMillis ()J]
-      [347] aload_0 v0
-      [348] getfield #35
+      [351] aload_0 v0
+      [352] getfield #35
         + Fieldref [momenso/barometrum2/j.f Lmomenso/barometrum2/g;]
-      [351] invokevirtual #55
+      [355] invokevirtual #55
         + Methodref [momenso/barometrum2/g.a ()F]
-      [354] invokespecial #54
+      [358] invokespecial #54
         + Methodref [momenso/barometrum2/g.<init> (JF)V]
-      [357] astore_2 v2
-      [358] aload_0 v0
-      [359] getfield #31
+      [361] astore_2 v2
+      [362] aload_0 v0
+      [363] getfield #31
         + Fieldref [momenso/barometrum2/j.b Ljava/util/List;]
-      [362] aload_2 v2
-      [363] invokeinterface #65
+      [366] aload_2 v2
+      [367] invokeinterface #66
         + InterfaceMethodref [java/util/List.add (Ljava/lang/Object;)Z]
-      [368] pop
-      [369] aload_0 v0
-      [370] getfield #31
+      [372] pop
+      [373] aload_0 v0
+      [374] getfield #31
         + Fieldref [momenso/barometrum2/j.b Ljava/util/List;]
-      [373] invokeinterface #72
+      [377] invokeinterface #73
         + InterfaceMethodref [java/util/List.size ()I]
-      [378] bipush 20
-      [380] ificmple +14 (target=394)
-      [383] aload_0 v0
-      [384] getfield #31
+      [382] bipush 20
+      [384] ificmple +14 (target=398)
+      [387] aload_0 v0
+      [388] getfield #31
         + Fieldref [momenso/barometrum2/j.b Ljava/util/List;]
-      [387] iconst_0
-      [388] invokeinterface #71
+      [391] iconst_0
+      [392] invokeinterface #72
         + InterfaceMethodref [java/util/List.remove (I)Ljava/lang/Object;]
-      [393] pop
-      [394] return
+      [397] pop
+      [398] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Stack map table attribute (count = 4):
         - [43] Var: ..., Stack: (empty)
         - [130] Var: ...[a:momenso/barometrum2/g], Stack: (empty)
-        - [340] Var: ..., Stack: (empty)
-        - [394] Var: ...[a:momenso/barometrum2/g], Stack: (empty)
+        - [344] Var: ..., Stack: (empty)
+        - [398] Var: ...[a:momenso/barometrum2/g], Stack: (empty)
   + Method:       a()Ljava/util/List;
     Access flags: 0x11
       = public final java.util.List a()
@@ -3100,6 +3076,47 @@ Methods (count = 20):
       [4] areturn
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
+  + Method:       j()V
+    Access flags: 0x2
+      = private void j()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 43, locals = 1, stack = 6):
+      [0] aload_0 v0
+      [1] getfield #33
+        + Fieldref [momenso/barometrum2/j.d Lmomenso/barometrum2/g;]
+      [4] ifnonnull +17 (target=21)
+      [7] aload_0 v0
+      [8] new #22
+        + Class [momenso/barometrum2/g]
+      [11] dup
+      [12] lconst_0
+      [13] ldc #6
+        + Float [3.4028235E38]
+      [15] invokespecial #54
+        + Methodref [momenso/barometrum2/g.<init> (JF)V]
+      [18] putfield #33
+        + Fieldref [momenso/barometrum2/j.d Lmomenso/barometrum2/g;]
+      [21] aload_0 v0
+      [22] getfield #34
+        + Fieldref [momenso/barometrum2/j.e Lmomenso/barometrum2/g;]
+      [25] ifnonnull +17 (target=42)
+      [28] aload_0 v0
+      [29] new #22
+        + Class [momenso/barometrum2/g]
+      [32] dup
+      [33] lconst_0
+      [34] ldc #2
+        + Float [1.4E-45]
+      [36] invokespecial #54
+        + Methodref [momenso/barometrum2/g.<init> (JF)V]
+      [39] putfield #34
+        + Fieldref [momenso/barometrum2/j.e Lmomenso/barometrum2/g;]
+      [42] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 2):
+        - [21] Var: ..., Stack: (empty)
+        - [42] Var: ..., Stack: (empty)
   + Method:       a(Lmomenso/barometrum2/g;)V
     Access flags: 0x2
       = private void a(momenso.barometrum2.g)
@@ -3226,12 +3243,12 @@ Methods (count = 20):
       [0] aload_0 v0
       [1] getfield #32
         + Fieldref [momenso/barometrum2/j.c Ljava/util/List;]
-      [4] invokeinterface #67
+      [4] invokeinterface #68
         + InterfaceMethodref [java/util/List.clear ()V]
       [9] aload_0 v0
       [10] getfield #31
         + Fieldref [momenso/barometrum2/j.b Ljava/util/List;]
-      [13] invokeinterface #67
+      [13] invokeinterface #68
         + InterfaceMethodref [java/util/List.clear ()V]
       [18] aload_0 v0
       [19] new #22
@@ -3354,12 +3371,12 @@ Methods (count = 20):
         + Methodref [java/io/ObjectOutputStream.<init> (Ljava/io/OutputStream;)V]
       [26] astore_1 v1
       [27] aload_2 v2
-      [28] invokeinterface #70
+      [28] invokeinterface #71
         + InterfaceMethodref [java/util/List.iterator ()Ljava/util/Iterator;]
       [33] astore_3 v3
       [34] goto +18 (target=52)
       [37] aload_3 v3
-      [38] invokeinterface #64
+      [38] invokeinterface #65
         + InterfaceMethodref [java/util/Iterator.next ()Ljava/lang/Object;]
       [43] checkcast #22
         + Class [momenso/barometrum2/g]
@@ -3369,7 +3386,7 @@ Methods (count = 20):
       [49] invokevirtual #47
         + Methodref [java/io/ObjectOutputStream.writeObject (Ljava/lang/Object;)V]
       [52] aload_3 v3
-      [53] invokeinterface #63
+      [53] invokeinterface #64
         + InterfaceMethodref [java/util/Iterator.hasNext ()Z]
       [58] ifne -21 (target=37)
       [61] return
@@ -3417,7 +3434,7 @@ Methods (count = 20):
       [37] aload_3 v3
       [38] checkcast #22
         + Class [momenso/barometrum2/g]
-      [41] invokeinterface #65
+      [41] invokeinterface #66
         + InterfaceMethodref [java/util/List.add (Ljava/lang/Object;)Z]
       [46] pop
       [47] aload_1 v1

@@ -18,12 +18,12 @@ momenso.barometrum2.ReadingsData:
     private static synthetic int[] $SWITCH_TABLE$momenso$barometrum2$PressureDataPoint$PressureUnit
     108:108:public java.util.List get()
     112:117:public java.util.List getPressure()
-    158:166:public void set(java.util.List)
-    178:180:public java.util.Date getDateMinimum()
-    196:198:public java.util.Date getDateMaximum()
-    206:206:public static float getReadingValue(momenso.barometrum2.PressureDataPoint)
-    242:242:public momenso.barometrum2.PressureDataPoint$PressureUnit getUnit()
-    246:260:public static java.lang.String getUnitName()
+    160:168:public void set(java.util.List)
+    180:182:public java.util.Date getDateMinimum()
+    198:200:public java.util.Date getDateMaximum()
+    208:208:public static float getReadingValue(momenso.barometrum2.PressureDataPoint)
+    244:244:public momenso.barometrum2.PressureDataPoint$PressureUnit getUnit()
+    248:262:public static java.lang.String getUnitName()
     18:18:static synthetic int[] $SWITCH_TABLE$momenso$barometrum2$PressureDataPoint$PressureUnit()
 momenso.barometrum2.gui.LabeledTextView:
     24:26:public LabeledTextView(android.content.Context)
