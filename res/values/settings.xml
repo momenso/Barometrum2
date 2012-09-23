@@ -20,5 +20,10 @@
         <item >Torr</item>
         <item >Pascal</item>
     </string-array>
-    
+    <string-array name="pressureUnitValues">
+        <item >Bar</item>
+        <item >InHg</item>
+        <item >Torr</item>
+        <item >Pascal</item>
+    </string-array>
 </resources>

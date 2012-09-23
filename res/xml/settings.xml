@@ -17,7 +17,7 @@
             android:summary="Barr, inches, torr or pascal"
             android:entries="@array/pressureUnit" 
             android:defaultValue="@string/default_unit"
-            android:entryValues="@array/pressureUnit"/>
+            android:entryValues="@array/pressureUnitValues"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="History">
         <ListPreference 
