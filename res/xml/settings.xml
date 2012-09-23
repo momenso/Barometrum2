@@ -14,28 +14,30 @@
         <ListPreference 
             android:title="Measuring Unit" 
             android:key="BarometerUnit"
-            android:summary="Barr, inches, torr or pascal"
+            android:summary="Allows the usage of different measuring units such as Barr, inches of mercury, torr or pascal"
             android:entries="@array/pressureUnit" 
             android:defaultValue="@string/default_unit"
             android:entryValues="@array/pressureUnitValues"/>
     </PreferenceCategory>
-    <PreferenceCategory android:title="History">
+    <PreferenceCategory android:title="Logging">
         <ListPreference 
-            android:title="Time scale"
+            android:title="Time interval"
             android:key="GraphTimeScale"
             android:summary="Define the time interval used in the history chart" 
             android:entries="@array/logInterval"
             android:defaultValue="@string/default_time_interval"
             android:entryValues="@array/timeValues"/>
     </PreferenceCategory>
-    <PreferenceCategory android:title="Altimeter">
+    <PreferenceCategory android:title="Local Altitude"
+        android:layout="@layout/preference_category_summary"
+        android:summary="Configure your local altitude. This is important to calculate the correct Mean sea leavel pressure (MSLP).">
         <Preference android:title="Detect altitude automatically"
                 android:key="UseGPSAltimeter"
                 android:summary="Determines the local altitude using location service.">
         </Preference>
         <EditTextPreference
             android:key="KnownAltitude"
-            android:title="Define altitude manually"
+            android:title="Define altitude manually (in meters)"
             android:inputType="number"  
             android:defaultValue="0"/>
     </PreferenceCategory>
