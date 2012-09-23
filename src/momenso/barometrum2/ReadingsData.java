@@ -136,6 +136,8 @@ public class ReadingsData {
     }
 
     private void updateStatistics() {
+    	initializeMinMax();
+    	
         // updates min/max based on reading history
         for (PressureDataPoint p : this.historySamples) {
             updateMinMax(p);

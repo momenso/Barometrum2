@@ -134,7 +134,7 @@ public class ChartView extends TextView {
     }
 
     private float convertY(float value, float min, float max, float height) {
-        float factor = 1 - (value - min) / (max - min);
+    	float factor = (float) (1 - (value - min) / (max - min));
 //		int y = Math.round(factor * (float)height);
 //		int y = (int)(factor * (float)height);
 
