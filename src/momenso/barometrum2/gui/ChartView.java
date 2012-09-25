@@ -9,9 +9,14 @@ import android.graphics.Paint.Style;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.MotionEvent.PointerCoords;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import momenso.barometrum2.PressureDataPoint;
 import momenso.barometrum2.ReadingsData;
@@ -19,6 +24,10 @@ import momenso.barometrum2.ReadingsData;
 public class ChartView extends TextView {
 
 	private ReadingsData data;
+	private PointerCoords selectedSpot = new PointerCoords();
+	private int selectedBar = -1;
+	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM");
+	private SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 
 	public ChartView(Context context) {
 		super(context);
@@ -28,7 +37,7 @@ public class ChartView extends TextView {
 		super(context, attrs);
 
 		// initializeParams(attrs);
-		// fake();
+		//fake();
 	}
 
 	public ChartView(Context context, AttributeSet attrs, int defStyle) {
@@ -100,9 +109,14 @@ public class ChartView extends TextView {
 		paint.setStyle(Style.FILL);
 		paint.setColor(borderColor);
 		float textMargin = paint.descent() + 2;
-		float axisTop = getTextSize() + 2 * textMargin;
-		canvas.drawLine(rect.left + borderWidth, rect.bottom - axisTop,
-				rect.right - borderWidth, rect.bottom - axisTop, paint);
+		float axisMargin = getTextSize() + 2 * textMargin;
+		
+		canvas.drawLine(rect.left + borderWidth, rect.bottom - axisMargin,
+				rect.right - borderWidth, rect.bottom - axisMargin, paint);
+		
+		// draw top axis
+		canvas.drawLine(rect.left + borderWidth, rect.top + axisMargin,
+				rect.right - borderWidth, rect.top + axisMargin, paint);
 
 		if (this.data == null) {
 			return;
@@ -117,12 +131,12 @@ public class ChartView extends TextView {
 		paint.setTextSize(13 + rect.width() / 50);
 
 		canvas.drawText(String.format("%.2f", data.getMinimum()), 6,
-				rect.bottom - axisTop - 3, paint);
+				rect.bottom - axisMargin - paint.descent(), paint);
 		String maxValue = String.format("%.2f", data.getMaximum());
-		canvas.drawText(maxValue, 6, paint.getTextSize(), paint);
+		canvas.drawText(maxValue, 6, paint.getTextSize() + axisMargin, paint);
 		int yMargin = Math.round(paint.measureText(maxValue));
-		paint.setTextSize(originalSize);
-		paint.setTypeface(getTypeface().DEFAULT);
+		//paint.setTextSize(originalSize);
+		//paint.setTypeface(getTypeface().DEFAULT);
 		// get range for Y axis
 		float maximum = data.getMaximumValue().getRawValue();
 		float minimum = data.getMinimumValue().getRawValue();
@@ -142,16 +156,26 @@ public class ChartView extends TextView {
 		int columnWidth = ((rect.width() - yMargin - (4 * borderWidth)) / values.size());
 		float barPos = rect.left + lateralMargin + columnWidth / 2;
 		int yValue = values.size();
-		float maximumColumnHeight = rect.height() - axisTop - borderWidth;
+		float maximumColumnHeight = rect.height() - 2 * axisMargin - borderWidth;
+		int barIndex = 0;
 		for (PressureDataPoint bar : values) {
-			RectF barRect = new RectF(yMargin + borderWidth + barPos + 3
-					- columnWidth / 3, convertY(bar.getRawValue(), minimum,
-					maximum, maximumColumnHeight) + borderWidth, yMargin
-					+ borderWidth + barPos + 3 + columnWidth / 3, rect.height()
-					- axisTop);
+			
+			RectF barRect = new RectF(
+					yMargin + borderWidth + barPos + 3 - columnWidth / 3, 
+					convertY(bar.getRawValue(), minimum, maximum, maximumColumnHeight) + borderWidth + axisMargin, 
+					yMargin + borderWidth + barPos + 3 + columnWidth / 3, 
+					rect.height() - axisMargin);
 
+			if (barRect.contains(selectedSpot.x, selectedSpot.y)) {
+				paint.setColor(Color.WHITE);
+				//selectedSpot.clear();
+				selectedBar = barIndex;
+			}
+			else {
+				paint.setColor(barColor);
+			}
+			
 			// draw bar
-			paint.setColor(barColor);
 			canvas.drawRect(barRect, paint);
 
 			// draw index number
@@ -163,10 +187,46 @@ public class ChartView extends TextView {
 			// paint);
 
 			// update for next bar
+			barIndex++;
 			barPos += columnWidth;
 			yValue--;
 		}
-
+		
+		if (selectedBar > -1 && selectedBar < values.size()) {
+			paint.setTextSize(13 + rect.width() / 100);
+			PressureDataPoint selected = values.get(selectedBar);
+			Date timestamp = new Date(selected.getTime());
+			
+			String pressure = String.format("%.2f",
+					selected.getValue(data.getMode(), data.getUnit(), data.getAltitude()));
+			
+			paint.setColor(Color.WHITE);
+			canvas.drawText(pressure, 8,
+					rect.centerY() + paint.getTextSize(), paint);
+			
+			float width = paint.measureText(pressure);
+			paint.setTextAlign(Align.CENTER);
+			canvas.drawText(dateFormat.format(timestamp), 
+					8 + width / 2, rect.centerY() - paint.getTextSize(), paint);
+			canvas.drawText(timeFormat.format(timestamp), 
+					8 + width / 2 + 1, rect.centerY(), paint);
+			
+			float barX = rect.left + lateralMargin + columnWidth / 2 + selectedBar*columnWidth + yMargin + borderWidth;
+			canvas.drawLine(8 + width, 
+					rect.centerY(), 
+					barX, 
+					rect.centerY(), 
+					paint);
+			
+			float barHeight = convertY(selected.getRawValue(), minimum, maximum, maximumColumnHeight) + borderWidth + axisMargin;
+			if (barHeight > rect.centerY()) {
+				canvas.drawLine(barX, rect.centerY(), barX, barHeight, paint);
+			}
+			
+			paint.setStyle(Style.STROKE);
+			canvas.drawRect(6, rect.centerY() - paint.getTextSize() + paint.ascent(), 
+					8 + width, rect.centerY() + paint.getTextSize() + paint.descent(), paint);
+		}
 	}
 
 	private float convertY(float value, float min, float max, float height) {
@@ -176,16 +236,14 @@ public class ChartView extends TextView {
 
 		return factor * height;
 	}
-	/*
-	 * @Override public boolean onTouchEvent(MotionEvent event) {
-	 * 
-	 * PointerCoords coords = new PointerCoords(); event.getPointerCoords(0,
-	 * coords);
-	 * 
-	 * selectedSpot.x = (int) coords.x; selectedSpot.y = (int) coords.y;
-	 * 
-	 * return super.onTouchEvent(event); }
-	 */
+
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		event.getPointerCoords(0, selectedSpot);
+		invalidate();
+		return super.onTouchEvent(event);
+	}
+	
 	/*
 	 * private PressureDataPoint[] sample = { new PressureDataPoint(3600000L*0,
 	 * 1010.0F), new PressureDataPoint(3600000L*1, 1014.0F), new

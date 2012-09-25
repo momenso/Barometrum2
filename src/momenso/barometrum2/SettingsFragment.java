@@ -25,11 +25,11 @@ public class SettingsFragment extends PreferenceFragment {
                 final ReadingsData pressureData = ReadingsData.getInstance(context);
                 final Altimeter altimeter = new Altimeter(context, new AltimeterListener() {
                     public void altitudeRefresh(float altitude, float accuracy) {
-                        Log.i("Settings", "Alt=" + altitude + ", acc=" + accuracy);
+                        //Log.i("Settings", "Alt=" + altitude + ", acc=" + accuracy);
                         pressureData.setCurrentElevation(altitude);
                         
                         String altitudeValue = String.valueOf(Math.round(altitude));
-                        Log.v("Altitude", altitudeValue);
+                        //Log.v("Altitude", altitudeValue);
                         
                         EditTextPreference manualAltitude = (EditTextPreference) findPreference("KnownAltitude");
                         manualAltitude.setText(altitudeValue);

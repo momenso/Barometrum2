@@ -91,7 +91,7 @@ public class Altimeter implements LocationListener {
         LocationManager lm =
                 (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
         lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
-        Log.v("ALTITUDE", "Enabling location service");
+        //Log.v("ALTITUDE", "Enabling location service");
 
 //	    Location fakeLocation = new Location(LocationManager.GPS_PROVIDER);
 //	    fakeLocation.setAltitude(63);
@@ -102,13 +102,13 @@ public class Altimeter implements LocationListener {
         LocationManager lm =
                 (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
         lm.removeUpdates(this);
-        Log.v("ALTITUDE", "Disabling location service");
+        //Log.v("ALTITUDE", "Disabling location service");
     }
 
     public void onLocationChanged(Location location) {
         float accuracy = location.getAccuracy();
 
-        Log.i("ALTITUDE", "Got altitude: " + location.getAltitude());
+        //Log.i("ALTITUDE", "Got altitude: " + location.getAltitude());
 
         Float altitude = (float) location.getAltitude();
         //setAltitude(altitude);
@@ -121,14 +121,14 @@ public class Altimeter implements LocationListener {
     }
 
     public void onProviderDisabled(String provider) {
-        Log.v("ALTITUDE", "Provider disabled=" + provider);
+        //Log.v("ALTITUDE", "Provider disabled=" + provider);
     }
 
     public void onProviderEnabled(String provider) {
-        Log.v("ALTITUDE", "Provider enabled=" + provider);
+        //Log.v("ALTITUDE", "Provider enabled=" + provider);
     }
 
     public void onStatusChanged(String provider, int status, Bundle extras) {
-        Log.v("ALTITUDE", "Status changed=" + status);
+        //Log.v("ALTITUDE", "Status changed=" + status);
     }
 }

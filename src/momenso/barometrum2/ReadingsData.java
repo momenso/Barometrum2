@@ -1,6 +1,7 @@
 package momenso.barometrum2;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.io.EOFException;
 import java.io.FileInputStream;
@@ -247,9 +248,18 @@ public class ReadingsData {
         ReadingsData.mode = mode;
         ReadingsData.currentElevation = altitude;
     }
+    
+    public PressureMode getMode() {
+    	return mode;
+    }
+    
+    public float getAltitude() {
+    	return currentElevation;
+    }
 
     public void setHistoryInterval(int interval) {
         loggingInterval = interval;
+        Log.i("interval", "=" + interval);
     }
 
     public void setUnit(PressureUnit unit) {

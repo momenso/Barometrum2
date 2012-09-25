@@ -7,7 +7,7 @@ momenso.barometrum2.Altimeter -> momenso.barometrum2.a:
     void onProviderEnabled(java.lang.String) -> onProviderEnabled
     void onStatusChanged(java.lang.String,int,android.os.Bundle) -> onStatusChanged
 momenso.barometrum2.AltimeterListener -> momenso.barometrum2.b:
-    void altitudeRefresh(float,float) -> a
+    void altitudeRefresh$2548a35(float) -> a
 momenso.barometrum2.Barometer -> momenso.barometrum2.c:
     android.content.Context context -> a
     boolean isSensorActive -> b
@@ -47,6 +47,7 @@ momenso.barometrum2.PressureDataPoint -> momenso.barometrum2.g:
     long getTime() -> b
     int hashCode() -> hashCode
     boolean equals(java.lang.Object) -> equals
+    java.lang.String toString() -> toString
 momenso.barometrum2.PressureDataPoint$PressureMode -> momenso.barometrum2.h:
     momenso.barometrum2.PressureDataPoint$PressureMode Absolute -> a
     momenso.barometrum2.PressureDataPoint$PressureMode MSLP -> b
@@ -78,6 +79,7 @@ momenso.barometrum2.ReadingsData -> momenso.barometrum2.j:
     java.util.List getHistory() -> a
     void initializeMinMax() -> j
     void updateMinMax(momenso.barometrum2.PressureDataPoint) -> a
+    void updateStatistics() -> k
     float getMinimum() -> b
     float getMaximum() -> c
     momenso.barometrum2.PressureDataPoint getMaximumValue() -> d
@@ -107,7 +109,7 @@ momenso.barometrum2.SettingsFragment$1 -> momenso.barometrum2.l:
 momenso.barometrum2.SettingsFragment$1$1 -> momenso.barometrum2.m:
     momenso.barometrum2.SettingsFragment$1 this$1 -> a
     momenso.barometrum2.ReadingsData val$pressureData -> b
-    void altitudeRefresh(float,float) -> a
+    void altitudeRefresh$2548a35(float) -> a
 momenso.barometrum2.gui.BorderedTextView -> momenso.barometrum2.gui.BorderedTextView:
     boolean top -> g
     boolean left -> h
