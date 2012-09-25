@@ -50,48 +50,61 @@ public class ReadingsData {
         return instance;
     }
 
-    private float estimateElevationAt(float pressure) {
-        return (float) (1 - Math.pow(pressure * 100.0F / 101325.0F, 1.0F / 5.25588F)) / 0.0000225577F;
-    }
+//    private float estimateElevationAt(float pressure) {
+//        return (float) (1 - Math.pow(pressure * 100.0F / 101325.0F, 1.0F / 5.25588F)) / 0.0000225577F;
+//    }
 
     public void add(float pressureValue) {
-        if (currentElevation == 0 && readingSamples.isEmpty()) {
-            currentElevation = estimateElevationAt(pressureValue);
-        }
-
-        PressureDataPoint newSample =
-                new PressureDataPoint((System.currentTimeMillis()), pressureValue);
-        readingSamples.add(newSample);
-
+//        if (currentElevation == 0 && readingSamples.isEmpty()) {
+//            currentElevation = estimateElevationAt(pressureValue);
+//        }
+    	
         // clean old reading samples
         // basically keeps only readings concerning
-        // the current time frame 
-        if (readingSamples.size() > 0) {
+        // the current time interval 
+    	if (!readingSamples.isEmpty()) {
             PressureDataPoint first = readingSamples.get(0);
             long firstDate = first.getTime() / loggingInterval;
             long currentDate = System.currentTimeMillis() / loggingInterval;
             if (firstDate < currentDate) {
-                readingSamples.remove(0);
+                readingSamples.clear();
             }
+        }
+        PressureDataPoint newSample =
+            new PressureDataPoint((System.currentTimeMillis()), pressureValue);
+        readingSamples.add(newSample);
+        
+        /*--------------------------------------------
+        	computes the current average reading
+        ----------------------------------------------*/
+        if (!readingSamples.isEmpty()) {
+	        float sumValues = 0;
+	        for (PressureDataPoint p : this.readingSamples) {
+	            float value = p.getRawValue();
+	            sumValues += value;
+	        }
+
+	        this.average.setValue(sumValues / this.readingSamples.size());
+	        this.average.setTime(System.currentTimeMillis());
         }
 
         // update history
         // removes obsolete historic reading since
         // an updated reading for the current time frame
         // is available
-        if (historySamples.size() > 0) {
+        if (!historySamples.isEmpty()) {
             PressureDataPoint lastHistory = historySamples.get(historySamples.size() - 1);
             long lastDate = lastHistory.getTime() / loggingInterval;
-            long currentDate = newSample.getTime() / loggingInterval;
+            long currentDate = this.average.getTime() / loggingInterval;
             if (lastDate == currentDate) {
                 historySamples.remove(historySamples.size() - 1);
             }
         }
         
         PressureDataPoint updatedCurrent =
-                new PressureDataPoint(System.currentTimeMillis(), average.getRawValue());
+            new PressureDataPoint(System.currentTimeMillis(), average.getRawValue());
         historySamples.add(updatedCurrent);
-
+        
         // limit the recorded history
         if (historySamples.size() > 40) { // 59 
             historySamples.remove(0);
@@ -118,20 +131,29 @@ public class ReadingsData {
     }
 
     private void initializeMinMax() {
-        if (this.minValue == null) {
+    	if (this.minValue == null) {
             this.minValue = new PressureDataPoint(0, Float.MAX_VALUE);
         }
+        else {
+        	this.minValue.setValue(Float.MAX_VALUE);
+        }
+        
         if (this.maxValue == null) {
             this.maxValue = new PressureDataPoint(0, Float.MIN_VALUE);
+        }
+        else {
+        	this.maxValue.setValue(Float.MIN_VALUE);
         }
     }
 
     private void updateMinMax(PressureDataPoint data) {
         if (this.minValue.getRawValue() > data.getRawValue()) {
-            this.minValue = data;
+            this.minValue.setValue(data.getRawValue());
+            this.minValue.setTime(data.getTime());
         }
         if (this.maxValue.getRawValue() < data.getRawValue()) {
-            this.maxValue = data;
+        	this.maxValue.setValue(data.getRawValue());
+            this.maxValue.setTime(data.getTime());
         }
     }
 
@@ -142,18 +164,11 @@ public class ReadingsData {
         for (PressureDataPoint p : this.historySamples) {
             updateMinMax(p);
         }
-
-        // computes the current average reading
-        float sumValues = 0;
+        
+        // updates min/max based on reading samples
         for (PressureDataPoint p : this.readingSamples) {
-            float value = p.getRawValue();
-            sumValues += value;
+            updateMinMax(p);
         }
-
-        this.average.setValue(sumValues / this.readingSamples.size());
-        this.average.setTime(System.currentTimeMillis());
-
-        updateMinMax(average);
     }
 
     public void set(List<PressureDataPoint> data) {
@@ -162,9 +177,9 @@ public class ReadingsData {
 
         updateStatistics();
 
-        if (currentElevation == 0 && readingSamples.size() == 0) {
-            currentElevation = estimateElevationAt(data.get(data.size() - 1).getRawValue());
-        }
+//        if (currentElevation == 0 && readingSamples.size() == 0) {
+//            currentElevation = estimateElevationAt(data.get(data.size() - 1).getRawValue());
+//        }
     }
 
     public void setHistory(List<PressureDataPoint> data) {
@@ -198,7 +213,6 @@ public class ReadingsData {
 
     public Date getDateMaximum() {
         Date date = new Date(maxValue.getTime());
-
         return date;
     }
 

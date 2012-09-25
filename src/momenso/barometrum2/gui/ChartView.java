@@ -127,17 +127,19 @@ public class ChartView extends TextView {
 		float maximum = data.getMaximumValue().getRawValue();
 		float minimum = data.getMinimumValue().getRawValue();
 
-		// Log.v("ChartView", String.format("min=%.2f max=%.2f", minimum,
-		// maximum));
+		// Log.v("ChartView", String.format("min=%.2f max=%.2f", minimum,  maximum));
+		
+		List<PressureDataPoint> values = data.getHistory();
+		if (values.size() <= 0) {
+			return;
+		}
 
 		// draw data columns
 		paint.setStrokeWidth(1);
 		int barColor = Color.rgb(0x33, 0xb5, 0xe5);
-		List<PressureDataPoint> values = data.getHistory();
 		paint.setAntiAlias(true);
 		float lateralMargin = getTextSize() / 2;
-		int columnWidth = ((rect.width() - yMargin - (4 * borderWidth)) / values
-				.size());
+		int columnWidth = ((rect.width() - yMargin - (4 * borderWidth)) / values.size());
 		float barPos = rect.left + lateralMargin + columnWidth / 2;
 		int yValue = values.size();
 		float maximumColumnHeight = rect.height() - axisTop - borderWidth;
