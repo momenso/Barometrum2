@@ -9,7 +9,6 @@ import android.graphics.Paint.Style;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.MotionEvent.PointerCoords;
 import android.widget.TextView;
@@ -158,6 +157,7 @@ public class ChartView extends TextView {
 		int yValue = values.size();
 		float maximumColumnHeight = rect.height() - 2 * axisMargin - borderWidth;
 		int barIndex = 0;
+		selectedBar = -1;
 		for (PressureDataPoint bar : values) {
 			
 			RectF barRect = new RectF(
@@ -193,7 +193,7 @@ public class ChartView extends TextView {
 		}
 		
 		if (selectedBar > -1 && selectedBar < values.size()) {
-			paint.setTextSize(13 + rect.width() / 100);
+			//paint.setTextSize(13 + rect.width() / 80);
 			PressureDataPoint selected = values.get(selectedBar);
 			Date timestamp = new Date(selected.getTime());
 			
