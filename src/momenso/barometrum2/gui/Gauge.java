@@ -1,6 +1,5 @@
 package momenso.barometrum2.gui;
 
-import momenso.barometrum2.PressureDataPoint.PressureUnit;
 import momenso.barometrum2.ReadingsData;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -83,29 +82,22 @@ public class Gauge extends View {
     			maximum = 1070;
     			minimum = 930;
     			break;
+    			
     		case InHg:
     			maximum = 31;
     			minimum = 28;
     			break;
+    			
     		case Pascal:
     			maximum = 110;
     			minimum = 95;
     			break;
+    			
     		case Torr:
     			maximum = 800;
     			minimum = 700;
     			break;
     	}
-    	
-//    	float offset = (current - pressure) / 2;
-//    	if (Math.abs(current - pressure) > 0.001) {
-//			Log.i("Smoother", String.format("Current = %.3f (%f) -> %.2f", current, offset, pressure));
-//			current -= offset;
-//			postInvalidate();
-//		}
-//    	else {
-//    		Log.i("Smoother", "Complete");
-//    	}
     	
     	invalidate();
     }
