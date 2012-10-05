@@ -138,7 +138,8 @@ public class Barometrum2Activity extends Activity implements Observer {
             if (gauge != null) {
             	//gauge.setMaximum(pressureData.getMaximum());
             	//gauge.setMinimum(pressureData.getMinimum());
-            	gauge.updatePressure((float) (Math.round(pressureData.getAverage() * 100.0) / 100.0));
+            	//gauge.updatePressure((float) (Math.round(pressureData.getAverage() * 100.0) / 100.0));
+            	gauge.updatePressure(pressureData);
             }
 
             // update altimeter display

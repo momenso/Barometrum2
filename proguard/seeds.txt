@@ -20,6 +20,10 @@ momenso.barometrum2.gui.ChartView
 momenso.barometrum2.gui.ChartView: ChartView(android.content.Context)
 momenso.barometrum2.gui.ChartView: ChartView(android.content.Context,android.util.AttributeSet)
 momenso.barometrum2.gui.ChartView: ChartView(android.content.Context,android.util.AttributeSet,int)
+momenso.barometrum2.gui.Gauge
+momenso.barometrum2.gui.Gauge: Gauge(android.content.Context)
+momenso.barometrum2.gui.Gauge: Gauge(android.content.Context,android.util.AttributeSet)
+momenso.barometrum2.gui.Gauge: Gauge(android.content.Context,android.util.AttributeSet,int)
 momenso.barometrum2.gui.LabeledTextView
 momenso.barometrum2.gui.LabeledTextView: LabeledTextView(android.content.Context,android.util.AttributeSet)
 momenso.barometrum2.gui.LabeledTextView: LabeledTextView(android.content.Context,android.util.AttributeSet,int)

@@ -1,5 +1,7 @@
 package momenso.barometrum2.gui;
 
+import momenso.barometrum2.PressureDataPoint.PressureUnit;
+import momenso.barometrum2.ReadingsData;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -71,13 +73,29 @@ public class Gauge extends View {
         screen = new Rect();
         paint = new Paint();
         labelPath = new Path();
-        current = 930;
-        maximum = 1070;
-        minimum = 930;
     }
 
-    public void updatePressure(float pressure) {
-    	this.current = pressure;
+    public void updatePressure(ReadingsData pressure) {
+    	this.current = pressure.getAverage();
+    	
+    	switch (pressure.getUnit()) {
+    		case Bar:
+    			maximum = 1070;
+    			minimum = 930;
+    			break;
+    		case InHg:
+    			maximum = 31;
+    			minimum = 28;
+    			break;
+    		case Pascal:
+    			maximum = 110;
+    			minimum = 95;
+    			break;
+    		case Torr:
+    			maximum = 800;
+    			minimum = 700;
+    			break;
+    	}
     	
 //    	float offset = (current - pressure) / 2;
 //    	if (Math.abs(current - pressure) > 0.001) {
@@ -126,10 +144,11 @@ public class Gauge extends View {
         
         //labels 930-1070
 		float pointerSize = (8 * radius / 9);
-		float interval = gcd((int) maximum, (int) minimum);
+		float interval = Math.min(10, gcd((int) maximum, (int) minimum));
 		float labels = ((maximum - minimum) / interval);
         float offset = -65;
         float angularStep = 310 / labels;
+        //Log.i("DRaw!!", String.format("Interval=%.2f, labels=%.2f, angularStep=%.2f", interval, labels, angularStep));
         paint.setTextAlign(Align.CENTER);
         paint.setStyle(Style.FILL_AND_STROKE);
 		paint.setColor(Color.DKGRAY);
@@ -141,11 +160,13 @@ public class Gauge extends View {
 			canvas.restore();
 		}
 		
-		for (int mark = (int) minimum; mark <= maximum; mark++) {
+		float minorStep = interval / 10;
+		paint.setColor(Color.BLACK);
+		for (float mark = minimum; mark <= maximum; mark += minorStep) {
+			mark = (mark * 100) / 100; // fix decimal precision
 			float angl = (float) (((maximum - mark) * 310.0f) / (maximum - minimum));
-
-			paint.setColor(Color.BLACK);
-			paint.setStrokeWidth(mark % 10 == 0 ? 5 : 2);
+			
+			paint.setStrokeWidth(mark % interval == 0 ? 5 : 2);
 			float rad = (float) Math.toRadians(angl - 65);
 			canvas.drawLine(screen.exactCenterX(), screen.exactCenterY(),
 					screen.exactCenterX() + FloatMath.cos(rad) * pointerSize,
