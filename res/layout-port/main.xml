@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+    <TextView
+        android:id="@+id/currentReading"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/pressureValue"
+        android:textSize="76dp" />
+    
+    <momenso.barometrum2.gui.Gauge
+        android:id="@+id/pressureGauge"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="bottom"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:gravity="center_horizontal|center_vertical" >
+
+        <Button
+            android:id="@+id/clearButton"
+            android:onClick="clearReadings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/delete"
+            android:text="Clear Readings" />
+        
+        <Button
+            android:id="@+id/settingsButton"
+            android:onClick="adjustSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/settings"
+            android:text="Settings" />
+
+    </LinearLayout>
+    
+</LinearLayout>

@@ -9,24 +9,15 @@ _____________________________________________________________________
 Interfaces (count = 1):
   + Class [android/location/LocationListener]
 
-Constant Pool (count = 118):
-  + String [ALTITUDE]
-  + String [Disabling location service]
-  + String [Enabling location service]
-  + String [Got altitude: ]
-  + String [Provider disabled=]
-  + String [Provider enabled=]
-  + String [Status changed=]
+Constant Pool (count = 77):
   + String [gps]
   + String [location]
   + Class [android/content/Context]
   + Class [android/location/Location]
   + Class [android/location/LocationListener]
   + Class [android/location/LocationManager]
-  + Class [android/util/Log]
   + Class [java/lang/Float]
   + Class [java/lang/Object]
-  + Class [java/lang/StringBuilder]
   + Class [momenso/barometrum2/a]
   + Class [momenso/barometrum2/b]
   + Fieldref [momenso/barometrum2/a.a Landroid/content/Context;]
@@ -37,73 +28,45 @@ Constant Pool (count = 118):
   + Methodref [android/location/Location.getAltitude ()D]
   + Methodref [android/location/LocationManager.removeUpdates (Landroid/location/LocationListener;)V]
   + Methodref [android/location/LocationManager.requestLocationUpdates (Ljava/lang/String;JFLandroid/location/LocationListener;)V]
-  + Methodref [android/util/Log.i (Ljava/lang/String;Ljava/lang/String;)I]
-  + Methodref [android/util/Log.v (Ljava/lang/String;Ljava/lang/String;)I]
   + Methodref [java/lang/Float.floatValue ()F]
   + Methodref [java/lang/Float.valueOf (F)Ljava/lang/Float;]
   + Methodref [java/lang/Object.<init> ()V]
-  + Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
-  + Methodref [java/lang/StringBuilder.append (D)Ljava/lang/StringBuilder;]
-  + Methodref [java/lang/StringBuilder.append (I)Ljava/lang/StringBuilder;]
-  + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-  + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
   + InterfaceMethodref [momenso/barometrum2/b.a (F)V]
   + NameAndType [<init> ()V]
-  + NameAndType [<init> (Ljava/lang/String;)V]
   + NameAndType [a (F)V]
   + NameAndType [a Landroid/content/Context;]
-  + NameAndType [append (D)Ljava/lang/StringBuilder;]
-  + NameAndType [append (I)Ljava/lang/StringBuilder;]
-  + NameAndType [append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
   + NameAndType [b Lmomenso/barometrum2/b;]
   + NameAndType [c I]
   + NameAndType [floatValue ()F]
   + NameAndType [getAccuracy ()F]
   + NameAndType [getAltitude ()D]
   + NameAndType [getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
-  + NameAndType [i (Ljava/lang/String;Ljava/lang/String;)I]
   + NameAndType [removeUpdates (Landroid/location/LocationListener;)V]
   + NameAndType [requestLocationUpdates (Ljava/lang/String;JFLandroid/location/LocationListener;)V]
-  + NameAndType [toString ()Ljava/lang/String;]
-  + NameAndType [v (Ljava/lang/String;Ljava/lang/String;)I]
   + NameAndType [valueOf (F)Ljava/lang/Float;]
   + Utf8 [()D]
   + Utf8 [()F]
-  + Utf8 [()Ljava/lang/String;]
   + Utf8 [()V]
-  + Utf8 [(D)Ljava/lang/StringBuilder;]
   + Utf8 [(F)Ljava/lang/Float;]
   + Utf8 [(F)V]
-  + Utf8 [(I)Ljava/lang/StringBuilder;]
   + Utf8 [(Landroid/content/Context;Lmomenso/barometrum2/b;)V]
   + Utf8 [(Landroid/location/Location;)V]
   + Utf8 [(Landroid/location/LocationListener;)V]
   + Utf8 [(Ljava/lang/String;)Ljava/lang/Object;]
-  + Utf8 [(Ljava/lang/String;)Ljava/lang/StringBuilder;]
   + Utf8 [(Ljava/lang/String;)V]
   + Utf8 [(Ljava/lang/String;ILandroid/os/Bundle;)V]
   + Utf8 [(Ljava/lang/String;JFLandroid/location/LocationListener;)V]
-  + Utf8 [(Ljava/lang/String;Ljava/lang/String;)I]
   + Utf8 [<init>]
-  + Utf8 [ALTITUDE]
   + Utf8 [Code]
-  + Utf8 [Disabling location service]
-  + Utf8 [Enabling location service]
-  + Utf8 [Got altitude: ]
   + Utf8 [I]
   + Utf8 [Landroid/content/Context;]
   + Utf8 [Lmomenso/barometrum2/b;]
-  + Utf8 [Provider disabled=]
-  + Utf8 [Provider enabled=]
   + Utf8 [StackMapTable]
-  + Utf8 [Status changed=]
   + Utf8 [a]
   + Utf8 [android/content/Context]
   + Utf8 [android/location/Location]
   + Utf8 [android/location/LocationListener]
   + Utf8 [android/location/LocationManager]
-  + Utf8 [android/util/Log]
-  + Utf8 [append]
   + Utf8 [b]
   + Utf8 [c]
   + Utf8 [floatValue]
@@ -111,10 +74,8 @@ Constant Pool (count = 118):
   + Utf8 [getAltitude]
   + Utf8 [getSystemService]
   + Utf8 [gps]
-  + Utf8 [i]
   + Utf8 [java/lang/Float]
   + Utf8 [java/lang/Object]
-  + Utf8 [java/lang/StringBuilder]
   + Utf8 [location]
   + Utf8 [momenso/barometrum2/a]
   + Utf8 [momenso/barometrum2/b]
@@ -124,8 +85,6 @@ Constant Pool (count = 118):
   + Utf8 [onStatusChanged]
   + Utf8 [removeUpdates]
   + Utf8 [requestLocationUpdates]
-  + Utf8 [toString]
-  + Utf8 [v]
   + Utf8 [valueOf]
 
 Fields (count = 3):
@@ -144,203 +103,119 @@ Methods (count = 5):
     Access flags: 0x1
       = public a(android.content.Context,momenso.barometrum2.b)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 50, locals = 3, stack = 6):
+    + Code attribute instructions (code length = 42, locals = 3, stack = 6):
       [0] aload_0 v0
-      [1] invokespecial #32
+      [1] invokespecial #21
         + Methodref [java/lang/Object.<init> ()V]
       [4] aload_0 v0
       [5] aload_1 v1
-      [6] putfield #20
+      [6] putfield #11
         + Fieldref [momenso/barometrum2/a.a Landroid/content/Context;]
       [9] aload_0 v0
       [10] aload_2 v2
-      [11] putfield #21
+      [11] putfield #12
         + Fieldref [momenso/barometrum2/a.b Lmomenso/barometrum2/b;]
       [14] aload_0 v0
       [15] iconst_0
-      [16] putfield #22
+      [16] putfield #13
         + Fieldref [momenso/barometrum2/a.c I]
       [19] aload_0 v0
       [20] dup
       [21] astore_1 v1
-      [22] getfield #20
+      [22] getfield #11
         + Fieldref [momenso/barometrum2/a.a Landroid/content/Context;]
-      [25] ldc #9
+      [25] ldc #2
         + String [location]
-      [27] invokevirtual #23
+      [27] invokevirtual #14
         + Methodref [android/content/Context.getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
-      [30] checkcast #13
+      [30] checkcast #6
         + Class [android/location/LocationManager]
-      [33] ldc #8
+      [33] ldc #1
         + String [gps]
       [35] lconst_0
       [36] fconst_0
       [37] aload_1 v1
-      [38] invokevirtual #27
+      [38] invokevirtual #18
         + Methodref [android/location/LocationManager.requestLocationUpdates (Ljava/lang/String;JFLandroid/location/LocationListener;)V]
-      [41] ldc #1
-        + String [ALTITUDE]
-      [43] ldc #3
-        + String [Enabling location service]
-      [45] invokestatic #29
-        + Methodref [android/util/Log.v (Ljava/lang/String;Ljava/lang/String;)I]
-      [48] pop
-      [49] return
+      [41] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       onLocationChanged(Landroid/location/Location;)V
     Access flags: 0x11
       = public final void onLocationChanged(android.location.Location)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 94, locals = 2, stack = 4):
+    + Code attribute instructions (code length = 61, locals = 2, stack = 4):
       [0] aload_1 v1
-      [1] invokevirtual #24
+      [1] invokevirtual #15
         + Methodref [android/location/Location.getAccuracy ()F]
       [4] pop
-      [5] ldc #1
-        + String [ALTITUDE]
-      [7] new #17
-        + Class [java/lang/StringBuilder]
-      [10] dup
-      [11] ldc #4
-        + String [Got altitude: ]
-      [13] invokespecial #33
-        + Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
-      [16] aload_1 v1
-      [17] invokevirtual #25
+      [5] aload_1 v1
+      [6] invokevirtual #16
         + Methodref [android/location/Location.getAltitude ()D]
-      [20] invokevirtual #34
-        + Methodref [java/lang/StringBuilder.append (D)Ljava/lang/StringBuilder;]
-      [23] invokevirtual #37
-        + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [26] invokestatic #28
-        + Methodref [android/util/Log.i (Ljava/lang/String;Ljava/lang/String;)I]
-      [29] pop
-      [30] aload_1 v1
-      [31] invokevirtual #25
-        + Methodref [android/location/Location.getAltitude ()D]
-      [34] d2f
-      [35] invokestatic #31
+      [9] d2f
+      [10] invokestatic #20
         + Methodref [java/lang/Float.valueOf (F)Ljava/lang/Float;]
-      [38] astore_1 v1
-      [39] aload_0 v0
-      [40] getfield #21
+      [13] astore_1 v1
+      [14] aload_0 v0
+      [15] getfield #12
         + Fieldref [momenso/barometrum2/a.b Lmomenso/barometrum2/b;]
-      [43] aload_1 v1
-      [44] invokevirtual #30
+      [18] aload_1 v1
+      [19] invokevirtual #19
         + Methodref [java/lang/Float.floatValue ()F]
-      [47] invokeinterface #38
+      [22] invokeinterface #22
         + InterfaceMethodref [momenso/barometrum2/b.a (F)V]
-      [52] aload_0 v0
-      [53] dup
-      [54] getfield #22
+      [27] aload_0 v0
+      [28] dup
+      [29] getfield #13
         + Fieldref [momenso/barometrum2/a.c I]
-      [57] dup_x1
-      [58] iconst_1
-      [59] iadd
-      [60] putfield #22
+      [32] dup_x1
+      [33] iconst_1
+      [34] iadd
+      [35] putfield #13
         + Fieldref [momenso/barometrum2/a.c I]
-      [63] iconst_5
-      [64] ificmple +29 (target=93)
-      [67] aload_0 v0
-      [68] dup
-      [69] astore_1 v1
-      [70] getfield #20
+      [38] iconst_5
+      [39] ificmple +21 (target=60)
+      [42] aload_0 v0
+      [43] dup
+      [44] astore_1 v1
+      [45] getfield #11
         + Fieldref [momenso/barometrum2/a.a Landroid/content/Context;]
-      [73] ldc #9
+      [48] ldc #2
         + String [location]
-      [75] invokevirtual #23
+      [50] invokevirtual #14
         + Methodref [android/content/Context.getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
-      [78] checkcast #13
+      [53] checkcast #6
         + Class [android/location/LocationManager]
-      [81] aload_1 v1
-      [82] invokevirtual #26
+      [56] aload_1 v1
+      [57] invokevirtual #17
         + Methodref [android/location/LocationManager.removeUpdates (Landroid/location/LocationListener;)V]
-      [85] ldc #1
-        + String [ALTITUDE]
-      [87] ldc #2
-        + String [Disabling location service]
-      [89] invokestatic #29
-        + Methodref [android/util/Log.v (Ljava/lang/String;Ljava/lang/String;)I]
-      [92] pop
-      [93] return
+      [60] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Stack map table attribute (count = 1):
-        - [93] Var: ...[f][a:java/lang/Float], Stack: (empty)
+        - [60] Var: ...[f][a:java/lang/Float], Stack: (empty)
   + Method:       onProviderDisabled(Ljava/lang/String;)V
     Access flags: 0x11
       = public final void onProviderDisabled(java.lang.String)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 23, locals = 2, stack = 4):
-      [0] ldc #1
-        + String [ALTITUDE]
-      [2] new #17
-        + Class [java/lang/StringBuilder]
-      [5] dup
-      [6] ldc #5
-        + String [Provider disabled=]
-      [8] invokespecial #33
-        + Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
-      [11] aload_1 v1
-      [12] invokevirtual #36
-        + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [15] invokevirtual #37
-        + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [18] invokestatic #29
-        + Methodref [android/util/Log.v (Ljava/lang/String;Ljava/lang/String;)I]
-      [21] pop
-      [22] return
+    + Code attribute instructions (code length = 1, locals = 2, stack = 0):
+      [0] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       onProviderEnabled(Ljava/lang/String;)V
     Access flags: 0x11
       = public final void onProviderEnabled(java.lang.String)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 23, locals = 2, stack = 4):
-      [0] ldc #1
-        + String [ALTITUDE]
-      [2] new #17
-        + Class [java/lang/StringBuilder]
-      [5] dup
-      [6] ldc #6
-        + String [Provider enabled=]
-      [8] invokespecial #33
-        + Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
-      [11] aload_1 v1
-      [12] invokevirtual #36
-        + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [15] invokevirtual #37
-        + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [18] invokestatic #29
-        + Methodref [android/util/Log.v (Ljava/lang/String;Ljava/lang/String;)I]
-      [21] pop
-      [22] return
+    + Code attribute instructions (code length = 1, locals = 2, stack = 0):
+      [0] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       onStatusChanged(Ljava/lang/String;ILandroid/os/Bundle;)V
     Access flags: 0x11
       = public final void onStatusChanged(java.lang.String,int,android.os.Bundle)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 23, locals = 4, stack = 4):
-      [0] ldc #1
-        + String [ALTITUDE]
-      [2] new #17
-        + Class [java/lang/StringBuilder]
-      [5] dup
-      [6] ldc #7
-        + String [Status changed=]
-      [8] invokespecial #33
-        + Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
-      [11] iload_2 v2
-      [12] invokevirtual #35
-        + Methodref [java/lang/StringBuilder.append (I)Ljava/lang/StringBuilder;]
-      [15] invokevirtual #37
-        + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [18] invokestatic #29
-        + Methodref [android/util/Log.v (Ljava/lang/String;Ljava/lang/String;)I]
-      [21] pop
-      [22] return
+    + Code attribute instructions (code length = 1, locals = 4, stack = 0):
+      [0] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
 
@@ -724,7 +599,8 @@ _____________________________________________________________________
 Interfaces (count = 1):
   + Class [java/util/Observer]
 
-Constant Pool (count = 271):
+Constant Pool (count = 278):
+  + Integer [60000]
   + Integer [2130903040]
   + Integer [2131165184]
   + Integer [2131165185]
@@ -732,11 +608,13 @@ Constant Pool (count = 271):
   + String [%.2f]
   + String [%sm]
   + String [0]
+  + String [1]
   + String [Absolute]
   + String [Are you sure you want to clear all readings?]
   + String [Bar]
   + String [BarometerMode]
   + String [BarometerUnit]
+  + String [GraphTimeScale]
   + String [KnownAltitude]
   + String [No]
   + String [Yes]
@@ -815,12 +693,13 @@ Constant Pool (count = 271):
   + Methodref [momenso/barometrum2/h.valueOf (Ljava/lang/String;)Lmomenso/barometrum2/h;]
   + Methodref [momenso/barometrum2/i.valueOf (Ljava/lang/String;)Lmomenso/barometrum2/i;]
   + Methodref [momenso/barometrum2/j.a (F)V]
+  + Methodref [momenso/barometrum2/j.a (I)V]
   + Methodref [momenso/barometrum2/j.a (Landroid/content/Context;)Lmomenso/barometrum2/j;]
   + Methodref [momenso/barometrum2/j.a (Lmomenso/barometrum2/h;F)V]
   + Methodref [momenso/barometrum2/j.a (Lmomenso/barometrum2/i;)V]
   + Methodref [momenso/barometrum2/j.f ()F]
   + Methodref [momenso/barometrum2/j.h ()F]
-  + Methodref [momenso/barometrum2/j.i ()V]
+  + Methodref [momenso/barometrum2/j.l ()V]
   + InterfaceMethodref [android/content/SharedPreferences.getString (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
   + NameAndType [<init> ()V]
   + NameAndType [<init> (Landroid/content/Context;)V]
@@ -828,6 +707,7 @@ Constant Pool (count = 271):
   + NameAndType [<init> (Lmomenso/barometrum2/Barometrum2Activity;)V]
   + NameAndType [a ()V]
   + NameAndType [a (F)V]
+  + NameAndType [a (I)V]
   + NameAndType [a (Landroid/content/Context;)Lmomenso/barometrum2/j;]
   + NameAndType [a (Lmomenso/barometrum2/h;F)V]
   + NameAndType [a (Lmomenso/barometrum2/i;)V]
@@ -848,9 +728,9 @@ Constant Pool (count = 271):
   + NameAndType [getDefaultSharedPreferences (Landroid/content/Context;)Landroid/content/SharedPreferences;]
   + NameAndType [getString (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
   + NameAndType [h ()F]
-  + NameAndType [i ()V]
   + NameAndType [intValue ()I]
   + NameAndType [isFinishing ()Z]
+  + NameAndType [l ()V]
   + NameAndType [onCreate (Landroid/os/Bundle;)V]
   + NameAndType [onDestroy ()V]
   + NameAndType [onPause ()V]
@@ -915,6 +795,7 @@ Constant Pool (count = 271):
   + Utf8 [(Lmomenso/barometrum2/j;)V]
   + Utf8 [(Z)Landroid/app/AlertDialog$Builder;]
   + Utf8 [0]
+  + Utf8 [1]
   + Utf8 [<init>]
   + Utf8 [Absolute]
   + Utf8 [Are you sure you want to clear all readings?]
@@ -922,6 +803,7 @@ Constant Pool (count = 271):
   + Utf8 [BarometerMode]
   + Utf8 [BarometerUnit]
   + Utf8 [Code]
+  + Utf8 [GraphTimeScale]
   + Utf8 [KnownAltitude]
   + Utf8 [Lmomenso/barometrum2/c;]
   + Utf8 [Lmomenso/barometrum2/j;]
@@ -957,7 +839,6 @@ Constant Pool (count = 271):
   + Utf8 [getDefaultSharedPreferences]
   + Utf8 [getString]
   + Utf8 [h]
-  + Utf8 [i]
   + Utf8 [intValue]
   + Utf8 [isFinishing]
   + Utf8 [java/lang/Double]
@@ -967,6 +848,7 @@ Constant Pool (count = 271):
   + Utf8 [java/lang/Object]
   + Utf8 [java/lang/String]
   + Utf8 [java/util/Observer]
+  + Utf8 [l]
   + Utf8 [momenso/barometrum2/Barometrum2Activity]
   + Utf8 [momenso/barometrum2/SettingsActivity]
   + Utf8 [momenso/barometrum2/c]
@@ -1010,7 +892,7 @@ Methods (count = 9):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] invokespecial #48
+      [1] invokespecial #51
         + Methodref [android/app/Activity.<init> ()V]
       [4] return
       Code attribute exceptions (count = 0):
@@ -1019,152 +901,174 @@ Methods (count = 9):
     Access flags: 0x1
       = public void onCreate(android.os.Bundle)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 190, locals = 4, stack = 8):
+    + Code attribute instructions (code length = 219, locals = 4, stack = 8):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] invokespecial #49
+      [2] invokespecial #52
         + Methodref [android/app/Activity.onCreate (Landroid/os/Bundle;)V]
       [5] aload_0 v0
-      [6] ldc #1
+      [6] ldc #2
         + Integer [2130903040]
-      [8] invokevirtual #79
+      [8] invokevirtual #82
         + Methodref [momenso/barometrum2/Barometrum2Activity.setContentView (I)V]
       [11] aload_0 v0
-      [12] invokevirtual #76
+      [12] invokevirtual #79
         + Methodref [momenso/barometrum2/Barometrum2Activity.getApplicationContext ()Landroid/content/Context;]
       [15] astore_1 v1
       [16] aload_0 v0
-      [17] new #36
+      [17] new #39
         + Class [momenso/barometrum2/c]
       [20] dup
       [21] aload_1 v1
-      [22] invokespecial #81
+      [22] invokespecial #84
         + Methodref [momenso/barometrum2/c.<init> (Landroid/content/Context;)V]
-      [25] putfield #46
+      [25] putfield #49
         + Fieldref [momenso/barometrum2/Barometrum2Activity.a Lmomenso/barometrum2/c;]
       [28] aload_0 v0
-      [29] getfield #46
+      [29] getfield #49
         + Fieldref [momenso/barometrum2/Barometrum2Activity.a Lmomenso/barometrum2/c;]
       [32] aload_0 v0
-      [33] invokevirtual #83
+      [33] invokevirtual #86
         + Methodref [momenso/barometrum2/c.addObserver (Ljava/util/Observer;)V]
       [36] aload_0 v0
       [37] aload_1 v1
-      [38] invokestatic #92
+      [38] invokestatic #96
         + Methodref [momenso/barometrum2/j.a (Landroid/content/Context;)Lmomenso/barometrum2/j;]
-      [41] putfield #47
+      [41] putfield #50
         + Fieldref [momenso/barometrum2/Barometrum2Activity.b Lmomenso/barometrum2/j;]
       [44] aload_0 v0
-      [45] invokestatic #61
+      [45] invokestatic #64
         + Methodref [android/preference/PreferenceManager.getDefaultSharedPreferences (Landroid/content/Context;)Landroid/content/SharedPreferences;]
       [48] astore_1 v1
       [49] aload_0 v0
-      [50] getfield #47
+      [50] getfield #50
         + Fieldref [momenso/barometrum2/Barometrum2Activity.b Lmomenso/barometrum2/j;]
       [53] pop
       [54] aload_1 v1
-      [55] ldc #11
+      [55] ldc #13
         + String [BarometerMode]
-      [57] ldc #8
+      [57] ldc #10
         + String [Absolute]
-      [59] invokeinterface #98
+      [59] invokeinterface #102
         + InterfaceMethodref [android/content/SharedPreferences.getString (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
-      [64] invokestatic #89
+      [64] invokestatic #92
         + Methodref [momenso/barometrum2/h.valueOf (Ljava/lang/String;)Lmomenso/barometrum2/h;]
       [67] aload_1 v1
-      [68] ldc #13
+      [68] ldc #16
         + String [KnownAltitude]
-      [70] ldc #7
+      [70] ldc #8
         + String [0]
-      [72] invokeinterface #98
+      [72] invokeinterface #102
         + InterfaceMethodref [android/content/SharedPreferences.getString (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
-      [77] invokestatic #70
+      [77] invokestatic #73
         + Methodref [java/lang/Integer.valueOf (Ljava/lang/String;)Ljava/lang/Integer;]
-      [80] invokevirtual #68
+      [80] invokevirtual #71
         + Methodref [java/lang/Integer.intValue ()I]
       [83] i2f
-      [84] invokestatic #93
+      [84] invokestatic #97
         + Methodref [momenso/barometrum2/j.a (Lmomenso/barometrum2/h;F)V]
       [87] aload_0 v0
-      [88] getfield #47
+      [88] getfield #50
         + Fieldref [momenso/barometrum2/Barometrum2Activity.b Lmomenso/barometrum2/j;]
       [91] pop
       [92] aload_1 v1
-      [93] ldc #12
+      [93] ldc #14
         + String [BarometerUnit]
-      [95] ldc #10
+      [95] ldc #12
         + String [Bar]
-      [97] invokeinterface #98
+      [97] invokeinterface #102
         + InterfaceMethodref [android/content/SharedPreferences.getString (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
-      [102] invokestatic #90
+      [102] invokestatic #93
         + Methodref [momenso/barometrum2/i.valueOf (Ljava/lang/String;)Lmomenso/barometrum2/i;]
-      [105] invokestatic #94
+      [105] invokestatic #98
         + Methodref [momenso/barometrum2/j.a (Lmomenso/barometrum2/i;)V]
-      [108] aload_0 v0
-      [109] ldc #2
-        + Integer [2131165184]
-      [111] invokevirtual #75
-        + Methodref [momenso/barometrum2/Barometrum2Activity.findViewById (I)Landroid/view/View;]
-      [114] checkcast #26
-        + Class [android/widget/TextView]
-      [117] astore_2 v2
-      [118] aload_0 v0
-      [119] invokevirtual #77
-        + Methodref [momenso/barometrum2/Barometrum2Activity.getAssets ()Landroid/content/res/AssetManager;]
-      [122] ldc #16
-        + String [font/digital.ttf]
-      [124] invokestatic #60
-        + Methodref [android/graphics/Typeface.createFromAsset (Landroid/content/res/AssetManager;Ljava/lang/String;)Landroid/graphics/Typeface;]
-      [127] astore_3 v3
-      [128] aload_2 v2
-      [129] aload_3 v3
-      [130] invokevirtual #65
-        + Methodref [android/widget/TextView.setTypeface (Landroid/graphics/Typeface;)V]
-      [133] aload_2 v2
-      [134] iconst_m1
-      [135] invokevirtual #64
-        + Methodref [android/widget/TextView.setTextColor (I)V]
-      [138] aload_0 v0
-      [139] ldc #3
-        + Integer [2131165185]
-      [141] invokevirtual #75
-        + Methodref [momenso/barometrum2/Barometrum2Activity.findViewById (I)Landroid/view/View;]
-      [144] checkcast #39
-        + Class [momenso/barometrum2/gui/BorderedTextView]
-      [147] astore_2 v2
-      [148] aload_0 v0
-      [149] invokevirtual #77
-        + Methodref [momenso/barometrum2/Barometrum2Activity.getAssets ()Landroid/content/res/AssetManager;]
-      [152] ldc #17
-        + String [font/normal.ttf]
-      [154] invokestatic #60
-        + Methodref [android/graphics/Typeface.createFromAsset (Landroid/content/res/AssetManager;Ljava/lang/String;)Landroid/graphics/Typeface;]
-      [157] astore_3 v3
-      [158] aload_2 v2
-      [159] aload_3 v3
-      [160] invokevirtual #87
-        + Methodref [momenso/barometrum2/gui/BorderedTextView.setTypeface (Landroid/graphics/Typeface;)V]
-      [163] aload_2 v2
-      [164] ldc #6
-        + String [%sm]
-      [166] iconst_1
-      [167] anewarray #31
-        + Class [java/lang/Object]
-      [170] dup
-      [171] iconst_0
-      [172] aload_1 v1
-      [173] ldc #13
-        + String [KnownAltitude]
-      [175] ldc #7
-        + String [0]
-      [177] invokeinterface #98
+      [108] aload_1 v1
+      [109] ldc #15
+        + String [GraphTimeScale]
+      [111] ldc #9
+        + String [1]
+      [113] invokeinterface #102
         + InterfaceMethodref [android/content/SharedPreferences.getString (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
-      [182] aastore
-      [183] invokestatic #74
+      [118] invokestatic #73
+        + Methodref [java/lang/Integer.valueOf (Ljava/lang/String;)Ljava/lang/Integer;]
+      [121] invokevirtual #71
+        + Methodref [java/lang/Integer.intValue ()I]
+      [124] ldc #1
+        + Integer [60000]
+      [126] imul
+      [127] istore_2 v2
+      [128] aload_0 v0
+      [129] getfield #50
+        + Fieldref [momenso/barometrum2/Barometrum2Activity.b Lmomenso/barometrum2/j;]
+      [132] pop
+      [133] iload_2 v2
+      [134] invokestatic #95
+        + Methodref [momenso/barometrum2/j.a (I)V]
+      [137] aload_0 v0
+      [138] ldc #3
+        + Integer [2131165184]
+      [140] invokevirtual #78
+        + Methodref [momenso/barometrum2/Barometrum2Activity.findViewById (I)Landroid/view/View;]
+      [143] checkcast #29
+        + Class [android/widget/TextView]
+      [146] astore_2 v2
+      [147] aload_0 v0
+      [148] invokevirtual #80
+        + Methodref [momenso/barometrum2/Barometrum2Activity.getAssets ()Landroid/content/res/AssetManager;]
+      [151] ldc #19
+        + String [font/digital.ttf]
+      [153] invokestatic #63
+        + Methodref [android/graphics/Typeface.createFromAsset (Landroid/content/res/AssetManager;Ljava/lang/String;)Landroid/graphics/Typeface;]
+      [156] astore_3 v3
+      [157] aload_2 v2
+      [158] aload_3 v3
+      [159] invokevirtual #68
+        + Methodref [android/widget/TextView.setTypeface (Landroid/graphics/Typeface;)V]
+      [162] aload_2 v2
+      [163] iconst_m1
+      [164] invokevirtual #67
+        + Methodref [android/widget/TextView.setTextColor (I)V]
+      [167] aload_0 v0
+      [168] ldc #4
+        + Integer [2131165185]
+      [170] invokevirtual #78
+        + Methodref [momenso/barometrum2/Barometrum2Activity.findViewById (I)Landroid/view/View;]
+      [173] checkcast #42
+        + Class [momenso/barometrum2/gui/BorderedTextView]
+      [176] astore_2 v2
+      [177] aload_0 v0
+      [178] invokevirtual #80
+        + Methodref [momenso/barometrum2/Barometrum2Activity.getAssets ()Landroid/content/res/AssetManager;]
+      [181] ldc #20
+        + String [font/normal.ttf]
+      [183] invokestatic #63
+        + Methodref [android/graphics/Typeface.createFromAsset (Landroid/content/res/AssetManager;Ljava/lang/String;)Landroid/graphics/Typeface;]
+      [186] astore_3 v3
+      [187] aload_2 v2
+      [188] aload_3 v3
+      [189] invokevirtual #90
+        + Methodref [momenso/barometrum2/gui/BorderedTextView.setTypeface (Landroid/graphics/Typeface;)V]
+      [192] aload_2 v2
+      [193] ldc #7
+        + String [%sm]
+      [195] iconst_1
+      [196] anewarray #34
+        + Class [java/lang/Object]
+      [199] dup
+      [200] iconst_0
+      [201] aload_1 v1
+      [202] ldc #16
+        + String [KnownAltitude]
+      [204] ldc #8
+        + String [0]
+      [206] invokeinterface #102
+        + InterfaceMethodref [android/content/SharedPreferences.getString (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
+      [211] aastore
+      [212] invokestatic #77
         + Methodref [java/lang/String.format (Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;]
-      [186] invokevirtual #86
+      [215] invokevirtual #89
         + Methodref [momenso/barometrum2/gui/BorderedTextView.setText (Ljava/lang/CharSequence;)V]
-      [189] return
+      [218] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       clearReadings(Landroid/view/View;)V
@@ -1172,46 +1076,46 @@ Methods (count = 9):
       = public void clearReadings(android.view.View)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 54, locals = 2, stack = 5):
-      [0] new #20
+      [0] new #23
         + Class [android/app/AlertDialog$Builder]
       [3] dup
       [4] aload_0 v0
-      [5] invokespecial #53
+      [5] invokespecial #56
         + Methodref [android/app/AlertDialog$Builder.<init> (Landroid/content/Context;)V]
       [8] dup
       [9] astore_1 v1
-      [10] ldc #9
+      [10] ldc #11
         + String [Are you sure you want to clear all readings?]
-      [12] invokevirtual #56
+      [12] invokevirtual #59
         + Methodref [android/app/AlertDialog$Builder.setMessage (Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;]
       [15] iconst_0
-      [16] invokevirtual #55
+      [16] invokevirtual #58
         + Methodref [android/app/AlertDialog$Builder.setCancelable (Z)Landroid/app/AlertDialog$Builder;]
-      [19] ldc #15
+      [19] ldc #18
         + String [Yes]
-      [21] new #37
+      [21] new #40
         + Class [momenso/barometrum2/e]
       [24] dup
       [25] aload_0 v0
-      [26] invokespecial #84
+      [26] invokespecial #87
         + Methodref [momenso/barometrum2/e.<init> (Lmomenso/barometrum2/Barometrum2Activity;)V]
-      [29] invokevirtual #58
+      [29] invokevirtual #61
         + Methodref [android/app/AlertDialog$Builder.setPositiveButton (Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;]
-      [32] ldc #14
+      [32] ldc #17
         + String [No]
-      [34] new #38
+      [34] new #41
         + Class [momenso/barometrum2/f]
       [37] dup
       [38] aload_0 v0
-      [39] invokespecial #85
+      [39] invokespecial #88
         + Methodref [momenso/barometrum2/f.<init> (Lmomenso/barometrum2/Barometrum2Activity;)V]
-      [42] invokevirtual #57
+      [42] invokevirtual #60
         + Methodref [android/app/AlertDialog$Builder.setNegativeButton (Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;]
       [45] pop
       [46] aload_1 v1
-      [47] invokevirtual #54
+      [47] invokevirtual #57
         + Methodref [android/app/AlertDialog$Builder.create ()Landroid/app/AlertDialog;]
-      [50] invokevirtual #52
+      [50] invokevirtual #55
         + Methodref [android/app/AlertDialog.show ()V]
       [53] return
       Code attribute exceptions (count = 0):
@@ -1230,20 +1134,20 @@ Methods (count = 9):
       = public void adjustSettings(android.view.View)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 20, locals = 2, stack = 4):
-      [0] new #21
+      [0] new #24
         + Class [android/content/Intent]
       [3] dup
       [4] aload_1 v1
-      [5] invokevirtual #62
+      [5] invokevirtual #65
         + Methodref [android/view/View.getContext ()Landroid/content/Context;]
-      [8] ldc #35
+      [8] ldc #38
         + Class [momenso/barometrum2/SettingsActivity]
-      [10] invokespecial #59
+      [10] invokespecial #62
         + Methodref [android/content/Intent.<init> (Landroid/content/Context;Ljava/lang/Class;)V]
       [13] astore_1 v1
       [14] aload_0 v0
       [15] aload_1 v1
-      [16] invokevirtual #80
+      [16] invokevirtual #83
         + Methodref [momenso/barometrum2/Barometrum2Activity.startActivity (Landroid/content/Intent;)V]
       [19] return
       Code attribute exceptions (count = 0):
@@ -1254,13 +1158,13 @@ Methods (count = 9):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 12, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] invokespecial #51
+      [1] invokespecial #54
         + Methodref [android/app/Activity.onPause ()V]
       [4] aload_0 v0
-      [5] getfield #47
+      [5] getfield #50
         + Fieldref [momenso/barometrum2/Barometrum2Activity.b Lmomenso/barometrum2/j;]
-      [8] invokevirtual #97
-        + Methodref [momenso/barometrum2/j.i ()V]
+      [8] invokevirtual #101
+        + Methodref [momenso/barometrum2/j.l ()V]
       [11] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
@@ -1270,16 +1174,16 @@ Methods (count = 9):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 19, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] invokevirtual #78
+      [1] invokevirtual #81
         + Methodref [momenso/barometrum2/Barometrum2Activity.isFinishing ()Z]
       [4] ifeq +10 (target=14)
       [7] aload_0 v0
-      [8] getfield #46
+      [8] getfield #49
         + Fieldref [momenso/barometrum2/Barometrum2Activity.a Lmomenso/barometrum2/c;]
-      [11] invokevirtual #82
+      [11] invokevirtual #85
         + Methodref [momenso/barometrum2/c.a ()V]
       [14] aload_0 v0
-      [15] invokespecial #50
+      [15] invokespecial #53
         + Methodref [android/app/Activity.onDestroy ()V]
       [18] return
       Code attribute exceptions (count = 0):
@@ -1292,105 +1196,105 @@ Methods (count = 9):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 135, locals = 3, stack = 9):
       [0] aload_1 v1
-      [1] invokevirtual #73
+      [1] invokevirtual #76
         + Methodref [java/lang/Object.getClass ()Ljava/lang/Class;]
-      [4] ldc #36
+      [4] ldc #39
         + Class [momenso/barometrum2/c]
       [6] ifacmpne +128 (target=134)
       [9] aload_2 v2
-      [10] checkcast #28
+      [10] checkcast #31
         + Class [java/lang/Float]
-      [13] invokevirtual #67
+      [13] invokevirtual #70
         + Methodref [java/lang/Float.floatValue ()F]
       [16] fstore_1 v1
       [17] aload_0 v0
-      [18] getfield #47
+      [18] getfield #50
         + Fieldref [momenso/barometrum2/Barometrum2Activity.b Lmomenso/barometrum2/j;]
       [21] fload_1 v1
-      [22] invokevirtual #91
+      [22] invokevirtual #94
         + Methodref [momenso/barometrum2/j.a (F)V]
       [25] aload_0 v0
-      [26] ldc #2
+      [26] ldc #3
         + Integer [2131165184]
-      [28] invokevirtual #75
+      [28] invokevirtual #78
         + Methodref [momenso/barometrum2/Barometrum2Activity.findViewById (I)Landroid/view/View;]
-      [31] checkcast #26
+      [31] checkcast #29
         + Class [android/widget/TextView]
-      [34] ldc #5
+      [34] ldc #6
         + String [%.2f]
       [36] iconst_1
-      [37] anewarray #31
+      [37] anewarray #34
         + Class [java/lang/Object]
       [40] dup
       [41] iconst_0
       [42] aload_0 v0
-      [43] getfield #47
+      [43] getfield #50
         + Fieldref [momenso/barometrum2/Barometrum2Activity.b Lmomenso/barometrum2/j;]
-      [46] invokevirtual #95
+      [46] invokevirtual #99
         + Methodref [momenso/barometrum2/j.f ()F]
       [49] f2d
-      [50] ldc2_w #44
+      [50] ldc2_w #47
         + Double [100.0]
       [53] dmul
-      [54] invokestatic #71
+      [54] invokestatic #74
         + Methodref [java/lang/Math.round (D)J]
       [57] l2d
-      [58] ldc2_w #44
+      [58] ldc2_w #47
         + Double [100.0]
       [61] ddiv
-      [62] invokestatic #66
+      [62] invokestatic #69
         + Methodref [java/lang/Double.valueOf (D)Ljava/lang/Double;]
       [65] aastore
-      [66] invokestatic #74
+      [66] invokestatic #77
         + Methodref [java/lang/String.format (Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;]
-      [69] invokevirtual #63
+      [69] invokevirtual #66
         + Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
       [72] aload_0 v0
-      [73] ldc #3
+      [73] ldc #4
         + Integer [2131165185]
-      [75] invokevirtual #75
+      [75] invokevirtual #78
         + Methodref [momenso/barometrum2/Barometrum2Activity.findViewById (I)Landroid/view/View;]
-      [78] checkcast #39
+      [78] checkcast #42
         + Class [momenso/barometrum2/gui/BorderedTextView]
-      [81] ldc #6
+      [81] ldc #7
         + String [%sm]
       [83] iconst_1
-      [84] anewarray #31
+      [84] anewarray #34
         + Class [java/lang/Object]
       [87] dup
       [88] iconst_0
       [89] aload_0 v0
-      [90] getfield #47
+      [90] getfield #50
         + Fieldref [momenso/barometrum2/Barometrum2Activity.b Lmomenso/barometrum2/j;]
       [93] pop
-      [94] invokestatic #96
+      [94] invokestatic #100
         + Methodref [momenso/barometrum2/j.h ()F]
-      [97] invokestatic #72
+      [97] invokestatic #75
         + Methodref [java/lang/Math.round (F)I]
-      [100] invokestatic #69
+      [100] invokestatic #72
         + Methodref [java/lang/Integer.valueOf (I)Ljava/lang/Integer;]
       [103] aastore
-      [104] invokestatic #74
+      [104] invokestatic #77
         + Methodref [java/lang/String.format (Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;]
-      [107] invokevirtual #86
+      [107] invokevirtual #89
         + Methodref [momenso/barometrum2/gui/BorderedTextView.setText (Ljava/lang/CharSequence;)V]
       [110] aload_0 v0
       [111] dup
       [112] astore_1 v1
-      [113] ldc #4
+      [113] ldc #5
         + Integer [2131165186]
-      [115] invokevirtual #75
+      [115] invokevirtual #78
         + Methodref [momenso/barometrum2/Barometrum2Activity.findViewById (I)Landroid/view/View;]
-      [118] checkcast #40
+      [118] checkcast #43
         + Class [momenso/barometrum2/gui/ChartView]
       [121] dup
       [122] astore_2 v2
       [123] ifnull +11 (target=134)
       [126] aload_2 v2
       [127] aload_1 v1
-      [128] getfield #47
+      [128] getfield #50
         + Fieldref [momenso/barometrum2/Barometrum2Activity.b Lmomenso/barometrum2/j;]
-      [131] invokevirtual #88
+      [131] invokevirtual #91
         + Methodref [momenso/barometrum2/gui/ChartView.a (Lmomenso/barometrum2/j;)V]
       [134] return
       Code attribute exceptions (count = 0):
@@ -1403,7 +1307,7 @@ Methods (count = 9):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #47
+      [1] getfield #50
         + Fieldref [momenso/barometrum2/Barometrum2Activity.b Lmomenso/barometrum2/j;]
       [4] areturn
       Code attribute exceptions (count = 0):
@@ -2344,7 +2248,7 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 197):
+Constant Pool (count = 202):
   + Integer [60000]
   + Float [1.4E-45]
   + Float [3.4028235E38]
@@ -2400,8 +2304,8 @@ Constant Pool (count = 197):
   + Methodref [momenso/barometrum2/j.<init> (Landroid/content/Context;)V]
   + Methodref [momenso/barometrum2/j.a (Ljava/lang/String;)Ljava/util/List;]
   + Methodref [momenso/barometrum2/j.a (Lmomenso/barometrum2/g;)V]
-  + Methodref [momenso/barometrum2/j.j ()V]
-  + Methodref [momenso/barometrum2/j.k ()V]
+  + Methodref [momenso/barometrum2/j.m ()V]
+  + Methodref [momenso/barometrum2/j.n ()V]
   + InterfaceMethodref [java/util/Iterator.hasNext ()Z]
   + InterfaceMethodref [java/util/Iterator.next ()Ljava/lang/Object;]
   + InterfaceMethodref [java/util/List.add (Ljava/lang/Object;)Z]
@@ -2443,10 +2347,10 @@ Constant Pool (count = 197):
   + NameAndType [i F]
   + NameAndType [isEmpty ()Z]
   + NameAndType [iterator ()Ljava/util/Iterator;]
-  + NameAndType [j ()V]
   + NameAndType [j I]
-  + NameAndType [k ()V]
   + NameAndType [k Lmomenso/barometrum2/j;]
+  + NameAndType [m ()V]
+  + NameAndType [n ()V]
   + NameAndType [next ()Ljava/lang/Object;]
   + NameAndType [openFileInput (Ljava/lang/String;)Ljava/io/FileInputStream;]
   + NameAndType [openFileOutput (Ljava/lang/String;I)Ljava/io/FileOutputStream;]
@@ -2462,6 +2366,8 @@ Constant Pool (count = 197):
   + Utf8 [()Ljava/util/Iterator;]
   + Utf8 [()Ljava/util/List;]
   + Utf8 [()Lmomenso/barometrum2/g;]
+  + Utf8 [()Lmomenso/barometrum2/h;]
+  + Utf8 [()Lmomenso/barometrum2/i;]
   + Utf8 [()V]
   + Utf8 [()Z]
   + Utf8 [(F)V]
@@ -2529,10 +2435,13 @@ Constant Pool (count = 197):
   + Utf8 [java/util/Iterator]
   + Utf8 [java/util/List]
   + Utf8 [k]
+  + Utf8 [l]
+  + Utf8 [m]
   + Utf8 [momenso/barometrum2/g]
   + Utf8 [momenso/barometrum2/h]
   + Utf8 [momenso/barometrum2/i]
   + Utf8 [momenso/barometrum2/j]
+  + Utf8 [n]
   + Utf8 [next]
   + Utf8 [openFileInput]
   + Utf8 [openFileOutput]
@@ -2577,7 +2486,7 @@ Fields (count = 11):
     Access flags: 0xa
       = private static momenso.barometrum2.j k
 
-Methods (count = 22):
+Methods (count = 25):
   - Method:       <clinit>()V
     Access flags: 0x8
       = static void <clinit>()
@@ -2639,7 +2548,7 @@ Methods (count = 22):
         + Fieldref [momenso/barometrum2/j.b Ljava/util/List;]
       [42] aload_0 v0
       [43] invokespecial #56
-        + Methodref [momenso/barometrum2/j.j ()V]
+        + Methodref [momenso/barometrum2/j.m ()V]
       [46] aload_0 v0
       [47] astore_1 v1
       [48] aload_1 v1
@@ -2664,7 +2573,7 @@ Methods (count = 22):
       [76] pop
       [77] aload_1 v1
       [78] invokespecial #57
-        + Methodref [momenso/barometrum2/j.k ()V]
+        + Methodref [momenso/barometrum2/j.n ()V]
       [81] return
       [82] invokevirtual #42
         + Methodref [java/lang/Exception.printStackTrace ()V]
@@ -2902,7 +2811,7 @@ Methods (count = 22):
       [309] pop
       [310] aload_0 v0
       [311] invokespecial #57
-        + Methodref [momenso/barometrum2/j.k ()V]
+        + Methodref [momenso/barometrum2/j.n ()V]
       [314] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
@@ -2924,9 +2833,9 @@ Methods (count = 22):
       [4] areturn
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
-  + Method:       j()V
+  + Method:       m()V
     Access flags: 0x2
-      = private void j()
+      = private void m()
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 65, locals = 1, stack = 6):
       [0] aload_0 v0
@@ -3046,14 +2955,14 @@ Methods (count = 22):
       + Stack map table attribute (count = 2):
         - [37] Var: ..., Stack: (empty)
         - [74] Var: ..., Stack: (empty)
-  + Method:       k()V
+  + Method:       n()V
     Access flags: 0x2
-      = private void k()
+      = private void n()
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 79, locals = 3, stack = 2):
       [0] aload_0 v0
       [1] invokespecial #56
-        + Methodref [momenso/barometrum2/j.j ()V]
+        + Methodref [momenso/barometrum2/j.m ()V]
       [4] aload_0 v0
       [5] getfield #25
         + Fieldref [momenso/barometrum2/j.b Ljava/util/List;]
@@ -3269,6 +3178,26 @@ Methods (count = 22):
       [8] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
+  + Method:       i()Lmomenso/barometrum2/h;
+    Access flags: 0x9
+      = public static momenso.barometrum2.h i()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 4, locals = 0, stack = 1):
+      [0] getstatic #30
+        + Fieldref [momenso/barometrum2/j.g Lmomenso/barometrum2/h;]
+      [3] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       j()F
+    Access flags: 0x9
+      = public static float j()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 4, locals = 0, stack = 1):
+      [0] getstatic #32
+        + Fieldref [momenso/barometrum2/j.i F]
+      [3] freturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
   + Method:       a(I)V
     Access flags: 0x9
       = public static void a(int)
@@ -3291,9 +3220,19 @@ Methods (count = 22):
       [4] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
-  + Method:       i()V
+  + Method:       k()Lmomenso/barometrum2/i;
+    Access flags: 0x9
+      = public static momenso.barometrum2.i k()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 4, locals = 0, stack = 1):
+      [0] getstatic #31
+        + Fieldref [momenso/barometrum2/j.h Lmomenso/barometrum2/i;]
+      [3] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       l()V
     Access flags: 0x11
-      = public final void i()
+      = public final void l()
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 66, locals = 4, stack = 3):
       [0] aload_0 v0
@@ -6477,12 +6416,15 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 222):
+Constant Pool (count = 306):
   + Float [3.0]
   + Float [4.0]
   + Float [6.0]
+  + Float [8.0]
   + Float [15.0]
   + String [%.2f]
+  + String [HH:mm]
+  + String [dd-MM]
   + Class [android/graphics/Canvas]
   + Class [android/graphics/Color]
   + Class [android/graphics/Paint]
@@ -6491,16 +6433,21 @@ Constant Pool (count = 222):
   + Class [android/graphics/Rect]
   + Class [android/graphics/RectF]
   + Class [android/graphics/Typeface]
+  + Class [android/view/MotionEvent]
+  + Class [android/view/MotionEvent$PointerCoords]
   + Class [android/widget/TextView]
   + Class [java/lang/Float]
   + Class [java/lang/Math]
   + Class [java/lang/Object]
   + Class [java/lang/String]
+  + Class [java/text/SimpleDateFormat]
+  + Class [java/util/Date]
   + Class [java/util/Iterator]
   + Class [java/util/List]
   + Class [momenso/barometrum2/g]
   + Class [momenso/barometrum2/gui/ChartView]
   + Class [momenso/barometrum2/j]
+  + Fieldref [android/graphics/Paint$Align.CENTER Landroid/graphics/Paint$Align;]
   + Fieldref [android/graphics/Paint$Align.LEFT Landroid/graphics/Paint$Align;]
   + Fieldref [android/graphics/Paint$Style.FILL Landroid/graphics/Paint$Style;]
   + Fieldref [android/graphics/Paint$Style.STROKE Landroid/graphics/Paint$Style;]
@@ -6508,15 +6455,22 @@ Constant Pool (count = 222):
   + Fieldref [android/graphics/Rect.left I]
   + Fieldref [android/graphics/Rect.right I]
   + Fieldref [android/graphics/Rect.top I]
-  + Fieldref [android/graphics/Typeface.DEFAULT Landroid/graphics/Typeface;]
   + Fieldref [android/graphics/Typeface.MONOSPACE Landroid/graphics/Typeface;]
+  + Fieldref [android/view/MotionEvent$PointerCoords.x F]
+  + Fieldref [android/view/MotionEvent$PointerCoords.y F]
   + Fieldref [momenso/barometrum2/gui/ChartView.a Lmomenso/barometrum2/j;]
+  + Fieldref [momenso/barometrum2/gui/ChartView.b Landroid/view/MotionEvent$PointerCoords;]
+  + Fieldref [momenso/barometrum2/gui/ChartView.c I]
+  + Fieldref [momenso/barometrum2/gui/ChartView.d Ljava/text/SimpleDateFormat;]
+  + Fieldref [momenso/barometrum2/gui/ChartView.e Ljava/text/SimpleDateFormat;]
   + Methodref [android/graphics/Canvas.drawLine (FFFFLandroid/graphics/Paint;)V]
+  + Methodref [android/graphics/Canvas.drawRect (FFFFLandroid/graphics/Paint;)V]
   + Methodref [android/graphics/Canvas.drawRect (Landroid/graphics/RectF;Landroid/graphics/Paint;)V]
   + Methodref [android/graphics/Canvas.drawRoundRect (Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V]
   + Methodref [android/graphics/Canvas.drawText (Ljava/lang/String;FFLandroid/graphics/Paint;)V]
   + Methodref [android/graphics/Color.rgb (III)I]
   + Methodref [android/graphics/Paint.<init> ()V]
+  + Methodref [android/graphics/Paint.ascent ()F]
   + Methodref [android/graphics/Paint.descent ()F]
   + Methodref [android/graphics/Paint.getTextSize ()F]
   + Methodref [android/graphics/Paint.measureText (Ljava/lang/String;)F]
@@ -6528,16 +6482,27 @@ Constant Pool (count = 222):
   + Methodref [android/graphics/Paint.setTextSize (F)V]
   + Methodref [android/graphics/Paint.setTypeface (Landroid/graphics/Typeface;)Landroid/graphics/Typeface;]
   + Methodref [android/graphics/Rect.<init> ()V]
+  + Methodref [android/graphics/Rect.centerY ()I]
   + Methodref [android/graphics/Rect.height ()I]
   + Methodref [android/graphics/Rect.width ()I]
   + Methodref [android/graphics/RectF.<init> (FFFF)V]
+  + Methodref [android/graphics/RectF.contains (FF)Z]
+  + Methodref [android/view/MotionEvent.getPointerCoords (ILandroid/view/MotionEvent$PointerCoords;)V]
+  + Methodref [android/view/MotionEvent$PointerCoords.<init> ()V]
   + Methodref [android/widget/TextView.<init> (Landroid/content/Context;)V]
   + Methodref [android/widget/TextView.<init> (Landroid/content/Context;Landroid/util/AttributeSet;)V]
   + Methodref [android/widget/TextView.<init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V]
+  + Methodref [android/widget/TextView.onTouchEvent (Landroid/view/MotionEvent;)Z]
   + Methodref [java/lang/Float.valueOf (F)Ljava/lang/Float;]
   + Methodref [java/lang/Math.round (F)I]
   + Methodref [java/lang/String.format (Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;]
+  + Methodref [java/text/SimpleDateFormat.<init> (Ljava/lang/String;)V]
+  + Methodref [java/text/SimpleDateFormat.format (Ljava/util/Date;)Ljava/lang/String;]
+  + Methodref [java/util/Date.<init> (J)V]
   + Methodref [momenso/barometrum2/g.a ()F]
+  + Methodref [momenso/barometrum2/g.a (Lmomenso/barometrum2/h;Lmomenso/barometrum2/i;F)F]
+  + Methodref [momenso/barometrum2/g.b ()J]
+  + Methodref [momenso/barometrum2/gui/ChartView.a (FFFF)F]
   + Methodref [momenso/barometrum2/gui/ChartView.getDrawingRect (Landroid/graphics/Rect;)V]
   + Methodref [momenso/barometrum2/gui/ChartView.getTextSize ()F]
   + Methodref [momenso/barometrum2/gui/ChartView.getTypeface ()Landroid/graphics/Typeface;]
@@ -6547,44 +6512,68 @@ Constant Pool (count = 222):
   + Methodref [momenso/barometrum2/j.c ()F]
   + Methodref [momenso/barometrum2/j.d ()Lmomenso/barometrum2/g;]
   + Methodref [momenso/barometrum2/j.e ()Lmomenso/barometrum2/g;]
+  + Methodref [momenso/barometrum2/j.i ()Lmomenso/barometrum2/h;]
+  + Methodref [momenso/barometrum2/j.j ()F]
+  + Methodref [momenso/barometrum2/j.k ()Lmomenso/barometrum2/i;]
   + InterfaceMethodref [java/util/Iterator.hasNext ()Z]
   + InterfaceMethodref [java/util/Iterator.next ()Ljava/lang/Object;]
+  + InterfaceMethodref [java/util/List.get (I)Ljava/lang/Object;]
   + InterfaceMethodref [java/util/List.iterator ()Ljava/util/Iterator;]
   + InterfaceMethodref [java/util/List.size ()I]
   + NameAndType [<init> ()V]
   + NameAndType [<init> (FFFF)V]
+  + NameAndType [<init> (J)V]
   + NameAndType [<init> (Landroid/content/Context;)V]
   + NameAndType [<init> (Landroid/content/Context;Landroid/util/AttributeSet;)V]
   + NameAndType [<init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V]
-  + NameAndType [DEFAULT Landroid/graphics/Typeface;]
+  + NameAndType [<init> (Ljava/lang/String;)V]
+  + NameAndType [CENTER Landroid/graphics/Paint$Align;]
   + NameAndType [FILL Landroid/graphics/Paint$Style;]
   + NameAndType [LEFT Landroid/graphics/Paint$Align;]
   + NameAndType [MONOSPACE Landroid/graphics/Typeface;]
   + NameAndType [STROKE Landroid/graphics/Paint$Style;]
   + NameAndType [a ()F]
   + NameAndType [a ()Ljava/util/List;]
+  + NameAndType [a (FFFF)F]
+  + NameAndType [a (Lmomenso/barometrum2/h;Lmomenso/barometrum2/i;F)F]
   + NameAndType [a Lmomenso/barometrum2/j;]
+  + NameAndType [ascent ()F]
   + NameAndType [b ()F]
+  + NameAndType [b ()J]
+  + NameAndType [b Landroid/view/MotionEvent$PointerCoords;]
   + NameAndType [bottom I]
   + NameAndType [c ()F]
+  + NameAndType [c I]
+  + NameAndType [centerY ()I]
+  + NameAndType [contains (FF)Z]
   + NameAndType [d ()Lmomenso/barometrum2/g;]
+  + NameAndType [d Ljava/text/SimpleDateFormat;]
   + NameAndType [descent ()F]
   + NameAndType [drawLine (FFFFLandroid/graphics/Paint;)V]
+  + NameAndType [drawRect (FFFFLandroid/graphics/Paint;)V]
   + NameAndType [drawRect (Landroid/graphics/RectF;Landroid/graphics/Paint;)V]
   + NameAndType [drawRoundRect (Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V]
   + NameAndType [drawText (Ljava/lang/String;FFLandroid/graphics/Paint;)V]
   + NameAndType [e ()Lmomenso/barometrum2/g;]
+  + NameAndType [e Ljava/text/SimpleDateFormat;]
   + NameAndType [format (Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;]
+  + NameAndType [format (Ljava/util/Date;)Ljava/lang/String;]
+  + NameAndType [get (I)Ljava/lang/Object;]
   + NameAndType [getDrawingRect (Landroid/graphics/Rect;)V]
+  + NameAndType [getPointerCoords (ILandroid/view/MotionEvent$PointerCoords;)V]
   + NameAndType [getTextSize ()F]
   + NameAndType [getTypeface ()Landroid/graphics/Typeface;]
   + NameAndType [hasNext ()Z]
   + NameAndType [height ()I]
+  + NameAndType [i ()Lmomenso/barometrum2/h;]
   + NameAndType [invalidate ()V]
   + NameAndType [iterator ()Ljava/util/Iterator;]
+  + NameAndType [j ()F]
+  + NameAndType [k ()Lmomenso/barometrum2/i;]
   + NameAndType [left I]
   + NameAndType [measureText (Ljava/lang/String;)F]
   + NameAndType [next ()Ljava/lang/Object;]
+  + NameAndType [onTouchEvent (Landroid/view/MotionEvent;)Z]
   + NameAndType [rgb (III)I]
   + NameAndType [right I]
   + NameAndType [round (F)I]
@@ -6599,23 +6588,33 @@ Constant Pool (count = 222):
   + NameAndType [top I]
   + NameAndType [valueOf (F)Ljava/lang/Float;]
   + NameAndType [width ()I]
+  + NameAndType [x F]
+  + NameAndType [y F]
   + Utf8 [%.2f]
   + Utf8 [()F]
   + Utf8 [()I]
+  + Utf8 [()J]
   + Utf8 [()Landroid/graphics/Typeface;]
   + Utf8 [()Ljava/lang/Object;]
   + Utf8 [()Ljava/util/Iterator;]
   + Utf8 [()Ljava/util/List;]
   + Utf8 [()Lmomenso/barometrum2/g;]
+  + Utf8 [()Lmomenso/barometrum2/h;]
+  + Utf8 [()Lmomenso/barometrum2/i;]
   + Utf8 [()V]
   + Utf8 [()Z]
   + Utf8 [(F)I]
   + Utf8 [(F)Ljava/lang/Float;]
   + Utf8 [(F)V]
+  + Utf8 [(FF)Z]
+  + Utf8 [(FFFF)F]
   + Utf8 [(FFFF)V]
   + Utf8 [(FFFFLandroid/graphics/Paint;)V]
+  + Utf8 [(I)Ljava/lang/Object;]
   + Utf8 [(I)V]
   + Utf8 [(III)I]
+  + Utf8 [(ILandroid/view/MotionEvent$PointerCoords;)V]
+  + Utf8 [(J)V]
   + Utf8 [(Landroid/content/Context;)V]
   + Utf8 [(Landroid/content/Context;Landroid/util/AttributeSet;)V]
   + Utf8 [(Landroid/content/Context;Landroid/util/AttributeSet;I)V]
@@ -6626,20 +6625,28 @@ Constant Pool (count = 222):
   + Utf8 [(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V]
   + Utf8 [(Landroid/graphics/RectF;Landroid/graphics/Paint;)V]
   + Utf8 [(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;]
+  + Utf8 [(Landroid/view/MotionEvent;)Z]
   + Utf8 [(Ljava/lang/String;)F]
+  + Utf8 [(Ljava/lang/String;)V]
   + Utf8 [(Ljava/lang/String;FFLandroid/graphics/Paint;)V]
   + Utf8 [(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;]
+  + Utf8 [(Ljava/util/Date;)Ljava/lang/String;]
+  + Utf8 [(Lmomenso/barometrum2/h;Lmomenso/barometrum2/i;F)F]
   + Utf8 [(Lmomenso/barometrum2/j;)V]
   + Utf8 [(Z)V]
   + Utf8 [<init>]
+  + Utf8 [CENTER]
   + Utf8 [Code]
-  + Utf8 [DEFAULT]
+  + Utf8 [F]
   + Utf8 [FILL]
+  + Utf8 [HH:mm]
   + Utf8 [I]
   + Utf8 [LEFT]
   + Utf8 [Landroid/graphics/Paint$Align;]
   + Utf8 [Landroid/graphics/Paint$Style;]
   + Utf8 [Landroid/graphics/Typeface;]
+  + Utf8 [Landroid/view/MotionEvent$PointerCoords;]
+  + Utf8 [Ljava/text/SimpleDateFormat;]
   + Utf8 [Lmomenso/barometrum2/j;]
   + Utf8 [MONOSPACE]
   + Utf8 [STROKE]
@@ -6653,11 +6660,17 @@ Constant Pool (count = 222):
   + Utf8 [android/graphics/Rect]
   + Utf8 [android/graphics/RectF]
   + Utf8 [android/graphics/Typeface]
+  + Utf8 [android/view/MotionEvent]
+  + Utf8 [android/view/MotionEvent$PointerCoords]
   + Utf8 [android/widget/TextView]
+  + Utf8 [ascent]
   + Utf8 [b]
   + Utf8 [bottom]
   + Utf8 [c]
+  + Utf8 [centerY]
+  + Utf8 [contains]
   + Utf8 [d]
+  + Utf8 [dd-MM]
   + Utf8 [descent]
   + Utf8 [drawLine]
   + Utf8 [drawRect]
@@ -6665,19 +6678,26 @@ Constant Pool (count = 222):
   + Utf8 [drawText]
   + Utf8 [e]
   + Utf8 [format]
+  + Utf8 [get]
   + Utf8 [getDrawingRect]
+  + Utf8 [getPointerCoords]
   + Utf8 [getTextSize]
   + Utf8 [getTypeface]
   + Utf8 [hasNext]
   + Utf8 [height]
+  + Utf8 [i]
   + Utf8 [invalidate]
   + Utf8 [iterator]
+  + Utf8 [j]
   + Utf8 [java/lang/Float]
   + Utf8 [java/lang/Math]
   + Utf8 [java/lang/Object]
   + Utf8 [java/lang/String]
+  + Utf8 [java/text/SimpleDateFormat]
+  + Utf8 [java/util/Date]
   + Utf8 [java/util/Iterator]
   + Utf8 [java/util/List]
+  + Utf8 [k]
   + Utf8 [left]
   + Utf8 [measureText]
   + Utf8 [momenso/barometrum2/g]
@@ -6685,6 +6705,7 @@ Constant Pool (count = 222):
   + Utf8 [momenso/barometrum2/j]
   + Utf8 [next]
   + Utf8 [onDraw]
+  + Utf8 [onTouchEvent]
   + Utf8 [rgb]
   + Utf8 [right]
   + Utf8 [round]
@@ -6699,50 +6720,160 @@ Constant Pool (count = 222):
   + Utf8 [top]
   + Utf8 [valueOf]
   + Utf8 [width]
+  + Utf8 [x]
+  + Utf8 [y]
 
-Fields (count = 1):
+Fields (count = 5):
   + Field:        a Lmomenso/barometrum2/j;
     Access flags: 0x2
       = private momenso.barometrum2.j a
+  + Field:        b Landroid/view/MotionEvent$PointerCoords;
+    Access flags: 0x2
+      = private android.view.MotionEvent$PointerCoords b
+  + Field:        c I
+    Access flags: 0x2
+      = private int c
+  + Field:        d Ljava/text/SimpleDateFormat;
+    Access flags: 0x2
+      = private java.text.SimpleDateFormat d
+  + Field:        e Ljava/text/SimpleDateFormat;
+    Access flags: 0x2
+      = private java.text.SimpleDateFormat e
 
-Methods (count = 5):
+Methods (count = 7):
   - Method:       <init>(Landroid/content/Context;)V
     Access flags: 0x1
       = public ChartView(android.content.Context)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 6, locals = 2, stack = 2):
+    + Code attribute instructions (code length = 48, locals = 2, stack = 4):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] invokespecial #54
+      [2] invokespecial #73
         + Methodref [android/widget/TextView.<init> (Landroid/content/Context;)V]
-      [5] return
+      [5] aload_0 v0
+      [6] new #18
+        + Class [android/view/MotionEvent$PointerCoords]
+      [9] dup
+      [10] invokespecial #72
+        + Methodref [android/view/MotionEvent$PointerCoords.<init> ()V]
+      [13] putfield #43
+        + Fieldref [momenso/barometrum2/gui/ChartView.b Landroid/view/MotionEvent$PointerCoords;]
+      [16] aload_0 v0
+      [17] iconst_m1
+      [18] putfield #44
+        + Fieldref [momenso/barometrum2/gui/ChartView.c I]
+      [21] aload_0 v0
+      [22] new #24
+        + Class [java/text/SimpleDateFormat]
+      [25] dup
+      [26] ldc #8
+        + String [dd-MM]
+      [28] invokespecial #80
+        + Methodref [java/text/SimpleDateFormat.<init> (Ljava/lang/String;)V]
+      [31] putfield #45
+        + Fieldref [momenso/barometrum2/gui/ChartView.d Ljava/text/SimpleDateFormat;]
+      [34] aload_0 v0
+      [35] new #24
+        + Class [java/text/SimpleDateFormat]
+      [38] dup
+      [39] ldc #7
+        + String [HH:mm]
+      [41] invokespecial #80
+        + Methodref [java/text/SimpleDateFormat.<init> (Ljava/lang/String;)V]
+      [44] putfield #46
+        + Fieldref [momenso/barometrum2/gui/ChartView.e Ljava/text/SimpleDateFormat;]
+      [47] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   - Method:       <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     Access flags: 0x1
       = public ChartView(android.content.Context,android.util.AttributeSet)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 7, locals = 3, stack = 3):
+    + Code attribute instructions (code length = 49, locals = 3, stack = 4):
       [0] aload_0 v0
       [1] aload_1 v1
       [2] aload_2 v2
-      [3] invokespecial #55
+      [3] invokespecial #74
         + Methodref [android/widget/TextView.<init> (Landroid/content/Context;Landroid/util/AttributeSet;)V]
-      [6] return
+      [6] aload_0 v0
+      [7] new #18
+        + Class [android/view/MotionEvent$PointerCoords]
+      [10] dup
+      [11] invokespecial #72
+        + Methodref [android/view/MotionEvent$PointerCoords.<init> ()V]
+      [14] putfield #43
+        + Fieldref [momenso/barometrum2/gui/ChartView.b Landroid/view/MotionEvent$PointerCoords;]
+      [17] aload_0 v0
+      [18] iconst_m1
+      [19] putfield #44
+        + Fieldref [momenso/barometrum2/gui/ChartView.c I]
+      [22] aload_0 v0
+      [23] new #24
+        + Class [java/text/SimpleDateFormat]
+      [26] dup
+      [27] ldc #8
+        + String [dd-MM]
+      [29] invokespecial #80
+        + Methodref [java/text/SimpleDateFormat.<init> (Ljava/lang/String;)V]
+      [32] putfield #45
+        + Fieldref [momenso/barometrum2/gui/ChartView.d Ljava/text/SimpleDateFormat;]
+      [35] aload_0 v0
+      [36] new #24
+        + Class [java/text/SimpleDateFormat]
+      [39] dup
+      [40] ldc #7
+        + String [HH:mm]
+      [42] invokespecial #80
+        + Methodref [java/text/SimpleDateFormat.<init> (Ljava/lang/String;)V]
+      [45] putfield #46
+        + Fieldref [momenso/barometrum2/gui/ChartView.e Ljava/text/SimpleDateFormat;]
+      [48] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   - Method:       <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     Access flags: 0x1
       = public ChartView(android.content.Context,android.util.AttributeSet,int)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 8, locals = 4, stack = 4):
+    + Code attribute instructions (code length = 50, locals = 4, stack = 4):
       [0] aload_0 v0
       [1] aload_1 v1
       [2] aload_2 v2
       [3] iload_3 v3
-      [4] invokespecial #56
+      [4] invokespecial #75
         + Methodref [android/widget/TextView.<init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V]
-      [7] return
+      [7] aload_0 v0
+      [8] new #18
+        + Class [android/view/MotionEvent$PointerCoords]
+      [11] dup
+      [12] invokespecial #72
+        + Methodref [android/view/MotionEvent$PointerCoords.<init> ()V]
+      [15] putfield #43
+        + Fieldref [momenso/barometrum2/gui/ChartView.b Landroid/view/MotionEvent$PointerCoords;]
+      [18] aload_0 v0
+      [19] iconst_m1
+      [20] putfield #44
+        + Fieldref [momenso/barometrum2/gui/ChartView.c I]
+      [23] aload_0 v0
+      [24] new #24
+        + Class [java/text/SimpleDateFormat]
+      [27] dup
+      [28] ldc #8
+        + String [dd-MM]
+      [30] invokespecial #80
+        + Methodref [java/text/SimpleDateFormat.<init> (Ljava/lang/String;)V]
+      [33] putfield #45
+        + Fieldref [momenso/barometrum2/gui/ChartView.d Ljava/text/SimpleDateFormat;]
+      [36] aload_0 v0
+      [37] new #24
+        + Class [java/text/SimpleDateFormat]
+      [40] dup
+      [41] ldc #7
+        + String [HH:mm]
+      [43] invokespecial #80
+        + Methodref [java/text/SimpleDateFormat.<init> (Ljava/lang/String;)V]
+      [46] putfield #46
+        + Fieldref [momenso/barometrum2/gui/ChartView.e Ljava/text/SimpleDateFormat;]
+      [49] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       a(Lmomenso/barometrum2/j;)V
@@ -6752,10 +6883,10 @@ Methods (count = 5):
     + Code attribute instructions (code length = 10, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] putfield #33
+      [2] putfield #42
         + Fieldref [momenso/barometrum2/gui/ChartView.a Lmomenso/barometrum2/j;]
       [5] aload_0 v0
-      [6] invokevirtual #64
+      [6] invokevirtual #90
         + Methodref [momenso/barometrum2/gui/ChartView.invalidate ()V]
       [9] return
       Code attribute exceptions (count = 0):
@@ -6764,142 +6895,142 @@ Methods (count = 5):
     Access flags: 0x4
       = protected void onDraw(android.graphics.Canvas)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 658, locals = 14, stack = 7):
-      [0] new #11
+    + Code attribute instructions (code length = 1066, locals = 18, stack = 8):
+      [0] new #14
         + Class [android/graphics/Rect]
       [3] dup
-      [4] invokespecial #50
+      [4] invokespecial #65
         + Methodref [android/graphics/Rect.<init> ()V]
       [7] astore_2 v2
       [8] aload_0 v0
       [9] aload_2 v2
-      [10] invokevirtual #61
+      [10] invokevirtual #87
         + Methodref [momenso/barometrum2/gui/ChartView.getDrawingRect (Landroid/graphics/Rect;)V]
-      [13] new #8
+      [13] new #11
         + Class [android/graphics/Paint]
       [16] dup
-      [17] invokespecial #39
+      [17] invokespecial #53
         + Methodref [android/graphics/Paint.<init> ()V]
       [20] dup
       [21] astore_3 v3
       [22] aload_0 v0
-      [23] invokevirtual #63
+      [23] invokevirtual #89
         + Methodref [momenso/barometrum2/gui/ChartView.getTypeface ()Landroid/graphics/Typeface;]
-      [26] invokevirtual #49
+      [26] invokevirtual #64
         + Methodref [android/graphics/Paint.setTypeface (Landroid/graphics/Typeface;)Landroid/graphics/Typeface;]
       [29] pop
       [30] aload_3 v3
       [31] iconst_1
-      [32] invokevirtual #43
+      [32] invokevirtual #58
         + Methodref [android/graphics/Paint.setAntiAlias (Z)V]
-      [35] new #12
+      [35] new #15
         + Class [android/graphics/RectF]
       [38] dup
       [39] aload_2 v2
-      [40] getfield #28
+      [40] getfield #36
         + Fieldref [android/graphics/Rect.left I]
       [43] iconst_2
       [44] iadd
       [45] i2f
       [46] aload_2 v2
-      [47] getfield #30
+      [47] getfield #38
         + Fieldref [android/graphics/Rect.top I]
       [50] iconst_2
       [51] iadd
       [52] i2f
       [53] aload_2 v2
-      [54] getfield #29
+      [54] getfield #37
         + Fieldref [android/graphics/Rect.right I]
       [57] iconst_2
       [58] isub
       [59] i2f
       [60] aload_2 v2
-      [61] getfield #27
+      [61] getfield #35
         + Fieldref [android/graphics/Rect.bottom I]
       [64] iconst_2
       [65] isub
       [66] i2f
-      [67] invokespecial #53
+      [67] invokespecial #69
         + Methodref [android/graphics/RectF.<init> (FFFF)V]
       [70] astore v4
       [72] aload_3 v3
-      [73] getstatic #25
+      [73] getstatic #33
         + Fieldref [android/graphics/Paint$Style.FILL Landroid/graphics/Paint$Style;]
-      [76] invokevirtual #46
+      [76] invokevirtual #61
         + Methodref [android/graphics/Paint.setStyle (Landroid/graphics/Paint$Style;)V]
       [79] bipush 30
       [81] bipush 30
       [83] bipush 30
-      [85] invokestatic #38
+      [85] invokestatic #52
         + Methodref [android/graphics/Color.rgb (III)I]
       [88] istore v5
       [90] aload_3 v3
       [91] iload v5
-      [93] invokevirtual #44
+      [93] invokevirtual #59
         + Methodref [android/graphics/Paint.setColor (I)V]
       [96] aload_1 v1
       [97] aload v4
-      [99] ldc #4
+      [99] ldc #5
         + Float [15.0]
-      [101] ldc #4
+      [101] ldc #5
         + Float [15.0]
       [103] aload_3 v3
-      [104] invokevirtual #36
+      [104] invokevirtual #50
         + Methodref [android/graphics/Canvas.drawRoundRect (Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V]
       [107] sipush 150
       [110] sipush 150
       [113] sipush 150
-      [116] invokestatic #38
+      [116] invokestatic #52
         + Methodref [android/graphics/Color.rgb (III)I]
       [119] istore v5
       [121] aload_3 v3
       [122] iload v5
-      [124] invokevirtual #44
+      [124] invokevirtual #59
         + Methodref [android/graphics/Paint.setColor (I)V]
       [127] aload_3 v3
       [128] ldc #2
         + Float [4.0]
-      [130] invokevirtual #45
+      [130] invokevirtual #60
         + Methodref [android/graphics/Paint.setStrokeWidth (F)V]
       [133] aload_3 v3
-      [134] getstatic #26
+      [134] getstatic #34
         + Fieldref [android/graphics/Paint$Style.STROKE Landroid/graphics/Paint$Style;]
-      [137] invokevirtual #46
+      [137] invokevirtual #61
         + Methodref [android/graphics/Paint.setStyle (Landroid/graphics/Paint$Style;)V]
       [140] aload_1 v1
       [141] aload v4
-      [143] ldc #4
+      [143] ldc #5
         + Float [15.0]
-      [145] ldc #4
+      [145] ldc #5
         + Float [15.0]
       [147] aload_3 v3
-      [148] invokevirtual #36
+      [148] invokevirtual #50
         + Methodref [android/graphics/Canvas.drawRoundRect (Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V]
       [151] aload_3 v3
       [152] iconst_0
-      [153] invokevirtual #43
+      [153] invokevirtual #58
         + Methodref [android/graphics/Paint.setAntiAlias (Z)V]
       [156] aload_3 v3
       [157] fconst_2
-      [158] invokevirtual #45
+      [158] invokevirtual #60
         + Methodref [android/graphics/Paint.setStrokeWidth (F)V]
       [161] aload_3 v3
-      [162] getstatic #25
+      [162] getstatic #33
         + Fieldref [android/graphics/Paint$Style.FILL Landroid/graphics/Paint$Style;]
-      [165] invokevirtual #46
+      [165] invokevirtual #61
         + Methodref [android/graphics/Paint.setStyle (Landroid/graphics/Paint$Style;)V]
       [168] aload_3 v3
       [169] iload v5
-      [171] invokevirtual #44
+      [171] invokevirtual #59
         + Methodref [android/graphics/Paint.setColor (I)V]
       [174] aload_3 v3
-      [175] invokevirtual #40
+      [175] invokevirtual #55
         + Methodref [android/graphics/Paint.descent ()F]
       [178] fconst_2
       [179] fadd
       [180] fstore v4
       [182] aload_0 v0
-      [183] invokevirtual #62
+      [183] invokevirtual #88
         + Methodref [momenso/barometrum2/gui/ChartView.getTextSize ()F]
       [186] fconst_2
       [187] fload v4
@@ -6908,336 +7039,676 @@ Methods (count = 5):
       [191] fstore v4
       [193] aload_1 v1
       [194] aload_2 v2
-      [195] getfield #28
+      [195] getfield #36
         + Fieldref [android/graphics/Rect.left I]
       [198] iconst_4
       [199] iadd
       [200] i2f
       [201] aload_2 v2
-      [202] getfield #27
+      [202] getfield #35
         + Fieldref [android/graphics/Rect.bottom I]
       [205] i2f
       [206] fload v4
       [208] fsub
       [209] aload_2 v2
-      [210] getfield #29
+      [210] getfield #37
         + Fieldref [android/graphics/Rect.right I]
       [213] iconst_4
       [214] isub
       [215] i2f
       [216] aload_2 v2
-      [217] getfield #27
+      [217] getfield #35
         + Fieldref [android/graphics/Rect.bottom I]
       [220] i2f
       [221] fload v4
       [223] fsub
       [224] aload_3 v3
-      [225] invokevirtual #34
+      [225] invokevirtual #47
         + Methodref [android/graphics/Canvas.drawLine (FFFFLandroid/graphics/Paint;)V]
-      [228] aload_0 v0
-      [229] getfield #33
-        + Fieldref [momenso/barometrum2/gui/ChartView.a Lmomenso/barometrum2/j;]
-      [232] ifnonnull +4 (target=236)
-      [235] return
-      [236] aload_0 v0
-      [237] aload_2 v2
-      [238] invokevirtual #61
-        + Methodref [momenso/barometrum2/gui/ChartView.getDrawingRect (Landroid/graphics/Rect;)V]
-      [241] aload_3 v3
-      [242] iconst_m1
-      [243] invokevirtual #44
-        + Methodref [android/graphics/Paint.setColor (I)V]
-      [246] aload_3 v3
-      [247] getstatic #24
-        + Fieldref [android/graphics/Paint$Align.LEFT Landroid/graphics/Paint$Align;]
-      [250] invokevirtual #47
-        + Methodref [android/graphics/Paint.setTextAlign (Landroid/graphics/Paint$Align;)V]
-      [253] aload_3 v3
-      [254] invokevirtual #41
-        + Methodref [android/graphics/Paint.getTextSize ()F]
-      [257] fstore v5
-      [259] aload_3 v3
-      [260] aload_0 v0
-      [261] invokevirtual #63
-        + Methodref [momenso/barometrum2/gui/ChartView.getTypeface ()Landroid/graphics/Typeface;]
-      [264] pop
-      [265] getstatic #32
-        + Fieldref [android/graphics/Typeface.MONOSPACE Landroid/graphics/Typeface;]
-      [268] invokevirtual #49
-        + Methodref [android/graphics/Paint.setTypeface (Landroid/graphics/Typeface;)Landroid/graphics/Typeface;]
-      [271] pop
-      [272] aload_3 v3
-      [273] bipush 13
-      [275] aload_2 v2
-      [276] invokevirtual #52
-        + Methodref [android/graphics/Rect.width ()I]
-      [279] bipush 50
-      [281] idiv
-      [282] iadd
-      [283] i2f
-      [284] invokevirtual #48
-        + Methodref [android/graphics/Paint.setTextSize (F)V]
-      [287] aload_1 v1
-      [288] ldc #5
-        + String [%.2f]
-      [290] iconst_1
-      [291] anewarray #17
-        + Class [java/lang/Object]
-      [294] dup
-      [295] iconst_0
-      [296] aload_0 v0
-      [297] getfield #33
-        + Fieldref [momenso/barometrum2/gui/ChartView.a Lmomenso/barometrum2/j;]
-      [300] invokevirtual #66
-        + Methodref [momenso/barometrum2/j.b ()F]
-      [303] invokestatic #57
-        + Methodref [java/lang/Float.valueOf (F)Ljava/lang/Float;]
-      [306] aastore
-      [307] invokestatic #59
-        + Methodref [java/lang/String.format (Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;]
-      [310] ldc #3
-        + Float [6.0]
-      [312] aload_2 v2
-      [313] getfield #27
-        + Fieldref [android/graphics/Rect.bottom I]
-      [316] i2f
-      [317] fload v4
-      [319] fsub
-      [320] ldc #1
-        + Float [3.0]
-      [322] fsub
-      [323] aload_3 v3
-      [324] invokevirtual #37
-        + Methodref [android/graphics/Canvas.drawText (Ljava/lang/String;FFLandroid/graphics/Paint;)V]
-      [327] ldc #5
-        + String [%.2f]
-      [329] iconst_1
-      [330] anewarray #17
-        + Class [java/lang/Object]
-      [333] dup
-      [334] iconst_0
-      [335] aload_0 v0
-      [336] getfield #33
-        + Fieldref [momenso/barometrum2/gui/ChartView.a Lmomenso/barometrum2/j;]
-      [339] invokevirtual #67
-        + Methodref [momenso/barometrum2/j.c ()F]
-      [342] invokestatic #57
-        + Methodref [java/lang/Float.valueOf (F)Ljava/lang/Float;]
-      [345] aastore
-      [346] invokestatic #59
-        + Methodref [java/lang/String.format (Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;]
-      [349] astore v6
-      [351] aload_1 v1
-      [352] aload v6
-      [354] ldc #3
-        + Float [6.0]
-      [356] aload_3 v3
-      [357] invokevirtual #41
-        + Methodref [android/graphics/Paint.getTextSize ()F]
-      [360] aload_3 v3
-      [361] invokevirtual #37
-        + Methodref [android/graphics/Canvas.drawText (Ljava/lang/String;FFLandroid/graphics/Paint;)V]
-      [364] aload_3 v3
-      [365] aload v6
-      [367] invokevirtual #42
-        + Methodref [android/graphics/Paint.measureText (Ljava/lang/String;)F]
-      [370] invokestatic #58
-        + Methodref [java/lang/Math.round (F)I]
-      [373] istore v6
-      [375] aload_3 v3
-      [376] fload v5
-      [378] invokevirtual #48
-        + Methodref [android/graphics/Paint.setTextSize (F)V]
-      [381] aload_3 v3
-      [382] aload_0 v0
-      [383] invokevirtual #63
-        + Methodref [momenso/barometrum2/gui/ChartView.getTypeface ()Landroid/graphics/Typeface;]
-      [386] pop
-      [387] getstatic #31
-        + Fieldref [android/graphics/Typeface.DEFAULT Landroid/graphics/Typeface;]
-      [390] invokevirtual #49
-        + Methodref [android/graphics/Paint.setTypeface (Landroid/graphics/Typeface;)Landroid/graphics/Typeface;]
-      [393] pop
-      [394] aload_0 v0
-      [395] getfield #33
-        + Fieldref [momenso/barometrum2/gui/ChartView.a Lmomenso/barometrum2/j;]
-      [398] invokevirtual #68
-        + Methodref [momenso/barometrum2/j.d ()Lmomenso/barometrum2/g;]
-      [401] invokevirtual #60
-        + Methodref [momenso/barometrum2/g.a ()F]
-      [404] fstore v5
-      [406] aload_0 v0
-      [407] getfield #33
-        + Fieldref [momenso/barometrum2/gui/ChartView.a Lmomenso/barometrum2/j;]
-      [410] invokevirtual #69
-        + Methodref [momenso/barometrum2/j.e ()Lmomenso/barometrum2/g;]
-      [413] invokevirtual #60
-        + Methodref [momenso/barometrum2/g.a ()F]
-      [416] fstore v7
-      [418] aload_0 v0
-      [419] getfield #33
-        + Fieldref [momenso/barometrum2/gui/ChartView.a Lmomenso/barometrum2/j;]
-      [422] invokevirtual #65
-        + Methodref [momenso/barometrum2/j.a ()Ljava/util/List;]
-      [425] dup
-      [426] astore v8
-      [428] invokeinterface #73
-        + InterfaceMethodref [java/util/List.size ()I]
-      [433] ifgt +4 (target=437)
-      [436] return
-      [437] aload_3 v3
-      [438] fconst_1
-      [439] invokevirtual #45
-        + Methodref [android/graphics/Paint.setStrokeWidth (F)V]
-      [442] bipush 51
-      [444] sipush 181
-      [447] sipush 229
-      [450] invokestatic #38
-        + Methodref [android/graphics/Color.rgb (III)I]
-      [453] istore v9
-      [455] aload_3 v3
-      [456] iconst_1
-      [457] invokevirtual #43
-        + Methodref [android/graphics/Paint.setAntiAlias (Z)V]
-      [460] aload_0 v0
-      [461] invokevirtual #62
-        + Methodref [momenso/barometrum2/gui/ChartView.getTextSize ()F]
-      [464] fconst_2
-      [465] fdiv
-      [466] fstore v10
-      [468] aload_2 v2
-      [469] invokevirtual #52
-        + Methodref [android/graphics/Rect.width ()I]
-      [472] iload v6
-      [474] isub
-      [475] bipush 16
-      [477] isub
-      [478] aload v8
-      [480] invokeinterface #73
-        + InterfaceMethodref [java/util/List.size ()I]
-      [485] idiv
-      [486] istore v11
-      [488] aload_2 v2
-      [489] getfield #28
+      [228] aload_1 v1
+      [229] aload_2 v2
+      [230] getfield #36
         + Fieldref [android/graphics/Rect.left I]
-      [492] i2f
-      [493] fload v10
-      [495] fadd
-      [496] iload v11
-      [498] iconst_2
-      [499] idiv
-      [500] i2f
-      [501] fadd
-      [502] fstore v10
-      [504] aload v8
-      [506] invokeinterface #73
-        + InterfaceMethodref [java/util/List.size ()I]
-      [511] pop
-      [512] aload_2 v2
-      [513] invokevirtual #51
-        + Methodref [android/graphics/Rect.height ()I]
-      [516] i2f
-      [517] fload v4
-      [519] fsub
-      [520] ldc #2
-        + Float [4.0]
-      [522] fsub
-      [523] fstore v12
-      [525] aload v8
-      [527] invokeinterface #72
-        + InterfaceMethodref [java/util/List.iterator ()Ljava/util/Iterator;]
-      [532] astore v13
-      [534] goto +113 (target=647)
-      [537] aload v13
-      [539] invokeinterface #71
-        + InterfaceMethodref [java/util/Iterator.next ()Ljava/lang/Object;]
-      [544] checkcast #21
-        + Class [momenso/barometrum2/g]
-      [547] astore v8
-      [549] new #12
-        + Class [android/graphics/RectF]
-      [552] dup
-      [553] iload v6
-      [555] iconst_4
-      [556] iadd
-      [557] i2f
-      [558] fload v10
-      [560] fadd
-      [561] ldc #1
-        + Float [3.0]
-      [563] fadd
-      [564] iload v11
-      [566] iconst_3
-      [567] idiv
-      [568] i2f
-      [569] fsub
-      [570] aload v8
-      [572] invokevirtual #60
-        + Methodref [momenso/barometrum2/g.a ()F]
-      [575] fstore v8
-      [577] fconst_1
-      [578] fload v8
-      [580] fload v7
-      [582] fsub
-      [583] fload v5
-      [585] fload v7
-      [587] fsub
-      [588] fdiv
-      [589] fsub
-      [590] fload v12
-      [592] fmul
-      [593] ldc #2
-        + Float [4.0]
-      [595] fadd
-      [596] iload v6
-      [598] iconst_4
-      [599] iadd
-      [600] i2f
-      [601] fload v10
-      [603] fadd
-      [604] ldc #1
-        + Float [3.0]
-      [606] fadd
-      [607] iload v11
-      [609] iconst_3
-      [610] idiv
-      [611] i2f
-      [612] fadd
-      [613] aload_2 v2
-      [614] invokevirtual #51
-        + Methodref [android/graphics/Rect.height ()I]
-      [617] i2f
-      [618] fload v4
-      [620] fsub
-      [621] invokespecial #53
-        + Methodref [android/graphics/RectF.<init> (FFFF)V]
-      [624] astore v8
-      [626] aload_3 v3
-      [627] iload v9
-      [629] invokevirtual #44
+      [233] iconst_4
+      [234] iadd
+      [235] i2f
+      [236] aload_2 v2
+      [237] getfield #38
+        + Fieldref [android/graphics/Rect.top I]
+      [240] i2f
+      [241] fload v4
+      [243] fadd
+      [244] aload_2 v2
+      [245] getfield #37
+        + Fieldref [android/graphics/Rect.right I]
+      [248] iconst_4
+      [249] isub
+      [250] i2f
+      [251] aload_2 v2
+      [252] getfield #38
+        + Fieldref [android/graphics/Rect.top I]
+      [255] i2f
+      [256] fload v4
+      [258] fadd
+      [259] aload_3 v3
+      [260] invokevirtual #47
+        + Methodref [android/graphics/Canvas.drawLine (FFFFLandroid/graphics/Paint;)V]
+      [263] aload_0 v0
+      [264] getfield #42
+        + Fieldref [momenso/barometrum2/gui/ChartView.a Lmomenso/barometrum2/j;]
+      [267] ifnonnull +4 (target=271)
+      [270] return
+      [271] aload_0 v0
+      [272] aload_2 v2
+      [273] invokevirtual #87
+        + Methodref [momenso/barometrum2/gui/ChartView.getDrawingRect (Landroid/graphics/Rect;)V]
+      [276] aload_3 v3
+      [277] iconst_m1
+      [278] invokevirtual #59
         + Methodref [android/graphics/Paint.setColor (I)V]
-      [632] aload_1 v1
-      [633] aload v8
-      [635] aload_3 v3
-      [636] invokevirtual #35
+      [281] aload_3 v3
+      [282] getstatic #32
+        + Fieldref [android/graphics/Paint$Align.LEFT Landroid/graphics/Paint$Align;]
+      [285] invokevirtual #62
+        + Methodref [android/graphics/Paint.setTextAlign (Landroid/graphics/Paint$Align;)V]
+      [288] aload_3 v3
+      [289] invokevirtual #56
+        + Methodref [android/graphics/Paint.getTextSize ()F]
+      [292] pop
+      [293] aload_3 v3
+      [294] aload_0 v0
+      [295] invokevirtual #89
+        + Methodref [momenso/barometrum2/gui/ChartView.getTypeface ()Landroid/graphics/Typeface;]
+      [298] pop
+      [299] getstatic #39
+        + Fieldref [android/graphics/Typeface.MONOSPACE Landroid/graphics/Typeface;]
+      [302] invokevirtual #64
+        + Methodref [android/graphics/Paint.setTypeface (Landroid/graphics/Typeface;)Landroid/graphics/Typeface;]
+      [305] pop
+      [306] aload_3 v3
+      [307] bipush 13
+      [309] aload_2 v2
+      [310] invokevirtual #68
+        + Methodref [android/graphics/Rect.width ()I]
+      [313] bipush 50
+      [315] idiv
+      [316] iadd
+      [317] i2f
+      [318] invokevirtual #63
+        + Methodref [android/graphics/Paint.setTextSize (F)V]
+      [321] aload_1 v1
+      [322] ldc #6
+        + String [%.2f]
+      [324] iconst_1
+      [325] anewarray #22
+        + Class [java/lang/Object]
+      [328] dup
+      [329] iconst_0
+      [330] aload_0 v0
+      [331] getfield #42
+        + Fieldref [momenso/barometrum2/gui/ChartView.a Lmomenso/barometrum2/j;]
+      [334] invokevirtual #92
+        + Methodref [momenso/barometrum2/j.b ()F]
+      [337] invokestatic #77
+        + Methodref [java/lang/Float.valueOf (F)Ljava/lang/Float;]
+      [340] aastore
+      [341] invokestatic #79
+        + Methodref [java/lang/String.format (Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;]
+      [344] ldc #3
+        + Float [6.0]
+      [346] aload_2 v2
+      [347] getfield #35
+        + Fieldref [android/graphics/Rect.bottom I]
+      [350] i2f
+      [351] fload v4
+      [353] fsub
+      [354] aload_3 v3
+      [355] invokevirtual #55
+        + Methodref [android/graphics/Paint.descent ()F]
+      [358] fsub
+      [359] aload_3 v3
+      [360] invokevirtual #51
+        + Methodref [android/graphics/Canvas.drawText (Ljava/lang/String;FFLandroid/graphics/Paint;)V]
+      [363] ldc #6
+        + String [%.2f]
+      [365] iconst_1
+      [366] anewarray #22
+        + Class [java/lang/Object]
+      [369] dup
+      [370] iconst_0
+      [371] aload_0 v0
+      [372] getfield #42
+        + Fieldref [momenso/barometrum2/gui/ChartView.a Lmomenso/barometrum2/j;]
+      [375] invokevirtual #93
+        + Methodref [momenso/barometrum2/j.c ()F]
+      [378] invokestatic #77
+        + Methodref [java/lang/Float.valueOf (F)Ljava/lang/Float;]
+      [381] aastore
+      [382] invokestatic #79
+        + Methodref [java/lang/String.format (Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;]
+      [385] astore v5
+      [387] aload_1 v1
+      [388] aload v5
+      [390] ldc #3
+        + Float [6.0]
+      [392] aload_3 v3
+      [393] invokevirtual #56
+        + Methodref [android/graphics/Paint.getTextSize ()F]
+      [396] fload v4
+      [398] fadd
+      [399] aload_3 v3
+      [400] invokevirtual #51
+        + Methodref [android/graphics/Canvas.drawText (Ljava/lang/String;FFLandroid/graphics/Paint;)V]
+      [403] aload_3 v3
+      [404] aload v5
+      [406] invokevirtual #57
+        + Methodref [android/graphics/Paint.measureText (Ljava/lang/String;)F]
+      [409] invokestatic #78
+        + Methodref [java/lang/Math.round (F)I]
+      [412] istore v5
+      [414] aload_0 v0
+      [415] getfield #42
+        + Fieldref [momenso/barometrum2/gui/ChartView.a Lmomenso/barometrum2/j;]
+      [418] invokevirtual #94
+        + Methodref [momenso/barometrum2/j.d ()Lmomenso/barometrum2/g;]
+      [421] invokevirtual #83
+        + Methodref [momenso/barometrum2/g.a ()F]
+      [424] fstore v6
+      [426] aload_0 v0
+      [427] getfield #42
+        + Fieldref [momenso/barometrum2/gui/ChartView.a Lmomenso/barometrum2/j;]
+      [430] invokevirtual #95
+        + Methodref [momenso/barometrum2/j.e ()Lmomenso/barometrum2/g;]
+      [433] invokevirtual #83
+        + Methodref [momenso/barometrum2/g.a ()F]
+      [436] fstore v7
+      [438] aload_0 v0
+      [439] getfield #42
+        + Fieldref [momenso/barometrum2/gui/ChartView.a Lmomenso/barometrum2/j;]
+      [442] invokevirtual #91
+        + Methodref [momenso/barometrum2/j.a ()Ljava/util/List;]
+      [445] dup
+      [446] astore v8
+      [448] invokeinterface #103
+        + InterfaceMethodref [java/util/List.size ()I]
+      [453] ifgt +4 (target=457)
+      [456] return
+      [457] aload_3 v3
+      [458] fconst_1
+      [459] invokevirtual #60
+        + Methodref [android/graphics/Paint.setStrokeWidth (F)V]
+      [462] bipush 51
+      [464] sipush 181
+      [467] sipush 229
+      [470] invokestatic #52
+        + Methodref [android/graphics/Color.rgb (III)I]
+      [473] istore v9
+      [475] aload_3 v3
+      [476] iconst_1
+      [477] invokevirtual #58
+        + Methodref [android/graphics/Paint.setAntiAlias (Z)V]
+      [480] aload_0 v0
+      [481] invokevirtual #88
+        + Methodref [momenso/barometrum2/gui/ChartView.getTextSize ()F]
+      [484] fconst_2
+      [485] fdiv
+      [486] fstore v10
+      [488] aload_2 v2
+      [489] invokevirtual #68
+        + Methodref [android/graphics/Rect.width ()I]
+      [492] iload v5
+      [494] isub
+      [495] bipush 16
+      [497] isub
+      [498] aload v8
+      [500] invokeinterface #103
+        + InterfaceMethodref [java/util/List.size ()I]
+      [505] idiv
+      [506] istore v11
+      [508] aload_2 v2
+      [509] getfield #36
+        + Fieldref [android/graphics/Rect.left I]
+      [512] i2f
+      [513] fload v10
+      [515] fadd
+      [516] iload v11
+      [518] iconst_2
+      [519] idiv
+      [520] i2f
+      [521] fadd
+      [522] fstore v12
+      [524] aload v8
+      [526] invokeinterface #103
+        + InterfaceMethodref [java/util/List.size ()I]
+      [531] pop
+      [532] aload_2 v2
+      [533] invokevirtual #67
+        + Methodref [android/graphics/Rect.height ()I]
+      [536] i2f
+      [537] fconst_2
+      [538] fload v4
+      [540] fmul
+      [541] fsub
+      [542] ldc #2
+        + Float [4.0]
+      [544] fsub
+      [545] fstore v13
+      [547] iconst_0
+      [548] istore v14
+      [550] aload_0 v0
+      [551] iconst_m1
+      [552] putfield #44
+        + Fieldref [momenso/barometrum2/gui/ChartView.c I]
+      [555] aload v8
+      [557] invokeinterface #102
+        + InterfaceMethodref [java/util/List.iterator ()Ljava/util/Iterator;]
+      [562] astore v16
+      [564] goto +145 (target=709)
+      [567] aload v16
+      [569] invokeinterface #100
+        + InterfaceMethodref [java/util/Iterator.next ()Ljava/lang/Object;]
+      [574] checkcast #28
+        + Class [momenso/barometrum2/g]
+      [577] astore v15
+      [579] new #15
+        + Class [android/graphics/RectF]
+      [582] dup
+      [583] iload v5
+      [585] iconst_4
+      [586] iadd
+      [587] i2f
+      [588] fload v12
+      [590] fadd
+      [591] ldc #1
+        + Float [3.0]
+      [593] fadd
+      [594] iload v11
+      [596] iconst_3
+      [597] idiv
+      [598] i2f
+      [599] fsub
+      [600] aload v15
+      [602] invokevirtual #83
+        + Methodref [momenso/barometrum2/g.a ()F]
+      [605] fload v7
+      [607] fload v6
+      [609] fload v13
+      [611] invokestatic #86
+        + Methodref [momenso/barometrum2/gui/ChartView.a (FFFF)F]
+      [614] ldc #2
+        + Float [4.0]
+      [616] fadd
+      [617] fload v4
+      [619] fadd
+      [620] iload v5
+      [622] iconst_4
+      [623] iadd
+      [624] i2f
+      [625] fload v12
+      [627] fadd
+      [628] ldc #1
+        + Float [3.0]
+      [630] fadd
+      [631] iload v11
+      [633] iconst_3
+      [634] idiv
+      [635] i2f
+      [636] fadd
+      [637] aload_2 v2
+      [638] invokevirtual #67
+        + Methodref [android/graphics/Rect.height ()I]
+      [641] i2f
+      [642] fload v4
+      [644] fsub
+      [645] invokespecial #69
+        + Methodref [android/graphics/RectF.<init> (FFFF)V]
+      [648] dup
+      [649] astore v17
+      [651] aload_0 v0
+      [652] getfield #43
+        + Fieldref [momenso/barometrum2/gui/ChartView.b Landroid/view/MotionEvent$PointerCoords;]
+      [655] getfield #40
+        + Fieldref [android/view/MotionEvent$PointerCoords.x F]
+      [658] aload_0 v0
+      [659] getfield #43
+        + Fieldref [momenso/barometrum2/gui/ChartView.b Landroid/view/MotionEvent$PointerCoords;]
+      [662] getfield #41
+        + Fieldref [android/view/MotionEvent$PointerCoords.y F]
+      [665] invokevirtual #70
+        + Methodref [android/graphics/RectF.contains (FF)Z]
+      [668] ifeq +17 (target=685)
+      [671] aload_3 v3
+      [672] iconst_m1
+      [673] invokevirtual #59
+        + Methodref [android/graphics/Paint.setColor (I)V]
+      [676] aload_0 v0
+      [677] iload v14
+      [679] putfield #44
+        + Fieldref [momenso/barometrum2/gui/ChartView.c I]
+      [682] goto +9 (target=691)
+      [685] aload_3 v3
+      [686] iload v9
+      [688] invokevirtual #59
+        + Methodref [android/graphics/Paint.setColor (I)V]
+      [691] aload_1 v1
+      [692] aload v17
+      [694] aload_3 v3
+      [695] invokevirtual #49
         + Methodref [android/graphics/Canvas.drawRect (Landroid/graphics/RectF;Landroid/graphics/Paint;)V]
-      [639] fload v10
-      [641] iload v11
-      [643] i2f
-      [644] fadd
-      [645] fstore v10
-      [647] aload v13
-      [649] invokeinterface #70
+      [698] iinc v14, 1
+      [701] fload v12
+      [703] iload v11
+      [705] i2f
+      [706] fadd
+      [707] fstore v12
+      [709] aload v16
+      [711] invokeinterface #99
         + InterfaceMethodref [java/util/Iterator.hasNext ()Z]
-      [654] ifne -117 (target=537)
-      [657] return
+      [716] ifne -149 (target=567)
+      [719] aload_0 v0
+      [720] getfield #44
+        + Fieldref [momenso/barometrum2/gui/ChartView.c I]
+      [723] iflt +342 (target=1065)
+      [726] aload_0 v0
+      [727] getfield #44
+        + Fieldref [momenso/barometrum2/gui/ChartView.c I]
+      [730] aload v8
+      [732] invokeinterface #103
+        + InterfaceMethodref [java/util/List.size ()I]
+      [737] ificmpge +328 (target=1065)
+      [740] aload v8
+      [742] aload_0 v0
+      [743] getfield #44
+        + Fieldref [momenso/barometrum2/gui/ChartView.c I]
+      [746] invokeinterface #101
+        + InterfaceMethodref [java/util/List.get (I)Ljava/lang/Object;]
+      [751] checkcast #28
+        + Class [momenso/barometrum2/g]
+      [754] astore v15
+      [756] new #25
+        + Class [java/util/Date]
+      [759] dup
+      [760] aload v15
+      [762] invokevirtual #85
+        + Methodref [momenso/barometrum2/g.b ()J]
+      [765] invokespecial #82
+        + Methodref [java/util/Date.<init> (J)V]
+      [768] astore v16
+      [770] ldc #6
+        + String [%.2f]
+      [772] iconst_1
+      [773] anewarray #22
+        + Class [java/lang/Object]
+      [776] dup
+      [777] iconst_0
+      [778] aload v15
+      [780] aload_0 v0
+      [781] getfield #42
+        + Fieldref [momenso/barometrum2/gui/ChartView.a Lmomenso/barometrum2/j;]
+      [784] pop
+      [785] invokestatic #96
+        + Methodref [momenso/barometrum2/j.i ()Lmomenso/barometrum2/h;]
+      [788] aload_0 v0
+      [789] getfield #42
+        + Fieldref [momenso/barometrum2/gui/ChartView.a Lmomenso/barometrum2/j;]
+      [792] pop
+      [793] invokestatic #98
+        + Methodref [momenso/barometrum2/j.k ()Lmomenso/barometrum2/i;]
+      [796] aload_0 v0
+      [797] getfield #42
+        + Fieldref [momenso/barometrum2/gui/ChartView.a Lmomenso/barometrum2/j;]
+      [800] pop
+      [801] invokestatic #97
+        + Methodref [momenso/barometrum2/j.j ()F]
+      [804] invokevirtual #84
+        + Methodref [momenso/barometrum2/g.a (Lmomenso/barometrum2/h;Lmomenso/barometrum2/i;F)F]
+      [807] invokestatic #77
+        + Methodref [java/lang/Float.valueOf (F)Ljava/lang/Float;]
+      [810] aastore
+      [811] invokestatic #79
+        + Methodref [java/lang/String.format (Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;]
+      [814] astore v17
+      [816] aload_3 v3
+      [817] iconst_m1
+      [818] invokevirtual #59
+        + Methodref [android/graphics/Paint.setColor (I)V]
+      [821] aload_1 v1
+      [822] aload v17
+      [824] ldc #4
+        + Float [8.0]
+      [826] aload_2 v2
+      [827] invokevirtual #66
+        + Methodref [android/graphics/Rect.centerY ()I]
+      [830] i2f
+      [831] aload_3 v3
+      [832] invokevirtual #56
+        + Methodref [android/graphics/Paint.getTextSize ()F]
+      [835] fadd
+      [836] aload_3 v3
+      [837] invokevirtual #51
+        + Methodref [android/graphics/Canvas.drawText (Ljava/lang/String;FFLandroid/graphics/Paint;)V]
+      [840] aload_3 v3
+      [841] aload v17
+      [843] invokevirtual #57
+        + Methodref [android/graphics/Paint.measureText (Ljava/lang/String;)F]
+      [846] fstore v8
+      [848] aload_3 v3
+      [849] getstatic #31
+        + Fieldref [android/graphics/Paint$Align.CENTER Landroid/graphics/Paint$Align;]
+      [852] invokevirtual #62
+        + Methodref [android/graphics/Paint.setTextAlign (Landroid/graphics/Paint$Align;)V]
+      [855] aload_1 v1
+      [856] aload_0 v0
+      [857] getfield #45
+        + Fieldref [momenso/barometrum2/gui/ChartView.d Ljava/text/SimpleDateFormat;]
+      [860] aload v16
+      [862] invokevirtual #81
+        + Methodref [java/text/SimpleDateFormat.format (Ljava/util/Date;)Ljava/lang/String;]
+      [865] ldc #4
+        + Float [8.0]
+      [867] fload v8
+      [869] fconst_2
+      [870] fdiv
+      [871] fadd
+      [872] aload_2 v2
+      [873] invokevirtual #66
+        + Methodref [android/graphics/Rect.centerY ()I]
+      [876] i2f
+      [877] aload_3 v3
+      [878] invokevirtual #56
+        + Methodref [android/graphics/Paint.getTextSize ()F]
+      [881] fsub
+      [882] aload_3 v3
+      [883] invokevirtual #51
+        + Methodref [android/graphics/Canvas.drawText (Ljava/lang/String;FFLandroid/graphics/Paint;)V]
+      [886] aload_1 v1
+      [887] aload_0 v0
+      [888] getfield #46
+        + Fieldref [momenso/barometrum2/gui/ChartView.e Ljava/text/SimpleDateFormat;]
+      [891] aload v16
+      [893] invokevirtual #81
+        + Methodref [java/text/SimpleDateFormat.format (Ljava/util/Date;)Ljava/lang/String;]
+      [896] ldc #4
+        + Float [8.0]
+      [898] fload v8
+      [900] fconst_2
+      [901] fdiv
+      [902] fadd
+      [903] fconst_1
+      [904] fadd
+      [905] aload_2 v2
+      [906] invokevirtual #66
+        + Methodref [android/graphics/Rect.centerY ()I]
+      [909] i2f
+      [910] aload_3 v3
+      [911] invokevirtual #51
+        + Methodref [android/graphics/Canvas.drawText (Ljava/lang/String;FFLandroid/graphics/Paint;)V]
+      [914] aload_2 v2
+      [915] getfield #36
+        + Fieldref [android/graphics/Rect.left I]
+      [918] i2f
+      [919] fload v10
+      [921] fadd
+      [922] iload v11
+      [924] iconst_2
+      [925] idiv
+      [926] i2f
+      [927] fadd
+      [928] aload_0 v0
+      [929] getfield #44
+        + Fieldref [momenso/barometrum2/gui/ChartView.c I]
+      [932] iload v11
+      [934] imul
+      [935] i2f
+      [936] fadd
+      [937] iload v5
+      [939] i2f
+      [940] fadd
+      [941] ldc #2
+        + Float [4.0]
+      [943] fadd
+      [944] fstore v5
+      [946] aload_1 v1
+      [947] ldc #4
+        + Float [8.0]
+      [949] fload v8
+      [951] fadd
+      [952] aload_2 v2
+      [953] invokevirtual #66
+        + Methodref [android/graphics/Rect.centerY ()I]
+      [956] i2f
+      [957] fload v5
+      [959] aload_2 v2
+      [960] invokevirtual #66
+        + Methodref [android/graphics/Rect.centerY ()I]
+      [963] i2f
+      [964] aload_3 v3
+      [965] invokevirtual #47
+        + Methodref [android/graphics/Canvas.drawLine (FFFFLandroid/graphics/Paint;)V]
+      [968] aload v15
+      [970] invokevirtual #83
+        + Methodref [momenso/barometrum2/g.a ()F]
+      [973] fload v7
+      [975] fload v6
+      [977] fload v13
+      [979] invokestatic #86
+        + Methodref [momenso/barometrum2/gui/ChartView.a (FFFF)F]
+      [982] ldc #2
+        + Float [4.0]
+      [984] fadd
+      [985] fload v4
+      [987] fadd
+      [988] dup
+      [989] fstore v4
+      [991] aload_2 v2
+      [992] invokevirtual #66
+        + Methodref [android/graphics/Rect.centerY ()I]
+      [995] i2f
+      [996] fcmpl
+      [997] ifle +19 (target=1016)
+      [1000] aload_1 v1
+      [1001] fload v5
+      [1003] aload_2 v2
+      [1004] invokevirtual #66
+        + Methodref [android/graphics/Rect.centerY ()I]
+      [1007] i2f
+      [1008] fload v5
+      [1010] fload v4
+      [1012] aload_3 v3
+      [1013] invokevirtual #47
+        + Methodref [android/graphics/Canvas.drawLine (FFFFLandroid/graphics/Paint;)V]
+      [1016] aload_3 v3
+      [1017] getstatic #34
+        + Fieldref [android/graphics/Paint$Style.STROKE Landroid/graphics/Paint$Style;]
+      [1020] invokevirtual #61
+        + Methodref [android/graphics/Paint.setStyle (Landroid/graphics/Paint$Style;)V]
+      [1023] aload_1 v1
+      [1024] ldc #3
+        + Float [6.0]
+      [1026] aload_2 v2
+      [1027] invokevirtual #66
+        + Methodref [android/graphics/Rect.centerY ()I]
+      [1030] i2f
+      [1031] aload_3 v3
+      [1032] invokevirtual #56
+        + Methodref [android/graphics/Paint.getTextSize ()F]
+      [1035] fsub
+      [1036] aload_3 v3
+      [1037] invokevirtual #54
+        + Methodref [android/graphics/Paint.ascent ()F]
+      [1040] fadd
+      [1041] ldc #4
+        + Float [8.0]
+      [1043] fload v8
+      [1045] fadd
+      [1046] aload_2 v2
+      [1047] invokevirtual #66
+        + Methodref [android/graphics/Rect.centerY ()I]
+      [1050] i2f
+      [1051] aload_3 v3
+      [1052] invokevirtual #56
+        + Methodref [android/graphics/Paint.getTextSize ()F]
+      [1055] fadd
+      [1056] aload_3 v3
+      [1057] invokevirtual #55
+        + Methodref [android/graphics/Paint.descent ()F]
+      [1060] fadd
+      [1061] aload_3 v3
+      [1062] invokevirtual #48
+        + Methodref [android/graphics/Canvas.drawRect (FFFFLandroid/graphics/Paint;)V]
+      [1065] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
-      + Stack map table attribute (count = 4):
-        - [236] Var: [a:momenso/barometrum2/gui/ChartView][a:android/graphics/Canvas][a:android/graphics/Rect][a:android/graphics/Paint][i][a:android/graphics/RectF][i][i][f][f], Stack: 
-        - [437] Var: [a:momenso/barometrum2/gui/ChartView][a:android/graphics/Canvas][a:android/graphics/Rect][a:android/graphics/Paint][i][a:android/graphics/RectF][i][i][f][f][f][a:java/lang/String][i][f][f][a:java/util/List], Stack: 
-        - [537] Var: [a:momenso/barometrum2/gui/ChartView][a:android/graphics/Canvas][a:android/graphics/Rect][a:android/graphics/Paint][i][a:android/graphics/RectF][i][i][f][f][f][a:java/lang/String][i][f][f][a:java/util/List][i][f][i][f][i][f][T][a:java/util/Iterator], Stack: 
-        - [647] Var: ..., Stack: (empty)
+      + Stack map table attribute (count = 8):
+        - [271] Var: [a:momenso/barometrum2/gui/ChartView][a:android/graphics/Canvas][a:android/graphics/Rect][a:android/graphics/Paint][i][a:android/graphics/RectF][i][i][f][f], Stack: 
+        - [457] Var: [a:momenso/barometrum2/gui/ChartView][a:android/graphics/Canvas][a:android/graphics/Rect][a:android/graphics/Paint][i][a:android/graphics/RectF][i][i][f][f][f][a:java/lang/String][i][f][f][a:java/util/List], Stack: 
+        - [567] Var: [a:momenso/barometrum2/gui/ChartView][a:android/graphics/Canvas][a:android/graphics/Rect][a:android/graphics/Paint][i][a:android/graphics/RectF][i][i][f][f][f][a:java/lang/String][i][f][f][a:java/util/List][i][f][i][f][i][f][i][T][a:java/util/Iterator], Stack: 
+        - [685] Var: [a:momenso/barometrum2/gui/ChartView][a:android/graphics/Canvas][a:android/graphics/Rect][a:android/graphics/Paint][i][a:android/graphics/RectF][i][i][f][f][f][a:java/lang/String][i][f][f][a:java/util/List][i][f][i][f][i][f][i][a:momenso/barometrum2/g][a:java/util/Iterator][a:android/graphics/RectF], Stack: 
+        - [691] Var: ..., Stack: (empty)
+        - [709] Var: [a:momenso/barometrum2/gui/ChartView][a:android/graphics/Canvas][a:android/graphics/Rect][a:android/graphics/Paint][i][a:android/graphics/RectF][i][i][f][f][f][a:java/lang/String][i][f][f][a:java/util/List][i][f][i][f][i][f][i][T][a:java/util/Iterator], Stack: 
+        - [1016] Var: [a:momenso/barometrum2/gui/ChartView][a:android/graphics/Canvas][a:android/graphics/Rect][a:android/graphics/Paint][i][a:android/graphics/RectF][i][i][f][f][f][a:java/lang/String][i][f][f][a:java/util/List][i][f][i][f][i][f][i][a:momenso/barometrum2/g][a:java/util/Date][a:java/lang/String][f][f][f], Stack: 
+        - [1065] Var: [a:momenso/barometrum2/gui/ChartView][a:android/graphics/Canvas][a:android/graphics/Rect][a:android/graphics/Paint][i][a:android/graphics/RectF][i][i][f][f][f][a:java/lang/String][i][f][f][a:java/util/List][i][f][i][f][i][f][i], Stack: 
+  + Method:       a(FFFF)F
+    Access flags: 0xa
+      = private static float a(float,float,float,float)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 12, locals = 4, stack = 4):
+      [0] fconst_1
+      [1] fload_0 v0
+      [2] fload_1 v1
+      [3] fsub
+      [4] fload_2 v2
+      [5] fload_1 v1
+      [6] fsub
+      [7] fdiv
+      [8] fsub
+      [9] fload_3 v3
+      [10] fmul
+      [11] freturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onTouchEvent(Landroid/view/MotionEvent;)Z
+    Access flags: 0x1
+      = public boolean onTouchEvent(android.view.MotionEvent)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 19, locals = 2, stack = 3):
+      [0] aload_1 v1
+      [1] iconst_0
+      [2] aload_0 v0
+      [3] getfield #43
+        + Fieldref [momenso/barometrum2/gui/ChartView.b Landroid/view/MotionEvent$PointerCoords;]
+      [6] invokevirtual #71
+        + Methodref [android/view/MotionEvent.getPointerCoords (ILandroid/view/MotionEvent$PointerCoords;)V]
+      [9] aload_0 v0
+      [10] invokevirtual #90
+        + Methodref [momenso/barometrum2/gui/ChartView.invalidate ()V]
+      [13] aload_0 v0
+      [14] aload_1 v1
+      [15] invokespecial #76
+        + Methodref [android/widget/TextView.onTouchEvent (Landroid/view/MotionEvent;)Z]
+      [18] ireturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
 
 Class file attributes (count = 0):
 

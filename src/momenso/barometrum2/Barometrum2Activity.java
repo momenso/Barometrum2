@@ -19,6 +19,7 @@ import momenso.barometrum2.PressureDataPoint.PressureMode;
 import momenso.barometrum2.PressureDataPoint.PressureUnit;
 import momenso.barometrum2.gui.BorderedTextView;
 import momenso.barometrum2.gui.ChartView;
+import momenso.barometrum2.gui.Gauge;
 
 
 public class Barometrum2Activity extends Activity implements Observer {
@@ -50,26 +51,19 @@ public class Barometrum2Activity extends Activity implements Observer {
 
         // initialize pressure reading display
         final TextView currentReading = (TextView) findViewById(R.id.currentReading);
-        final Typeface digitalFont = Typeface.createFromAsset(getAssets(), "font/digital.ttf");
-        currentReading.setTypeface(digitalFont);
-        currentReading.setTextColor(Color.WHITE);
-
-        // initialize minimum pressure display
-//        final BorderedTextView minPressureReading = (BorderedTextView) findViewById(R.id.minimumReading);
-
-//        minPressureReading.setTypeface(normalFont);
-//        minPressureReading.setText(String.format("%.2f", pressureData.getMinimum()));
-
-        // initialize maximum pressure display
-//        final BorderedTextView maxPressureReading = (BorderedTextView) findViewById(R.id.maximumReading);
-//        maxPressureReading.setTypeface(normalFont);
-//        maxPressureReading.setText(String.format("%.2f", pressureData.getMaximum()));
+        if (currentReading != null) {
+	        final Typeface digitalFont = Typeface.createFromAsset(getAssets(), "font/digital.ttf");
+	        currentReading.setTypeface(digitalFont);
+	        currentReading.setTextColor(Color.WHITE);
+        }
 
         // initialize altimeter display
         final BorderedTextView altitudeReading = (BorderedTextView) findViewById(R.id.altitudeReading);
-        final Typeface normalFont = Typeface.createFromAsset(getAssets(), "font/normal.ttf");
-        altitudeReading.setTypeface(normalFont);
-        altitudeReading.setText(String.format("%sm", preferences.getString("KnownAltitude", "0")));
+        if (altitudeReading != null) {
+	        final Typeface normalFont = Typeface.createFromAsset(getAssets(), "font/normal.ttf");
+	        altitudeReading.setTypeface(normalFont);
+	        altitudeReading.setText(String.format("%sm", preferences.getString("KnownAltitude", "0")));
+        }
     }
 
     public void clearReadings(View view) {
@@ -135,13 +129,23 @@ public class Barometrum2Activity extends Activity implements Observer {
 
             // update current pressure value
             final TextView currentValueText = (TextView) findViewById(R.id.currentReading);
-            currentValueText.setText(String.format("%.2f",
-                    Math.round(pressureData.getAverage() * 100.0) / 100.0));
+            if (currentValueText != null) {
+	            currentValueText.setText(String.format("%.2f",
+	                    Math.round(pressureData.getAverage() * 100.0) / 100.0));
+            }
+            
+            Gauge gauge = (Gauge) this.findViewById(R.id.pressureGauge);
+            if (gauge != null) {
+            	//gauge.setMaximum(pressureData.getMaximum());
+            	//gauge.setMinimum(pressureData.getMinimum());
+            	gauge.updatePressure((float) (Math.round(pressureData.getAverage() * 100.0) / 100.0));
+            }
 
             // update altimeter display
             final BorderedTextView altitudeReading = (BorderedTextView) findViewById(R.id.altitudeReading);
-            altitudeReading.setText(String.format("%sm", Math.round(pressureData.getCurrentElevation())));
-
+            if (altitudeReading != null) {
+            	altitudeReading.setText(String.format("%sm", Math.round(pressureData.getCurrentElevation())));
+            }
             updateHistoryChart();
         }
     }
