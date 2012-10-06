@@ -8,6 +8,7 @@ import android.graphics.Paint.Align;
 import android.graphics.Paint.Style;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.MotionEvent.PointerCoords;
@@ -125,8 +126,7 @@ public class ChartView extends TextView {
 		getDrawingRect(rect);
 		paint.setColor(Color.WHITE);
 		paint.setTextAlign(Align.LEFT);
-		float originalSize = paint.getTextSize();
-		paint.setTypeface(getTypeface().MONOSPACE);
+		paint.setTypeface(Typeface.MONOSPACE);
 		paint.setTextSize(13 + rect.width() / 50);
 
 		canvas.drawText(String.format("%.2f", data.getMinimum()), 6,

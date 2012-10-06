@@ -29,6 +29,7 @@
             android:onClick="clearReadings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="15dp"
             android:drawableLeft="@drawable/delete"
             android:text="Clear Readings" />
         
@@ -37,6 +38,7 @@
             android:onClick="adjustSettings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="15dp"
             android:drawableLeft="@drawable/settings"
             android:text="Settings" />
 
