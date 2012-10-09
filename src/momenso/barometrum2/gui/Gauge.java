@@ -114,7 +114,7 @@ public class Gauge extends View {
         paint.setTextSize(radius / 9);
         
         // background
-        paint.setColor(Color.rgb(0x10, 0x10, 0x10));
+        paint.setColor(Color.rgb(30, 30, 30));
         paint.setStyle(Style.FILL);
         canvas.drawCircle(
                 screen.centerX(),
@@ -123,7 +123,8 @@ public class Gauge extends View {
                 paint);
 
         // border
-        paint.setColor(Color.rgb(0x13, 0xa5, 0xc5));
+        paint.setStrokeWidth(3);
+        paint.setColor(Color.rgb(150, 150, 150));
         paint.setStyle(Style.STROKE);
         canvas.drawCircle(
                 screen.centerX(),
@@ -168,14 +169,13 @@ public class Gauge extends View {
 		}
 		
 		// center background
-		paint.setColor(Color.rgb(0x10, 0x10, 0x10));
+		paint.setColor(Color.rgb(30, 30, 30));
         paint.setStyle(Style.FILL_AND_STROKE);
         canvas.drawCircle(
                 screen.centerX(),
                 screen.centerY(),
                 7 * pointerSize / 8,
                 paint);
-
 
         // draw pointer
         paint.setColor(Color.rgb(0xff,0x20, 0x40));

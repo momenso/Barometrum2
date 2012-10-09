@@ -58,12 +58,12 @@ public class Barometrum2Activity extends Activity implements Observer {
         }
 
         // initialize altimeter display
-        final BorderedTextView altitudeReading = (BorderedTextView) findViewById(R.id.altitudeReading);
-        if (altitudeReading != null) {
-	        final Typeface normalFont = Typeface.createFromAsset(getAssets(), "font/normal.ttf");
-	        altitudeReading.setTypeface(normalFont);
-	        altitudeReading.setText(String.format("%sm", preferences.getString("KnownAltitude", "0")));
-        }
+//        final BorderedTextView altitudeReading = (BorderedTextView) findViewById(R.id.altitudeReading);
+//        if (altitudeReading != null) {
+//	        final Typeface normalFont = Typeface.createFromAsset(getAssets(), "font/normal.ttf");
+//	        altitudeReading.setTypeface(normalFont);
+//	        altitudeReading.setText(String.format("%sm", preferences.getString("KnownAltitude", "0")));
+//        }
     }
 
     public void clearReadings(View view) {
@@ -143,10 +143,10 @@ public class Barometrum2Activity extends Activity implements Observer {
             }
 
             // update altimeter display
-            final BorderedTextView altitudeReading = (BorderedTextView) findViewById(R.id.altitudeReading);
-            if (altitudeReading != null) {
-            	altitudeReading.setText(String.format("%sm", Math.round(pressureData.getCurrentElevation())));
-            }
+//            final BorderedTextView altitudeReading = (BorderedTextView) findViewById(R.id.altitudeReading);
+//            if (altitudeReading != null) {
+//            	altitudeReading.setText(String.format("%sm", Math.round(pressureData.getCurrentElevation())));
+//            }
             updateHistoryChart();
         }
     }

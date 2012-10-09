@@ -88,7 +88,7 @@ public class ChartView extends TextView {
 		paint.setAntiAlias(true);
 
 		// Generate border
-		int borderWidth = 4;
+		int borderWidth = 3;
 		RectF borderRect = new RectF(rect.left + borderWidth / 2, rect.top
 				+ borderWidth / 2, rect.right - borderWidth / 2, rect.bottom
 				- borderWidth / 2);
@@ -107,7 +107,7 @@ public class ChartView extends TextView {
 		paint.setAntiAlias(false);
 		paint.setStrokeWidth(2);
 		paint.setStyle(Style.FILL);
-		paint.setColor(borderColor);
+		paint.setColor(Color.WHITE);
 		float textMargin = paint.descent() + 2;
 		float axisMargin = getTextSize() + 2 * textMargin;
 		
@@ -139,8 +139,6 @@ public class ChartView extends TextView {
 		// get range for Y axis
 		float maximum = data.getMaximumValue().getRawValue();
 		float minimum = data.getMinimumValue().getRawValue();
-
-		// Log.v("ChartView", String.format("min=%.2f max=%.2f", minimum,  maximum));
 		
 		List<PressureDataPoint> values = data.getHistory();
 		if (values.size() <= 0) {
