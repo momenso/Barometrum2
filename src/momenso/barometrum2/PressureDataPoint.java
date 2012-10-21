@@ -11,7 +11,7 @@ public class PressureDataPoint implements Serializable {
     };
 
     public static enum PressureUnit {
-        Bar, Torr, Pascal, InHg
+        mBar, Torr, Pascal, InHg
     };
     
     private static final long serialVersionUID = -3959936631531969908L;

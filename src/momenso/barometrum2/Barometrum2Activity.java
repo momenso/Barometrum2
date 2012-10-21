@@ -53,7 +53,7 @@ public class Barometrum2Activity extends Activity implements Observer {
         } catch (Exception e) {
         	// load default settings
         	pressureData.setMode(PressureMode.Absolute);
-        	pressureData.setUnit(PressureUnit.Bar);
+        	pressureData.setUnit(PressureUnit.mBar);
         	pressureData.setHistoryInterval(60000);
         }
 

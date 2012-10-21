@@ -24,7 +24,7 @@ public class ReadingsData {
     private PressureDataPoint maxValue;
     private PressureDataPoint average;
     private static PressureMode mode = PressureMode.Absolute;
-    private static PressureUnit unit = PressureUnit.Bar;
+    private static PressureUnit unit = PressureUnit.mBar;
     private static float currentElevation = 0;
     private static int loggingInterval = 60000;
     private static ReadingsData instance;
@@ -271,7 +271,7 @@ public class ReadingsData {
 
     public static String getUnitName() {
         switch (unit) {
-            case Bar:
+            case mBar:
                 return "mb";
 
             case Torr:

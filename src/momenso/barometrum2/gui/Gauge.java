@@ -1,6 +1,7 @@
 package momenso.barometrum2.gui;
 
 import momenso.barometrum2.PressureDataPoint.PressureMode;
+import momenso.barometrum2.PressureDataPoint.PressureUnit;
 import momenso.barometrum2.ReadingsData;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -25,6 +26,8 @@ public class Gauge extends View {
     private float maximum = 1070;
     private float minimum = 930;
     private float current = 930;
+    private PressureMode mode;
+    private PressureUnit unit;
     
     public float getMaximum() {
 		return maximum;
@@ -77,26 +80,48 @@ public class Gauge extends View {
 
     public void updatePressure(ReadingsData pressure) {
     	this.current = pressure.getAverage();
+    	this.mode = pressure.getMode();
+    	this.unit = pressure.getUnit();
     	
     	switch (pressure.getUnit()) {
-    		case Bar:
-    			maximum = 1070;
-    			minimum = 930;
+    		case mBar:
+    			if (pressure.getMode() == PressureMode.MSLP) {
+	    			maximum = 1070;
+	    			minimum = 930;
+    			} else {
+	    			maximum = 1100;
+	    			minimum = 0;
+    			}
     			break;
     			
     		case InHg:
-    			maximum = 31;
-    			minimum = 28;
+    			if (pressure.getMode() == PressureMode.MSLP) {
+	    			maximum = 32;
+	    			minimum = 28;
+    			} else {
+	    			maximum = 33;
+	    			minimum = 0;
+    			}
     			break;
     			
     		case Pascal:
-    			maximum = 110;
-    			minimum = 95;
+    			if (pressure.getMode() == PressureMode.MSLP) {
+	    			maximum = 107;
+	    			minimum = 93;
+    			} else {
+	    			maximum = 110;
+	    			minimum = 0;    				
+    			}
     			break;
     			
     		case Torr:
-    			maximum = 800;
-    			minimum = 700;
+    			if (pressure.getMode() == PressureMode.MSLP) {
+	    			maximum = 803;
+	    			minimum = 698;
+    			} else {
+	    			maximum = 826;
+	    			minimum = 0;    				
+    			}
     			break;
     	}
     	
@@ -137,31 +162,38 @@ public class Gauge extends View {
         labelPath.addCircle(screen.centerX(), screen.centerY(), radius, Direction.CW);
         
         //labels 930-1070
-		float pointerSize = (8 * radius / 9);
-		float interval = Math.min(10, gcd((int) maximum, (int) minimum));
-		float labels = ((maximum - minimum) / interval);
+		float interval = Math.round(maximum-minimum) / 14; //gcd(10, (int) (maximum - minimum)); //gcd((int) maximum, (int) minimum);
+		float labels = (maximum - minimum) / interval;
         float offset = -65;
         float angularStep = 310 / labels;
-
         paint.setTextAlign(Align.CENTER);
         paint.setStyle(Style.FILL_AND_STROKE);
 		paint.setColor(Color.WHITE);
 		paint.setStrokeWidth(2);
+		
 		for (int value = (int) minimum; value <= maximum; value += interval, offset += angularStep) {
 			canvas.save();
 			canvas.rotate(offset, screen.centerX(), screen.centerY());
+			//Log.i("label", String.valueOf(value));
 			canvas.drawTextOnPath(String.valueOf(value), labelPath, 0, radius / 10, paint);
 			canvas.restore();
 		}
 		
 		// draw ticks
+		float pointerSize = (8 * radius / 9);
 		float minorStep = interval / 10;
+		Log.i("Gauge", String.format("Range=(%.1f,%.1f) interval=%.1f (%.1f), labels=%.1f", 
+				minimum, maximum, interval, minorStep, labels));
+		
 		paint.setColor(Color.rgb(0x33, 0xb5, 0xe5));
+
+		int tick=0;
 		for (float mark = minimum; mark <= maximum; mark += minorStep) {
-			mark = (mark * 100) / 100; // fix decimal precision
+			mark = (mark * 10) / 10; // fix decimal precision
 			float angl = (float) (((maximum - mark) * 310.0f) / (maximum - minimum));
 			
-			paint.setStrokeWidth(mark % interval == 0 ? 5 : 2);
+			//paint.setStrokeWidth((mark % interval) == 0 ? 5 : 2);
+			paint.setStrokeWidth((tick++) % 10 == 0 ? 5 : 2);
 			float rad = (float) Math.toRadians(angl - 65);
 			canvas.drawLine(screen.exactCenterX(), screen.exactCenterY(),
 					screen.exactCenterX() + FloatMath.cos(rad) * pointerSize,
@@ -169,7 +201,7 @@ public class Gauge extends View {
 					paint);
 		}
 		
-		// center background
+		// center background (clear)
 		paint.setColor(Color.rgb(30, 30, 30));
         paint.setStyle(Style.FILL_AND_STROKE);
         canvas.drawCircle(
@@ -177,6 +209,18 @@ public class Gauge extends View {
                 screen.centerY(),
                 7 * pointerSize / 8,
                 paint);
+        
+        // measurement mode and unit
+        paint.setStrokeWidth(2);
+        paint.setTextSize(radius / 10);
+        paint.setTextAlign(Align.CENTER);
+        paint.setColor(Color.LTGRAY);
+        if (this.mode != null) {
+			canvas.drawText(this.mode.toString(), screen.exactCenterX(), screen.exactCenterY() + radius / 3, paint);
+		}
+		if (this.unit != null) {
+			canvas.drawText(this.unit.toString(), screen.exactCenterX(), screen.exactCenterY() + radius / 3 + paint.getTextSize(), paint);
+		}
 
         // draw pointer
         paint.setColor(Color.rgb(0xff,0x20, 0x40));
