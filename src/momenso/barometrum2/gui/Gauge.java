@@ -174,17 +174,13 @@ public class Gauge extends View {
 		for (int value = (int) minimum; value <= maximum; value += interval, offset += angularStep) {
 			canvas.save();
 			canvas.rotate(offset, screen.centerX(), screen.centerY());
-			//Log.i("label", String.valueOf(value));
 			canvas.drawTextOnPath(String.valueOf(value), labelPath, 0, radius / 10, paint);
 			canvas.restore();
 		}
 		
 		// draw ticks
 		float pointerSize = (8 * radius / 9);
-		float minorStep = interval / 10;
-		Log.i("Gauge", String.format("Range=(%.1f,%.1f) interval=%.1f (%.1f), labels=%.1f", 
-				minimum, maximum, interval, minorStep, labels));
-		
+		float minorStep = interval / 10;		
 		paint.setColor(Color.rgb(0x33, 0xb5, 0xe5));
 
 		int tick=0;
@@ -192,7 +188,6 @@ public class Gauge extends View {
 			mark = (mark * 10) / 10; // fix decimal precision
 			float angl = (float) (((maximum - mark) * 310.0f) / (maximum - minimum));
 			
-			//paint.setStrokeWidth((mark % interval) == 0 ? 5 : 2);
 			paint.setStrokeWidth((tick++) % 10 == 0 ? 5 : 2);
 			float rad = (float) Math.toRadians(angl - 65);
 			canvas.drawLine(screen.exactCenterX(), screen.exactCenterY(),
