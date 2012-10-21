@@ -29,21 +29,54 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        Context context = getApplicationContext();
+        final Context context = getApplicationContext();
         final ReadingsData pressureData = ReadingsData.getInstance(context);
+        
         if (key.equals("BarometerMode")) {
-            String mode = sharedPreferences.getString("BarometerMode", "Absolute");
-            pressureData.setMode(PressureDataPoint.PressureMode.valueOf(mode));
+        	updateModeSetting(pressureData);
         } else if (key.equals("BarometerUnit")) {
-            String unit = sharedPreferences.getString("BarometerUnit", "Bar");
-            pressureData.setUnit(PressureDataPoint.PressureUnit.valueOf(unit));
+        	updateUnitSetting(pressureData);
         } else if (key.equals("GraphTimeScale")) {
-        	int interval = Integer.valueOf(sharedPreferences.getString("GraphTimeScale", "1")) * 60000;
-            pressureData.setHistoryInterval(interval);
+        	updateTimeScaleSetting(pressureData);
         } else if (key.equals("KnownAltitude")) {
-            String unit = sharedPreferences.getString("KnownAltitude", "0");
-            pressureData.setCurrentElevation(Integer.valueOf(unit));
+        	updateElevationSetting(pressureData);
         }
+    }
+    
+    private void updateElevationSetting(ReadingsData pressureData) {
+    	try {
+    		String unit = sharedPreferences.getString("KnownAltitude", "0");
+            pressureData.setCurrentElevation(Integer.valueOf(unit));
+    	} catch (Exception e) {
+    		// TODO notify failure to adjust settings
+    	}
+    }
+    
+    private void updateTimeScaleSetting(ReadingsData pressureData) {
+    	try {
+    		int interval = Integer.valueOf(sharedPreferences.getString("GraphTimeScale", "1")) * 60000;
+            pressureData.setHistoryInterval(interval);
+    	} catch (Exception e) {
+    		// TODO notify failure to adjust settings
+    	}
+    }
+    
+    private void updateUnitSetting(ReadingsData pressureData) {
+    	try {
+	    	String unit = sharedPreferences.getString("BarometerUnit", "Bar");
+	        pressureData.setUnit(PressureDataPoint.PressureUnit.valueOf(unit));
+    	} catch (Exception e) {
+    		// TODO notify failure to adjust settings
+    	}
+    }
+    
+    private void updateModeSetting(ReadingsData pressureData) {
+    	try {
+	    	String mode = sharedPreferences.getString("BarometerMode", "Absolute");
+	        pressureData.setMode(PressureDataPoint.PressureMode.valueOf(mode));
+    	} catch (Exception e) {
+    		// TODO notify failure to adjust settings
+    	}
     }
 
     @Override

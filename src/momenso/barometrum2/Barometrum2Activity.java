@@ -42,12 +42,20 @@ public class Barometrum2Activity extends Activity implements Observer {
 
         pressureData = ReadingsData.getInstance(context);
 
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        pressureData.setMode(PressureMode.valueOf(preferences.getString("BarometerMode", "Absolute")),
-                Integer.valueOf(preferences.getString("KnownAltitude", "0")));
-        pressureData.setUnit(PressureUnit.valueOf(preferences.getString("BarometerUnit", "Bar")));
-        int interval = Integer.valueOf(preferences.getString("GraphTimeScale", "1")) * 60000;
-        pressureData.setHistoryInterval(interval);
+        // Handles failure when loading preferences
+        try {
+        	SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+	        pressureData.setMode(PressureMode.valueOf(preferences.getString("BarometerMode", "Absolute")),
+	                Integer.valueOf(preferences.getString("KnownAltitude", "0")));
+	        pressureData.setUnit(PressureUnit.valueOf(preferences.getString("BarometerUnit", "Bar")));
+	        int interval = Integer.valueOf(preferences.getString("GraphTimeScale", "1")) * 60000;
+	        pressureData.setHistoryInterval(interval);
+        } catch (Exception e) {
+        	// load default settings
+        	pressureData.setMode(PressureMode.Absolute);
+        	pressureData.setUnit(PressureUnit.Bar);
+        	pressureData.setHistoryInterval(60000);
+        }
 
         // initialize pressure reading display
         final TextView currentReading = (TextView) findViewById(R.id.currentReading);
@@ -136,9 +144,6 @@ public class Barometrum2Activity extends Activity implements Observer {
             
             Gauge gauge = (Gauge) this.findViewById(R.id.pressureGauge);
             if (gauge != null) {
-            	//gauge.setMaximum(pressureData.getMaximum());
-            	//gauge.setMinimum(pressureData.getMinimum());
-            	//gauge.updatePressure((float) (Math.round(pressureData.getAverage() * 100.0) / 100.0));
             	gauge.updatePressure(pressureData);
             }
 

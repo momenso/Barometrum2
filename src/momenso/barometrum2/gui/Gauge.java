@@ -1,5 +1,6 @@
 package momenso.barometrum2.gui;
 
+import momenso.barometrum2.PressureDataPoint.PressureMode;
 import momenso.barometrum2.ReadingsData;
 import android.content.Context;
 import android.graphics.Canvas;
