@@ -6,7 +6,6 @@ import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
-import android.util.Log;
 
 
 public class SettingsActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener {
@@ -32,8 +31,6 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         final Context context = getApplicationContext();
         final ReadingsData pressureData = ReadingsData.getInstance(context);
-        
-        Log.i("TRACE", "Change settings: " + key);
         
         if (key.equals("BarometerMode")) {
         	updateModeSetting(pressureData);
