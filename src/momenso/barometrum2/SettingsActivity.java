@@ -6,6 +6,7 @@ import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 
 public class SettingsActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener {
@@ -32,6 +33,8 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
         final Context context = getApplicationContext();
         final ReadingsData pressureData = ReadingsData.getInstance(context);
         
+        Log.i("TRACE", "Change settings: " + key);
+        
         if (key.equals("BarometerMode")) {
         	updateModeSetting(pressureData);
         } else if (key.equals("BarometerUnit")) {
@@ -49,6 +52,7 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
             pressureData.setCurrentElevation(Integer.valueOf(unit));
     	} catch (Exception e) {
     		// TODO notify failure to adjust settings
+    		e.printStackTrace();
     	}
     }
     
@@ -58,6 +62,7 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
             pressureData.setHistoryInterval(interval);
     	} catch (Exception e) {
     		// TODO notify failure to adjust settings
+    		e.printStackTrace();
     	}
     }
     
@@ -67,6 +72,7 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
 	        pressureData.setUnit(PressureDataPoint.PressureUnit.valueOf(unit));
     	} catch (Exception e) {
     		// TODO notify failure to adjust settings
+    		e.printStackTrace();
     	}
     }
     
@@ -76,6 +82,7 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
 	        pressureData.setMode(PressureDataPoint.PressureMode.valueOf(mode));
     	} catch (Exception e) {
     		// TODO notify failure to adjust settings
+    		e.printStackTrace();
     	}
     }
 

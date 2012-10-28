@@ -21,7 +21,7 @@
         <item >Pascal</item>
     </string-array>
     <string-array name="pressureUnitValues">
-        <item >Bar</item>
+        <item >mBar</item>
         <item >InHg</item>
         <item >Torr</item>
         <item >Pascal</item>

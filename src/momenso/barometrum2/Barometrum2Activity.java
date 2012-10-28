@@ -17,7 +17,6 @@ import java.util.Observable;
 import java.util.Observer;
 import momenso.barometrum2.PressureDataPoint.PressureMode;
 import momenso.barometrum2.PressureDataPoint.PressureUnit;
-import momenso.barometrum2.gui.BorderedTextView;
 import momenso.barometrum2.gui.ChartView;
 import momenso.barometrum2.gui.Gauge;
 

@@ -14,7 +14,6 @@ import android.graphics.Path.Direction;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.FloatMath;
-import android.util.Log;
 import android.view.View;
 
 
@@ -79,6 +78,7 @@ public class Gauge extends View {
     }
 
     public void updatePressure(ReadingsData pressure) {
+    	
     	this.current = pressure.getAverage();
     	this.mode = pressure.getMode();
     	this.unit = pressure.getUnit();
@@ -162,19 +162,19 @@ public class Gauge extends View {
         labelPath.addCircle(screen.centerX(), screen.centerY(), radius, Direction.CW);
         
         //labels 930-1070
-		float interval = Math.round(maximum-minimum) / 14; //gcd(10, (int) (maximum - minimum)); //gcd((int) maximum, (int) minimum);
+		float interval = Math.max(0.01f, Math.round(maximum-minimum) / 14.0f); //gcd(10, (int) (maximum - minimum)); //gcd((int) maximum, (int) minimum);
 		float labels = (maximum - minimum) / interval;
         float offset = -65;
-        float angularStep = 310 / labels;
+        float angularStep = 310.0f / labels;
         paint.setTextAlign(Align.CENTER);
         paint.setStyle(Style.FILL_AND_STROKE);
 		paint.setColor(Color.WHITE);
 		paint.setStrokeWidth(2);
 		
-		for (int value = (int) minimum; value <= maximum; value += interval, offset += angularStep) {
+		for (float value = minimum; value <= maximum; value += interval, offset += angularStep) {
 			canvas.save();
 			canvas.rotate(offset, screen.centerX(), screen.centerY());
-			canvas.drawTextOnPath(String.valueOf(value), labelPath, 0, radius / 10, paint);
+			canvas.drawTextOnPath(String.valueOf(Math.round(value)), labelPath, 0, radius / 10, paint);
 			canvas.restore();
 		}
 		
@@ -233,9 +233,9 @@ public class Gauge extends View {
 					screen.exactCenterY() - FloatMath.sin(rad) * (6 * pointerSize / 8),
 					paint);
 		}
-		else {
-			Log.w("Draw", "Invalid pressure value: " + current);
-		}
+//		else {
+//			Log.w("Draw", "Invalid pressure value: " + current);
+//		}
 		
 		// central node
 		paint.setColor(Color.WHITE);
