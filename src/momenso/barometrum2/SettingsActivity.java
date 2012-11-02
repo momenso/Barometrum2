@@ -27,7 +27,6 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
                 .commit();
     }
 
-    @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         final Context context = getApplicationContext();
         final ReadingsData pressureData = ReadingsData.getInstance(context);

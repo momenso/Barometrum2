@@ -117,7 +117,6 @@ public class Barometrum2Activity extends Activity implements Observer {
         super.onDestroy();
     }
 
-    @Override
     public void update(Observable observable, Object data) {
         if (observable.getClass() == Barometer.class) {
 

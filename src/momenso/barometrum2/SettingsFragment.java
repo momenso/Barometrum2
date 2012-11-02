@@ -18,11 +18,11 @@ public class SettingsFragment extends PreferenceFragment {
         
         Preference button = (Preference) findPreference("UseGPSAltimeter");
         button.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            @Override
             public boolean onPreferenceClick(Preference pref) {
                 Context context = getActivity().getApplicationContext();
                 final ReadingsData pressureData = ReadingsData.getInstance(context);
-                final Altimeter altimeter = new Altimeter(context, new AltimeterListener() {
+                @SuppressWarnings("unused")
+				final Altimeter altimeter = new Altimeter(context, new AltimeterListener() {
                     public void altitudeRefresh(float altitude, float accuracy) {
                         //Log.i("Settings", "Alt=" + altitude + ", acc=" + accuracy);
                         pressureData.setCurrentElevation(altitude);
