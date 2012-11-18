@@ -152,7 +152,7 @@ public class ChartView extends TextView {
 		float lateralMargin = getTextSize() / 2;
 		int columnWidth = ((rect.width() - yMargin - (4 * borderWidth)) / values.size());
 		float barPos = rect.left + lateralMargin + columnWidth / 2;
-		int yValue = values.size();
+		//int yValue = values.size();
 		float maximumColumnHeight = rect.height() - 2 * axisMargin - borderWidth;
 		int barIndex = 0;
 		selectedBar = -1;
@@ -187,7 +187,7 @@ public class ChartView extends TextView {
 			// update for next bar
 			barIndex++;
 			barPos += columnWidth;
-			yValue--;
+			//yValue--;
 		}
 		
 		if (selectedBar > -1 && selectedBar < values.size()) {

@@ -3,25 +3,41 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
-    
-    <momenso.barometrum2.gui.BorderedTextView
-        android:id="@+id/currentReading"
+    
+    <LinearLayout
+        android:id="@+id/topView"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/pressureValue"
-        android:layout_weight="0"
-        android:textSize="74dp" />
-    
+        android:layout_height="wrap_content" >
+
+        <momenso.barometrum2.gui.BorderedTextView
+            android:id="@+id/currentReading"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/pressureValue"
+            android:textSize="68dp" />
+        <momenso.barometrum2.gui.ChangeView
+            android:id="@+id/tendencyArrow"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:textColor="#F01020" />
+
+    </LinearLayout>
+
+    <!-- Gauge -->
+
     <momenso.barometrum2.gui.Gauge
         android:id="@+id/pressureGauge"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_gravity="bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
         android:layout_weight="1" />
-
-    <!-- Buttons -->
     
+    <!-- Buttons -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="72dp"
@@ -29,22 +45,21 @@
 
         <Button
             android:id="@+id/clearButton"
-            android:onClick="clearReadings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15dp"
             android:drawableLeft="@drawable/delete"
-            android:text="Clear Readings" />
-        
+            android:onClick="clearReadings"
+            android:text="@string/btnClearReadings"
+            android:textSize="15dp" />
+
         <Button
             android:id="@+id/settingsButton"
-            android:onClick="adjustSettings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15dp"
             android:drawableLeft="@drawable/settings"
-            android:text="Settings" />
-
+            android:onClick="adjustSettings"
+            android:text="@string/btnSettings"
+            android:textSize="15dp" />
     </LinearLayout>
-    
+
 </LinearLayout>

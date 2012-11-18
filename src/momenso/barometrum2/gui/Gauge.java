@@ -8,9 +8,13 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
+import android.graphics.Paint.Cap;
+import android.graphics.Paint.Join;
 import android.graphics.Paint.Style;
 import android.graphics.Path;
 import android.graphics.Path.Direction;
+import android.graphics.RectF;
+import android.graphics.drawable.shapes.RoundRectShape;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.FloatMath;
@@ -216,7 +220,7 @@ public class Gauge extends View {
 		if (this.unit != null) {
 			canvas.drawText(this.unit.toString(), screen.exactCenterX(), screen.exactCenterY() + radius / 3 + paint.getTextSize(), paint);
 		}
-
+        
         // draw pointer
         paint.setColor(Color.rgb(0xff,0x20, 0x40));
 		if (current >= minimum && current <= maximum) {
@@ -245,7 +249,7 @@ public class Gauge extends View {
                 screen.centerY(),
                 radius / 50,
                 paint);
-		
+        
         super.onDraw(canvas);
     }
     

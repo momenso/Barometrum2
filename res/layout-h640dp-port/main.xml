@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/pressureValue"
-        android:textSize="76dp" />
+        android:textSize="78dp" />
 
     <LinearLayout
         android:id="@+id/guiVisualizers"

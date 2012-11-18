@@ -3,12 +3,12 @@
 
     <string name="pressureValue">---</string>
     <string name="app_name">Barometrum HD</string>
-    <string name="altitudeValue">---</string>
-    <string name="altimeterDisable">Disable Altimeter</string>
-    <string name="altimeterEnable">Enable Altimeter</string>
 
     <string name="default_mode">Absolute</string>
     <string name="default_unit">Bar</string>
     <string name="default_time_interval">1</string>
+    
+    <string name="btnClearReadings">Clear Readings</string>
+    <string name="btnSettings">Settings</string>
     
 </resources>

@@ -1,8 +1,6 @@
 package momenso.barometrum2;
 
 import java.util.Observable;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import android.content.Context;
 import android.hardware.Sensor;
@@ -16,27 +14,28 @@ public class Barometer extends Observable implements SensorEventListener {
     private Context context;
     //private long startReadingTime;
     private boolean isSensorActive;
-    private Timer workerTimer;
+//    private Timer workerTimer;
 
     public Barometer(Context context) {
         this.context = context;
         this.isSensorActive = false;
         //this.startReadingTime = 0;
 
-        workerTimer = new Timer();
-        workerTimer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                active();
-            }
-        }, 0, 2000);
-    }
-
-    private void active() {
-        //Log.v("Barometer", "Active: enabling barometer");
-
+//        workerTimer = new Timer();
+//        workerTimer.schedule(new TimerTask() {
+//            @Override
+//            public void run() {
+//                active();
+//            }
+//        }, 0, 2000);
         enable();
     }
+
+//    private void active() {
+//        //Log.v("Barometer", "Active: enabling barometer");
+//
+//        enable();
+//    }
 
     public void enable() {
         //Log.v("Barometer", "Enable: registering sensor");
@@ -46,7 +45,8 @@ public class Barometer extends Observable implements SensorEventListener {
                     (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
             Sensor barometer = sm.getDefaultSensor(Sensor.TYPE_PRESSURE);
             if (barometer != null) {
-                sm.registerListener(this, barometer, SensorManager.SENSOR_DELAY_NORMAL);
+                //sm.registerListener(this, barometer, SensorManager.SENSOR_DELAY_NORMAL);
+            	sm.registerListener(this, barometer, SensorManager.SENSOR_DELAY_NORMAL);
 
                 isSensorActive = true;
                 //startReadingTime = System.currentTimeMillis();
@@ -67,7 +67,7 @@ public class Barometer extends Observable implements SensorEventListener {
 
     public void terminate() {
         disable();
-        workerTimer.cancel();
+        //workerTimer.cancel();
     }
 
     public boolean switchSensor() {
@@ -88,18 +88,51 @@ public class Barometer extends Observable implements SensorEventListener {
         //Log.v("Barometer", "onAccuracyChanged: sensor=" + sensor.getName() + ", accuracy=" + accuracy);
     }
 
+    private float average(float[] values) {
+    	float total = 0;
+    	for (float value : values) {
+    		total += value;
+    	}
+    	
+    	return total / values.length;
+    }
+    
+    private long lastTime = System.currentTimeMillis();
+    private float lastValue = -1;
+    private float[] buffer = new float[5];
+    private int index = 0;
+    private boolean initial = true;
+    
     public void onSensorChanged(SensorEvent event) {
 
         //Log.v("Barometer", "onSensorChanged: received new data");
+    	buffer[(index++) % buffer.length] = event.values[0];
+    	
+    	if (initial) {
+    		initial = false;
+    		setChanged();
+	        notifyObservers(event.values[0]);
+    	}
+    	
+        if (index % buffer.length == 0) {
+            long current = System.currentTimeMillis();
+            long elapsed = current - lastTime;
+            lastTime = current;
 
-        float currentValue = event.values[0];
+            float average = average(buffer);
+            if (lastValue != -1) {
+            	float change = (average - lastValue) / elapsed;
 
-        setChanged();
-        notifyObservers(currentValue);
-
-        /*if (System.currentTimeMillis() - startReadingTime > 1000)*/ {
-            disable();
+            	//Log.i("BAROMETER", String.format("%4.2f %.6f", average, change));
+	    	        
+    	        setChanged();
+    	        notifyObservers(average);
+            }
+	        lastValue = average;
         }
 
+        /*if (System.currentTimeMillis() - startReadingTime > 1000)*/ {
+            //disable();
+        }
     }
 }

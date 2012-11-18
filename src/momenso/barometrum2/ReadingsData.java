@@ -4,6 +4,7 @@ import android.content.Context;
 
 import java.io.EOFException;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -28,6 +29,7 @@ public class ReadingsData {
     private static float currentElevation = 0;
     private static int loggingInterval = 60000;
     private static ReadingsData instance;
+    private float change = 0;
 
     private ReadingsData(Context context) {
         this.context = context;
@@ -110,9 +112,20 @@ public class ReadingsData {
             historySamples.remove(0);
         }
         
+        if (this.readingSamples.size() > 1) {
+	        PressureDataPoint oldest = this.readingSamples.get(this.readingSamples.size()-2);
+	        PressureDataPoint newest = this.readingSamples.get(this.readingSamples.size()-1);
+	        this.change = newest.getRawValue() - oldest.getRawValue();
+        }
+        //Log.i("BAROMETER", "Change=" + change);
+        
         updateStatistics();
     }
 
+    public float getChange() {
+    	return this.change;
+    }
+    
     public List<PressureDataPoint> getHistory() {
         return this.historySamples;
     }
@@ -348,6 +361,8 @@ public class ReadingsData {
             }
         } catch (EOFException ex) {
             // happens when reading reaches end of the file
+        } catch (FileNotFoundException fe) {
+        	// file doesn't exist, probably first run
         }
 
         return data;

@@ -15,8 +15,11 @@ import android.view.View;
 import android.widget.TextView;
 import java.util.Observable;
 import java.util.Observer;
+
 import momenso.barometrum2.PressureDataPoint.PressureMode;
 import momenso.barometrum2.PressureDataPoint.PressureUnit;
+import momenso.barometrum2.gui.BorderedTextView;
+import momenso.barometrum2.gui.ChangeView;
 import momenso.barometrum2.gui.ChartView;
 import momenso.barometrum2.gui.Gauge;
 
@@ -59,7 +62,9 @@ public class Barometrum2Activity extends Activity implements Observer {
         // initialize pressure reading display
         final TextView currentReading = (TextView) findViewById(R.id.currentReading);
         if (currentReading != null) {
-	        final Typeface digitalFont = Typeface.createFromAsset(getAssets(), "font/digital.ttf");
+        	currentReading.setTextColor(Color.BLACK);
+	        //final Typeface digitalFont = Typeface.createFromAsset(getAssets(), "font/digital.ttf");
+        	final Typeface digitalFont = Typeface.createFromAsset(getAssets(), "font/lcdphone.ttf");
 	        currentReading.setTypeface(digitalFont);
 	        currentReading.setTextColor(Color.WHITE);
         }
@@ -80,6 +85,7 @@ public class Barometrum2Activity extends Activity implements Observer {
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 pressureData.clear();
+                pressureData.saveReadings();
             }
         })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -134,15 +140,35 @@ public class Barometrum2Activity extends Activity implements Observer {
 //                    Math.round(pressureData.getMaximum() * 100.0) / 100.0));
 
             // update current pressure value
-            final TextView currentValueText = (TextView) findViewById(R.id.currentReading);
+            final BorderedTextView currentValueText = (BorderedTextView) findViewById(R.id.currentReading);
             if (currentValueText != null) {
-	            currentValueText.setText(String.format("%.2f",
+	            currentValueText.setText(String.format("%.2f", 
 	                    Math.round(pressureData.getAverage() * 100.0) / 100.0));
             }
+            
+//            final TextView tendencyArrow = (TextView) findViewById(R.id.tendencyArrow);
+//            if (tendencyArrow != null) {
+//            	tendencyArrow.setY(-10);
+//            	String arrow = "";
+//            	if (pressureData.getChange() > 0.025) {
+//            		arrow = "\u279a"; //"\u2197";
+//            	} else if (pressureData.getChange() < -0.025) {
+//            		arrow = "\u2798"; // "\u2198";
+//            	} else {
+//            		arrow = "\u2799"; //"\u21e8"; //"\u2192";
+//            	}
+//            	
+//            	tendencyArrow.setText(arrow);
+//            }
             
             Gauge gauge = (Gauge) this.findViewById(R.id.pressureGauge);
             if (gauge != null) {
             	gauge.updatePressure(pressureData);
+            }
+            
+            ChangeView changer = (ChangeView) this.findViewById(R.id.tendencyArrow);
+            if (changer != null) {
+            	changer.update(pressureData);
             }
 
             // update altimeter display

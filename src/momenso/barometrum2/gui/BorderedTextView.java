@@ -10,7 +10,9 @@ import android.graphics.Paint.Style;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.TextView;
+
 
 public class BorderedTextView extends TextView {
 
@@ -18,28 +20,38 @@ public class BorderedTextView extends TextView {
 	private enum Corner { TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT };
 	private boolean top, left, right, bottom;
 	private Rect rect;
+	private RectF roundRect;
 	Paint paint;
 	
 	int cornerXRadius = 15;
 	int cornerYRadius = 15;
-	int lineWidth = 3;
+	int lineWidth = 2;
 	int backgroundColor = Color.rgb(30, 30, 30);
 	int borderColor = Color.rgb(150, 150, 150);
 	
 	public BorderedTextView(Context context) {
 		super(context);
+		initialize();
 	}
 	
 	public BorderedTextView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		
 		initializeParams(attrs);
+		initialize();
 	}
 	
 	public BorderedTextView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		
 		initializeParams(attrs);
+		initialize();
+	}
+	
+	protected void initialize() {
+		rect = new Rect();
+		paint = new Paint();
+		roundRect = new RectF();
 	}
 	
 	protected void initializeParams(AttributeSet attrs) {
@@ -49,29 +61,31 @@ public class BorderedTextView extends TextView {
 		this.left = attrs.getAttributeBooleanValue(nameSpace, "borderLeft", true);
 		this.right = attrs.getAttributeBooleanValue(nameSpace, "borderRight", true);
 		this.bottom = attrs.getAttributeBooleanValue(nameSpace, "borderBottom", true);
+		
+		if (this.top && this.bottom && this.left && this.right) {
+			System.out.println("At least one border is disabled.");
+		}
 	}
 	
 	@Override
 	protected void onDraw(Canvas canvas) {
 				
-		rect = new Rect();
-		paint = new Paint();
 		paint.setStrokeWidth(lineWidth);
 		
 		// define border limits
 		getDrawingRect(rect);
 		rect.set(rect.left + lineWidth / 2, rect.top + lineWidth / 2, rect.right - lineWidth / 2 - 1, rect.bottom - lineWidth / 2 - 1);
+		roundRect.set(rect);
 		
 		// fill inside the round border
 		paint.setStyle(Style.FILL);
 		paint.setColor(backgroundColor);
-		RectF roundBorder = new RectF(rect);
-		canvas.drawRoundRect(roundBorder, cornerXRadius, cornerYRadius, paint);
+		canvas.drawRoundRect(roundRect, cornerXRadius, cornerYRadius, paint);
 		
 		// draw round border
 		paint.setStyle(Style.STROKE);
 		paint.setColor(borderColor);
-		canvas.drawRoundRect(new RectF(rect), cornerXRadius, cornerYRadius, paint);
+		canvas.drawRoundRect(roundRect, cornerXRadius, cornerYRadius, paint);
 		
 		// remove disabled borders
 		paint.setStyle(Style.FILL_AND_STROKE);
@@ -81,10 +95,14 @@ public class BorderedTextView extends TextView {
 			
 			removeBorderLine(canvas, Position.TOP);
 			
-			if (left)
+			if (left) {
+				Log.i("BorderedTextView", "Removing left border");
 				straightenBorder(canvas, Position.LEFT, Position.TOP);
-			if (right)
+			}
+			if (right) {
+				Log.i("BorderedTextView", "Removing right border");
 				straightenBorder(canvas, Position.RIGHT, Position.TOP);
+			}
 		}
 		if (!left) {
 			removeCorner(canvas, Corner.TOP_LEFT);
@@ -92,10 +110,12 @@ public class BorderedTextView extends TextView {
 			
 			removeBorderLine(canvas, Position.LEFT);
 			
-			if (top)
+			if (top) {
 				straightenBorder(canvas, Position.TOP, Position.LEFT);
-			if (bottom)
+			}
+			if (bottom) {
 				straightenBorder(canvas, Position.BOTTOM, Position.LEFT);
+			}
 		}
 		if (!right) {
 			removeCorner(canvas, Corner.TOP_RIGHT);
@@ -103,10 +123,12 @@ public class BorderedTextView extends TextView {
 			
 			removeBorderLine(canvas, Position.RIGHT);
 			
-			if (top)
+			if (top) {
 				straightenBorder(canvas, Position.TOP, Position.RIGHT);
-			if (bottom)
+			}
+			if (bottom) {
 				straightenBorder(canvas, Position.BOTTOM, Position.RIGHT);
+			}
 		}
 		if (!bottom) {
 			removeCorner(canvas, Corner.BOTTOM_LEFT);
@@ -114,10 +136,12 @@ public class BorderedTextView extends TextView {
 			
 			removeBorderLine(canvas, Position.BOTTOM);
 			
-			if (left)
+			if (left) {
 				straightenBorder(canvas, Position.LEFT, Position.BOTTOM);
-			if (right)
+			}
+			if (right) {
 				straightenBorder(canvas, Position.RIGHT, Position.BOTTOM);
+			}
 		}
 		
 		super.onDraw(canvas);

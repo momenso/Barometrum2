@@ -4,13 +4,13 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <TextView
+    <momenso.barometrum2.gui.BorderedTextView
         android:id="@+id/currentReading"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:text="@string/pressureValue"
-        android:textSize="76dp" />
+        android:textSize="48dp" />
 
     <!-- LinearLayout
         android:id="@+id/linearLayout1"
