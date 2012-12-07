@@ -6,18 +6,19 @@ import java.util.Date;
 
 public class PressureDataPoint implements Serializable {
 
-    public static enum PressureMode {
-        Absolute, MSLP
-    };
-
-    public static enum PressureUnit {
-        mBar, Torr, Pascal, InHg
-    };
-    
     private static final long serialVersionUID = -3959936631531969908L;
     private float value;
     private long time;
 
+    
+	public static enum PressureMode {
+        Absolute, MSLP
+    };
+
+    public static enum PressureUnit {
+        mBar, Torr, Pascal, InHg, hPa
+    };
+    
     public PressureDataPoint() {
         this.setValue(0);
         this.setTime(0);
@@ -36,8 +37,8 @@ public class PressureDataPoint implements Serializable {
         return this.value;
     }
 
-    public float getValue(PressureMode mode, PressureUnit unit, float elevation) {
-        return getPressure(mode, unit, elevation, value);
+    public float getValue(PressureMode mode, PressureUnit unit, float elevation, float correction) {
+        return getPressure(mode, unit, elevation, value, correction);
     }
 
     public void setTime(long time) {
@@ -74,7 +75,7 @@ public class PressureDataPoint implements Serializable {
         return bar / 33.86389F;
     }
 
-    private float getPressure(PressureMode mode, PressureUnit unit, float elevation, float rawValue) {
+    private float getPressure(PressureMode mode, PressureUnit unit, float elevation, float rawValue, float correction) {
         float value = 0;
 
         //if (rawValue == Float.MAX_VALUE ||
@@ -96,7 +97,7 @@ public class PressureDataPoint implements Serializable {
             value = convertToInHg(value);
         }
 
-        return value;
+        return value + correction;
     }
 
     @Override

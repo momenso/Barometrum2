@@ -83,7 +83,7 @@ public class ChangeView extends View {
         
 		if (change > 0) {
 	    	// low - up
-	    	if (change > 0.005) {
+	    	if (change > 0.0005) {
 	    		paint.setColor(Color.rgb(0x33, 0xb5, 0xe5));
 	    	} else {
 	    		paint.setColor(Color.BLACK);
@@ -105,7 +105,7 @@ public class ChangeView extends View {
 	        		screen.exactCenterX()+radius/6, 3*radius/8, paint);
 
 	        // high - up
-	    	if (change > 0.06) {
+	    	if (change > 0.09) {
 	    		paint.setColor(Color.rgb(0x33, 0xb5, 0xe5));
 	    	} else {
 	    		paint.setColor(Color.BLACK);
@@ -117,7 +117,7 @@ public class ChangeView extends View {
 
 		} else {
 	    	// low - down
-	    	if (change < -0.005) {
+	    	if (change < -0.0005) {
 	    		paint.setColor(Color.rgb(0x33, 0xb5, 0xe5));
 	    	} else {
 	    		paint.setColor(Color.BLACK);
@@ -139,7 +139,7 @@ public class ChangeView extends View {
 	        		screen.exactCenterX()+radius/6, 5*radius/8, paint);
 
 	        // high - down
-	    	if (change < -0.06) {
+	    	if (change < -0.09) {
 	    		paint.setColor(Color.rgb(0x33, 0xb5, 0xe5));
 	    	} else {
 	    		paint.setColor(Color.BLACK);

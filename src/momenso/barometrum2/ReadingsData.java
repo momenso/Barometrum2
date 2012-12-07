@@ -1,6 +1,7 @@
 package momenso.barometrum2;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.io.EOFException;
 import java.io.FileInputStream;
@@ -27,6 +28,7 @@ public class ReadingsData {
     private static PressureMode mode = PressureMode.Absolute;
     private static PressureUnit unit = PressureUnit.mBar;
     private static float currentElevation = 0;
+    private static float correction = 0;
     private static int loggingInterval = 60000;
     private static ReadingsData instance;
     private float change = 0;
@@ -113,11 +115,13 @@ public class ReadingsData {
         }
         
         if (this.readingSamples.size() > 1) {
-	        PressureDataPoint oldest = this.readingSamples.get(this.readingSamples.size()-2);
+	        //PressureDataPoint oldest = this.readingSamples.get(this.readingSamples.size()-2);
 	        PressureDataPoint newest = this.readingSamples.get(this.readingSamples.size()-1);
-	        this.change = newest.getRawValue() - oldest.getRawValue();
-        }
-        //Log.i("BAROMETER", "Change=" + change);
+	        //this.change = (oldest.getRawValue() - newest.getRawValue()) / (oldest.getTime() - newest.getTime());
+	        this.change = (this.average.getRawValue() - newest.getRawValue()); // / (this.average.getTime() - newest.getTime());
+        } else
+        	Log.i("BAROMETE", "No data");
+        Log.i("BAROMETER", "Change=" + change);
         
         updateStatistics();
     }
@@ -137,7 +141,7 @@ public class ReadingsData {
     public List<Number> getPressure() {
         List<Number> data = new ArrayList<Number>();
         for (PressureDataPoint m : readingSamples) {
-            data.add(m.getValue(mode, unit, currentElevation));
+            data.add(m.getValue(mode, unit, currentElevation, correction));
         }
 
         return data;
@@ -203,7 +207,7 @@ public class ReadingsData {
     }
 
     public float getMinimum() {
-        return minValue.getValue(mode, unit, currentElevation);
+        return minValue.getValue(mode, unit, currentElevation, correction);
     }
 
     public Date getDateMinimum() {
@@ -213,7 +217,7 @@ public class ReadingsData {
     }
 
     public float getMaximum() {
-        return maxValue.getValue(mode, unit, currentElevation);
+        return maxValue.getValue(mode, unit, currentElevation, correction);
     }
 
     public PressureDataPoint getMaximumValue() {
@@ -230,11 +234,12 @@ public class ReadingsData {
     }
 
     public float getAverage() {
-        return average.getValue(mode, unit, currentElevation);
+    	//Log.i("Readings", "Corr="+ correction);
+        return average.getValue(mode, unit, currentElevation, correction);
     }
 
     public static float getReadingValue(PressureDataPoint value) {
-        return value.getValue(mode, unit, currentElevation);
+        return value.getValue(mode, unit, currentElevation, correction);
     }
 
     public void clear() {
@@ -246,6 +251,10 @@ public class ReadingsData {
 
     public void setCurrentElevation(float altitude) {
         ReadingsData.currentElevation = altitude;
+    }
+    
+    public void setCorrection(float correction) {
+    	ReadingsData.correction = correction;
     }
     
     public float getCurrentElevation() {
@@ -267,6 +276,10 @@ public class ReadingsData {
     
     public float getAltitude() {
     	return currentElevation;
+    }
+    
+    public float getCorrection() {
+    	return correction;
     }
 
     public void setHistoryInterval(int interval) {
@@ -295,6 +308,9 @@ public class ReadingsData {
 
             case InHg:
                 return "inHg";
+                
+            case hPa:
+            	return "hPa";
 
             default:
                 return "mb";

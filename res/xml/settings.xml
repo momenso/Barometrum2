@@ -18,12 +18,18 @@
             android:entries="@array/pressureUnit" 
             android:defaultValue="@string/default_unit"
             android:entryValues="@array/pressureUnitValues"/>
+		<EditTextPreference
+            android:key="SensorCorrection"
+            android:title="Sensor Correction"
+            android:summary="Defines an offset for compensating the barometric pressure sensor"
+            android:inputType="numberDecimal|numberSigned"
+            android:defaultValue="0"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="Logging">
         <ListPreference 
             android:title="Time interval"
             android:key="GraphTimeScale"
-            android:summary="Define the time interval used in the history chart" 
+            android:summary="Defines the time interval used in the history chart" 
             android:entries="@array/logInterval"
             android:defaultValue="@string/default_time_interval"
             android:entryValues="@array/timeValues"/>
@@ -37,7 +43,7 @@
         </Preference>
         <EditTextPreference
             android:key="KnownAltitude"
-            android:title="Define altitude manually (in meters)"
+            android:title="Defines the current altitude manually (in meters)"
             android:inputType="number"  
             android:defaultValue="0"/>
     </PreferenceCategory>

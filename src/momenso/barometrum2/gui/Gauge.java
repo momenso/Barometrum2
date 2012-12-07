@@ -8,13 +8,9 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
-import android.graphics.Paint.Cap;
-import android.graphics.Paint.Join;
 import android.graphics.Paint.Style;
 import android.graphics.Path;
 import android.graphics.Path.Direction;
-import android.graphics.RectF;
-import android.graphics.drawable.shapes.RoundRectShape;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.FloatMath;
@@ -88,6 +84,7 @@ public class Gauge extends View {
     	this.unit = pressure.getUnit();
     	
     	switch (pressure.getUnit()) {
+    		case hPa:
     		case mBar:
     			if (pressure.getMode() == PressureMode.MSLP) {
 	    			maximum = 1070;

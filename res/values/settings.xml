@@ -15,15 +15,17 @@
         <item >MSLP</item>
     </string-array>
     <string-array name="pressureUnit">
-        <item >Bar</item>
-        <item >Inches of mercury</item>
-        <item >Torr</item>
-        <item >Pascal</item>
+        <item >Millibars (mbar)</item>
+        <item >Hectopascal (hPa)</item>
+        <item >Kilopascal (kPa)</item>
+        <item >Inches of mercury (inHg)</item>
+        <item >Torr (mmHg)</item>
     </string-array>
     <string-array name="pressureUnitValues">
         <item >mBar</item>
+        <item >hPa</item>
+        <item >Pascal</item>
         <item >InHg</item>
         <item >Torr</item>
-        <item >Pascal</item>
     </string-array>
 </resources>

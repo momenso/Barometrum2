@@ -193,10 +193,9 @@ public class ChartView extends TextView {
 		if (selectedBar > -1 && selectedBar < values.size()) {
 			//paint.setTextSize(13 + rect.width() / 80);
 			PressureDataPoint selected = values.get(selectedBar);
-			Date timestamp = new Date(selected.getTime());
 			
 			String pressure = String.format("%.2f",
-					selected.getValue(data.getMode(), data.getUnit(), data.getAltitude()));
+					selected.getValue(data.getMode(), data.getUnit(), data.getAltitude(), data.getCorrection()));
 			
 			paint.setColor(Color.WHITE);
 			canvas.drawText(pressure, 8,
@@ -204,6 +203,7 @@ public class ChartView extends TextView {
 			
 			float width = paint.measureText(pressure);
 			paint.setTextAlign(Align.CENTER);
+			Date timestamp = new Date(selected.getTime());
 			canvas.drawText(dateFormat.format(timestamp), 
 					8 + width / 2, rect.centerY() - paint.getTextSize(), paint);
 			canvas.drawText(timeFormat.format(timestamp), 

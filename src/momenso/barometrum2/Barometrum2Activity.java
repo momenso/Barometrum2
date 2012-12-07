@@ -50,13 +50,16 @@ public class Barometrum2Activity extends Activity implements Observer {
 	        pressureData.setMode(PressureMode.valueOf(preferences.getString("BarometerMode", "Absolute")),
 	                Integer.valueOf(preferences.getString("KnownAltitude", "0")));
 	        pressureData.setUnit(PressureUnit.valueOf(preferences.getString("BarometerUnit", "Bar")));
+	        pressureData.setCorrection(Float.valueOf(preferences.getString("SensorCorrection", "0")));
 	        int interval = Integer.valueOf(preferences.getString("GraphTimeScale", "1")) * 60000;
 	        pressureData.setHistoryInterval(interval);
         } catch (Exception e) {
         	// load default settings
+        	e.printStackTrace();
         	pressureData.setMode(PressureMode.Absolute);
         	pressureData.setUnit(PressureUnit.mBar);
         	pressureData.setHistoryInterval(60000);
+        	pressureData.setCorrection(0);
         }
 
         // initialize pressure reading display
