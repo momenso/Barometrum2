@@ -114,14 +114,10 @@ public class ReadingsData {
             historySamples.remove(0);
         }
         
-        if (this.readingSamples.size() > 1) {
-	        //PressureDataPoint oldest = this.readingSamples.get(this.readingSamples.size()-2);
+        if (this.readingSamples.size() > 0) {
 	        PressureDataPoint newest = this.readingSamples.get(this.readingSamples.size()-1);
-	        //this.change = (oldest.getRawValue() - newest.getRawValue()) / (oldest.getTime() - newest.getTime());
-	        this.change = (this.average.getRawValue() - newest.getRawValue()); // / (this.average.getTime() - newest.getTime());
-        } else
-        	Log.i("BAROMETE", "No data");
-        Log.i("BAROMETER", "Change=" + change);
+	        this.change = (this.average.getRawValue() - newest.getRawValue());
+        }
         
         updateStatistics();
     }
