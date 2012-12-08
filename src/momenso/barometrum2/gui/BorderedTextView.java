@@ -60,11 +60,7 @@ public class BorderedTextView extends TextView {
 		this.top = attrs.getAttributeBooleanValue(nameSpace, "borderTop", true);
 		this.left = attrs.getAttributeBooleanValue(nameSpace, "borderLeft", true);
 		this.right = attrs.getAttributeBooleanValue(nameSpace, "borderRight", true);
-		this.bottom = attrs.getAttributeBooleanValue(nameSpace, "borderBottom", true);
-		
-		if (this.top && this.bottom && this.left && this.right) {
-			System.out.println("At least one border is disabled.");
-		}
+		this.bottom = attrs.getAttributeBooleanValue(nameSpace, "borderBottom", true);		
 	}
 	
 	@Override
@@ -96,11 +92,9 @@ public class BorderedTextView extends TextView {
 			removeBorderLine(canvas, Position.TOP);
 			
 			if (left) {
-				Log.i("BorderedTextView", "Removing left border");
 				straightenBorder(canvas, Position.LEFT, Position.TOP);
 			}
 			if (right) {
-				Log.i("BorderedTextView", "Removing right border");
 				straightenBorder(canvas, Position.RIGHT, Position.TOP);
 			}
 		}

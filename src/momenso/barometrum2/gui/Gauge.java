@@ -234,9 +234,6 @@ public class Gauge extends View {
 					screen.exactCenterY() - FloatMath.sin(rad) * (6 * pointerSize / 8),
 					paint);
 		}
-//		else {
-//			Log.w("Draw", "Invalid pressure value: " + current);
-//		}
 		
 		// central node
 		paint.setColor(Color.WHITE);

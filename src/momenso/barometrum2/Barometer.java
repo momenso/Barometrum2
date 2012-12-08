@@ -31,12 +31,6 @@ public class Barometer extends Observable implements SensorEventListener {
         enable();
     }
 
-//    private void active() {
-//        //Log.v("Barometer", "Active: enabling barometer");
-//
-//        enable();
-//    }
-
     public void enable() {
         //Log.v("Barometer", "Enable: registering sensor");
 

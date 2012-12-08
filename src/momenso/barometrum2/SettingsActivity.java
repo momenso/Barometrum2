@@ -6,7 +6,6 @@ import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
-import android.util.Log;
 
 
 public class SettingsActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener {
@@ -31,7 +30,6 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         final Context context = getApplicationContext();
         final ReadingsData pressureData = ReadingsData.getInstance(context);
-        Log.i("Settings", "Something changed: " + key);
         
         if (key.equals("BarometerMode")) {
         	updateModeSetting(pressureData);
@@ -42,13 +40,11 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
         } else if (key.equals("KnownAltitude")) {
         	updateElevationSetting(pressureData);
         } else if (key.equals("SensorCorrection")) {
-        	float before = pressureData.getCorrection();
         	updateCorrectionSetting(pressureData);
-        	Log.i("Settings", "SensorCorrection=" + before + " -> " + pressureData.getCorrection());
         }
     }
     
-    private void updateElevationSetting(ReadingsData pressureData) {
+	private void updateElevationSetting(ReadingsData pressureData) {
     	try {
     		String altitude = sharedPreferences.getString("KnownAltitude", "0");
             pressureData.setCurrentElevation(Integer.valueOf(altitude));
