@@ -5,7 +5,7 @@
     <string name="app_name">Barometrum HD</string>
 
     <string name="default_mode">Absolute</string>
-    <string name="default_unit">Bar</string>
+    <string name="default_unit">mBar</string>
     <string name="default_time_interval">1</string>
     
     <string name="btnClearReadings">Clear Readings</string>
