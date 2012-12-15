@@ -1,7 +1,6 @@
 package momenso.barometrum2;
 
 import android.content.Context;
-import android.util.Log;
 
 import java.io.EOFException;
 import java.io.FileInputStream;
