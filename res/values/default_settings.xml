@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    
+	<string name="default_mode">Absolute</string>
+    <string name="default_unit">mBar</string>
+    <string name="default_time_interval">1</string>
+    <string name="default_precision">1</string>
+    
+    <integer name="default_text_color">-1</integer>
+    <integer name="default_highlight_color">-13388315</integer>
+    <integer name="default_foreground_color">-14803426</integer>
+    
+</resources>

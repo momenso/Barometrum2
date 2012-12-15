@@ -28,6 +28,13 @@ public class ChartView extends TextView {
 	private int selectedBar = -1;
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM");
 	private SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+	
+	public int foregroundColor = Color.rgb(30, 30, 30);
+	public int borderColor = Color.rgb(150, 150, 150);
+	public int textColor = Color.WHITE;
+	public int axisColor = Color.WHITE;
+	public int barColor = Color.rgb(0x33, 0xb5, 0xe5);
+	public int selectedBarColor = Color.WHITE;
 
 	public ChartView(Context context) {
 		super(context);
@@ -93,11 +100,9 @@ public class ChartView extends TextView {
 				+ borderWidth / 2, rect.right - borderWidth / 2, rect.bottom
 				- borderWidth / 2);
 		paint.setStyle(Style.FILL);
-		int backGroundColor = Color.rgb(30, 30, 30);
-		paint.setColor(backGroundColor);
+		paint.setColor(foregroundColor);
 		canvas.drawRoundRect(borderRect, 15, 15, paint);
 
-		int borderColor = Color.rgb(150, 150, 150);
 		paint.setColor(borderColor);
 		paint.setStrokeWidth(borderWidth);
 		paint.setStyle(Style.STROKE);
@@ -107,7 +112,7 @@ public class ChartView extends TextView {
 		paint.setAntiAlias(false);
 		paint.setStrokeWidth(2);
 		paint.setStyle(Style.FILL);
-		paint.setColor(Color.WHITE);
+		paint.setColor(textColor);
 		float textMargin = paint.descent() + 2;
 		float axisMargin = getTextSize() + 2 * textMargin;
 		
@@ -124,11 +129,12 @@ public class ChartView extends TextView {
 
 		// draw y axis
 		getDrawingRect(rect);
-		paint.setColor(Color.WHITE);
+		paint.setColor(axisColor);
 		paint.setTextAlign(Align.LEFT);
 		paint.setTypeface(Typeface.MONOSPACE);
 		paint.setTextSize(13 + rect.width() / 50);
 
+		paint.setColor(textColor);
 		canvas.drawText(data.getMinimumDisplayValue(), 6,
 				rect.bottom - axisMargin - paint.descent(), paint);
 		String maxValue = data.getMaximumDisplayValue();
@@ -147,7 +153,6 @@ public class ChartView extends TextView {
 
 		// draw data columns
 		paint.setStrokeWidth(1);
-		int barColor = Color.rgb(0x33, 0xb5, 0xe5);
 		paint.setAntiAlias(true);
 		float lateralMargin = getTextSize() / 2;
 		int columnWidth = ((rect.width() - yMargin - (4 * borderWidth)) / values.size());
@@ -165,7 +170,7 @@ public class ChartView extends TextView {
 					rect.height() - axisMargin);
 
 			if (barRect.contains(selectedSpot.x, selectedSpot.y)) {
-				paint.setColor(Color.WHITE);
+				paint.setColor(selectedBarColor);
 				//selectedSpot.clear();
 				selectedBar = barIndex;
 			}
@@ -175,14 +180,6 @@ public class ChartView extends TextView {
 			
 			// draw bar
 			canvas.drawRect(barRect, paint);
-
-			// draw index number
-			// paint.setColor(Color.WHITE);
-			// paint.setTextAlign(Align.CENTER);
-			// paint.setTextSize(getTextSize());
-			// canvas.drawText(String.valueOf(yValue),
-			// barRect.centerX(), rect.bottom - borderWidth - textMargin,
-			// paint);
 
 			// update for next bar
 			barIndex++;
@@ -197,7 +194,7 @@ public class ChartView extends TextView {
 			String pressure = String.format("%.2f",
 					selected.getValue(data.getMode(), data.getUnit(), data.getAltitude(), data.getCorrection()));
 			
-			paint.setColor(Color.WHITE);
+			paint.setColor(textColor);
 			canvas.drawText(pressure, 8,
 					rect.centerY() + paint.getTextSize(), paint);
 			

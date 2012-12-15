@@ -55,4 +55,21 @@
             android:summary="Enter local altitude (in meters) manually."
             android:defaultValue="0"/>
     </PreferenceCategory>
+    <PreferenceCategory android:title="Theme"
+        android:layout="@layout/preference_category_summary"
+        android:summary="Customize interface colors.">
+        <momenso.barometrum2.gui.ColorDialogPreference
+            android:key="textColor"
+            android:title="Text" />
+		<momenso.barometrum2.gui.ColorDialogPreference
+			android:key="highlightColor"
+            android:title="Highlights" />
+		<momenso.barometrum2.gui.ColorDialogPreference
+            android:key="foregroundColor"
+            android:title="Foreground" />
+		<Preference android:title="Default"
+            android:key="defaultColors"
+            android:summary="Revert back to the default color scheme.">
+        </Preference>
+    </PreferenceCategory>"
 </PreferenceScreen>

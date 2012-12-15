@@ -6,14 +6,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.widget.TextView;
+
 import java.util.Observable;
 import java.util.Observer;
 
@@ -45,7 +43,7 @@ public class Barometrum2Activity extends Activity implements Observer {
 
         pressureData = ReadingsData.getInstance(context);
 
-        // Handles failure when loading preferences
+        // Load preferences        
         try {
         	SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 	        pressureData.setMode(PressureMode.valueOf(preferences.getString("BarometerMode", "Absolute")),
@@ -65,13 +63,64 @@ public class Barometrum2Activity extends Activity implements Observer {
         }
 
         // initialize pressure reading display
-        final TextView currentReading = (TextView) findViewById(R.id.currentReading);
+        final BorderedTextView currentReading = (BorderedTextView) findViewById(R.id.currentReading);
         if (currentReading != null) {
-        	currentReading.setTextColor(Color.BLACK);
 	        final Typeface digitalFont = Typeface.createFromAsset(getAssets(), "font/digital.ttf");
-        	//final Typeface digitalFont = Typeface.createFromAsset(getAssets(), "font/lcdphone.ttf");
 	        currentReading.setTypeface(digitalFont);
-	        currentReading.setTextColor(Color.WHITE);
+        }
+        
+        // handle settings button
+//      if (ViewConfiguration.get(this).hasPermanentMenuKey()) {
+//        if (Build.VERSION.SDK_INT > 15) {
+//        	final Button settingsButton = (Button) findViewById(R.id.settingsButton);
+//        	settingsButton.setVisibility(View.GONE);
+//        }
+    }
+    
+    @Override
+    protected void onResume() {
+    	super.onResume();
+    	
+    	updateDisplayColors();
+    }
+    
+    private void updateDisplayColors() {
+    	
+    	SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        int textColor = preferences.getInt("textColor", 
+        		getResources().getInteger(R.integer.default_text_color));
+        int highlightColor = preferences.getInt("highlightColor", 
+        		getResources().getInteger(R.integer.default_highlight_color));
+        int foregroundColor = preferences.getInt("foregroundColor", 
+        		getResources().getInteger(R.integer.default_foreground_color));
+        	
+        final BorderedTextView currentReading = (BorderedTextView) findViewById(R.id.currentReading);
+        if (currentReading != null) {
+	        currentReading.setTextColor(textColor);
+	        currentReading.foregroundColor = foregroundColor;
+        }
+        
+    	final Gauge gauge = (Gauge) findViewById(R.id.pressureGauge);
+        if (gauge != null) {
+        	gauge.foregroundColor = foregroundColor;
+        	gauge.numbersColor = textColor;
+        	gauge.ticksColor = highlightColor;
+        	gauge.centerLabelColor = textColor;
+        }
+        
+        final ChartView chart = (ChartView) findViewById(R.id.historyChart);
+        if (chart != null) {
+        	chart.foregroundColor = foregroundColor;
+        	chart.selectedBarColor = textColor;
+        	chart.textColor = textColor;
+        	chart.barColor = highlightColor;
+        	chart.axisColor = textColor;
+        }
+        
+        ChangeView changer = (ChangeView) findViewById(R.id.tendencyArrow);
+        if (changer != null) {
+        	changer.arrowColor = highlightColor;
+        	changer.foregroundColor = foregroundColor;
         }
     }
 
@@ -96,7 +145,13 @@ public class Barometrum2Activity extends Activity implements Observer {
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-    	return false;
+    	if (this.getClass() == Barometrum2Activity.class) {
+	        Intent settingsIntent = new Intent(this, SettingsActivity.class);
+	        startActivity(settingsIntent);
+    	}
+
+    	// keep options menu uninitialized, otherwise this method runs only once.
+    	return false; 
     }
 
     public void adjustSettings(View view) {

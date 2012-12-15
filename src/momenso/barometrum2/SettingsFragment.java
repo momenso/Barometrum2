@@ -1,9 +1,13 @@
 package momenso.barometrum2;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
+import android.preference.PreferenceManager;
+import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceFragment;
 
 
@@ -16,8 +20,25 @@ public class SettingsFragment extends PreferenceFragment {
 
         addPreferencesFromResource(R.xml.settings);
         
+        Preference defaultColors = (Preference) findPreference("defaultColors");
+        defaultColors.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+			
+			public boolean onPreferenceClick(Preference preference) {
+				SharedPreferences sharedPreferences = 
+						PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+		        
+	        	Editor editor = sharedPreferences.edit(); 
+	        	editor.remove("textColor");
+	        	editor.remove("highlightColor");
+	        	editor.remove("foregroundColor");
+	        	editor.commit();
+	        	
+				return true;
+			}
+		});
+        
         Preference button = (Preference) findPreference("UseGPSAltimeter");
-        button.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+        button.setOnPreferenceClickListener(new OnPreferenceClickListener() {
             public boolean onPreferenceClick(Preference pref) {
                 Context context = getActivity().getApplicationContext();
                 final ReadingsData pressureData = ReadingsData.getInstance(context);
@@ -39,6 +60,8 @@ public class SettingsFragment extends PreferenceFragment {
             }
         });
     }
+    
+    
 //	@Override
 //	protected void onListItemClick(ListView l, View v, int position, long id) {
 //		Toast.makeText(v.getContext(), l.getSelectedItem().toString(), Toast.LENGTH_LONG);

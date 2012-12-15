@@ -28,6 +28,14 @@ public class Gauge extends View {
     private PressureMode mode;
     private PressureUnit unit;
     
+    public int foregroundColor = Color.rgb(30, 30, 30);
+    public int borderColor = Color.rgb(150, 150, 150);
+    public int ticksColor = Color.rgb(0x33, 0xb5, 0xe5);
+    public int pointerColor = Color.rgb(0xff,0x20, 0x40);
+    public int centerLabelColor = Color.LTGRAY;
+    public int numbersColor = Color.WHITE;
+	public int backgroundColor = Color.TRANSPARENT;
+        
     public float getMaximum() {
 		return maximum;
 	}
@@ -140,8 +148,8 @@ public class Gauge extends View {
         int radius = (8 * Math.min(screen.width(), screen.height()) / 9) / 2;
         paint.setTextSize(radius / 9);
         
-        // background
-        paint.setColor(Color.rgb(30, 30, 30));
+        // foreground
+        paint.setColor(foregroundColor);
         paint.setStyle(Style.FILL);
         canvas.drawCircle(
                 screen.centerX(),
@@ -151,7 +159,7 @@ public class Gauge extends View {
 
         // border
         paint.setStrokeWidth(3);
-        paint.setColor(Color.rgb(150, 150, 150));
+        paint.setColor(borderColor);
         paint.setStyle(Style.STROKE);
         canvas.drawCircle(
                 screen.centerX(),
@@ -169,7 +177,7 @@ public class Gauge extends View {
         float angularStep = 310.0f / labels;
         paint.setTextAlign(Align.CENTER);
         paint.setStyle(Style.FILL_AND_STROKE);
-		paint.setColor(Color.WHITE);
+		paint.setColor(numbersColor);
 		paint.setStrokeWidth(2);
 		
 		for (float value = minimum; value <= maximum; value += interval, offset += angularStep) {
@@ -182,7 +190,7 @@ public class Gauge extends View {
 		// draw ticks
 		float pointerSize = (8 * radius / 9);
 		float minorStep = interval / 10;		
-		paint.setColor(Color.rgb(0x33, 0xb5, 0xe5));
+		paint.setColor(ticksColor);
 
 		int tick=0;
 		for (float mark = minimum; mark <= maximum; mark += minorStep) {
@@ -197,8 +205,8 @@ public class Gauge extends View {
 					paint);
 		}
 		
-		// center background (clear)
-		paint.setColor(Color.rgb(30, 30, 30));
+		// clear center foreground
+		paint.setColor(foregroundColor);
         paint.setStyle(Style.FILL_AND_STROKE);
         canvas.drawCircle(
                 screen.centerX(),
@@ -210,7 +218,7 @@ public class Gauge extends View {
         paint.setStrokeWidth(2);
         paint.setTextSize(radius / 10);
         paint.setTextAlign(Align.CENTER);
-        paint.setColor(Color.LTGRAY);
+        paint.setColor(centerLabelColor);
         if (this.mode != null) {
 			canvas.drawText(this.mode.toString(), screen.exactCenterX(), screen.exactCenterY() + radius / 3, paint);
 		}
@@ -219,7 +227,7 @@ public class Gauge extends View {
 		}
         
         // draw pointer
-        paint.setColor(Color.rgb(0xff,0x20, 0x40));
+        paint.setColor(pointerColor);
 		if (current >= minimum && current <= maximum) {
 			float angl = (float) (((maximum - current) * 310.0f) / (maximum - minimum));
 			float rad = (float) Math.toRadians(angl - 65);
@@ -236,7 +244,7 @@ public class Gauge extends View {
 		}
 		
 		// central node
-		paint.setColor(Color.WHITE);
+		paint.setColor(borderColor);
         paint.setStyle(Style.FILL_AND_STROKE);
         canvas.drawCircle(
                 screen.centerX(),

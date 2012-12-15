@@ -21,13 +21,13 @@ public class BorderedTextView extends TextView {
 	private boolean top, left, right, bottom;
 	private Rect rect;
 	private RectF roundRect;
-	Paint paint;
+	private Paint paint;
 	
-	int cornerXRadius = 15;
-	int cornerYRadius = 15;
-	int lineWidth = 2;
-	int backgroundColor = Color.rgb(30, 30, 30);
-	int borderColor = Color.rgb(150, 150, 150);
+	private int cornerXRadius = 15;
+	private int cornerYRadius = 15;
+	private int lineWidth = 2;
+	public int foregroundColor = Color.rgb(30, 30, 30);
+	public int borderColor = Color.rgb(150, 150, 150);
 	
 	public BorderedTextView(Context context) {
 		super(context);
@@ -75,7 +75,7 @@ public class BorderedTextView extends TextView {
 		
 		// fill inside the round border
 		paint.setStyle(Style.FILL);
-		paint.setColor(backgroundColor);
+		paint.setColor(foregroundColor);
 		canvas.drawRoundRect(roundRect, cornerXRadius, cornerYRadius, paint);
 		
 		// draw round border
@@ -147,7 +147,7 @@ public class BorderedTextView extends TextView {
 			throw new InvalidParameterException();
 		}
 		
-		paint.setColor(backgroundColor);
+		paint.setColor(foregroundColor);
 		
 		switch (border) {
 			case TOP:
@@ -174,7 +174,7 @@ public class BorderedTextView extends TextView {
 			throw new InvalidParameterException();
 		}
 		
-		paint.setColor(backgroundColor);
+		paint.setColor(foregroundColor);
 		
 		switch (location) {
 			case TOP_LEFT:

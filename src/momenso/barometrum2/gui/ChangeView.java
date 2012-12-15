@@ -21,9 +21,11 @@ public class ChangeView extends View {
     private int cornerXRadius = 15;
 	private int cornerYRadius = 15;
 	private int lineWidth = 2;
-	private int backgroundColor = Color.rgb(30, 30, 30);
-	private int borderColor = Color.rgb(150, 150, 150);
     private float change = 0;
+	
+    public int arrowColor = Color.rgb(0x33, 0xb5, 0xe5);
+	public int foregroundColor = Color.rgb(30, 30, 30);
+	public int borderColor = Color.rgb(150, 150, 150);
     
 	public ChangeView(Context context) {
 		super(context);
@@ -64,7 +66,7 @@ public class ChangeView extends View {
 		
 		// fill inside the round border
 		paint.setStyle(Style.FILL);
-		paint.setColor(backgroundColor);
+		paint.setColor(foregroundColor);
 		paint.setStrokeWidth(lineWidth);
 		canvas.drawRoundRect(roundRect, cornerXRadius, cornerYRadius, paint);
 		
@@ -79,12 +81,12 @@ public class ChangeView extends View {
         paint.setStrokeWidth(6);
         paint.setStrokeCap(Cap.ROUND);
         paint.setStrokeJoin(Join.ROUND);
-        paint.setColor(Color.rgb(0x33, 0xb5, 0xe5));
+        paint.setColor(arrowColor);
         
 		if (change > 0) {
 	    	// low - up
 	    	if (change > 0.0005) {
-	    		paint.setColor(Color.rgb(0x33, 0xb5, 0xe5));
+	    		paint.setColor(arrowColor);
 	    	} else {
 	    		paint.setColor(Color.BLACK);
 	    	}
@@ -95,7 +97,7 @@ public class ChangeView extends View {
 
 	        // medium - up
 	    	if (change > 0.03) {
-	    		paint.setColor(Color.rgb(0x33, 0xb5, 0xe5));
+	    		paint.setColor(arrowColor);
 	    	} else {
 	    		paint.setColor(Color.BLACK);
 	    	}
@@ -106,7 +108,7 @@ public class ChangeView extends View {
 
 	        // high - up
 	    	if (change > 0.09) {
-	    		paint.setColor(Color.rgb(0x33, 0xb5, 0xe5));
+	    		paint.setColor(arrowColor);
 	    	} else {
 	    		paint.setColor(Color.BLACK);
 	    	}
@@ -118,7 +120,7 @@ public class ChangeView extends View {
 		} else {
 	    	// low - down
 	    	if (change < -0.0005) {
-	    		paint.setColor(Color.rgb(0x33, 0xb5, 0xe5));
+	    		paint.setColor(arrowColor);
 	    	} else {
 	    		paint.setColor(Color.BLACK);
 	    	}
@@ -129,7 +131,7 @@ public class ChangeView extends View {
 
 	        // medium - down
 	    	if (change < -0.03) {
-	    		paint.setColor(Color.rgb(0x33, 0xb5, 0xe5));
+	    		paint.setColor(arrowColor);
 	    	} else {
 	    		paint.setColor(Color.BLACK);
 	    	}
@@ -140,7 +142,7 @@ public class ChangeView extends View {
 
 	        // high - down
 	    	if (change < -0.09) {
-	    		paint.setColor(Color.rgb(0x33, 0xb5, 0xe5));
+	    		paint.setColor(arrowColor);
 	    	} else {
 	    		paint.setColor(Color.BLACK);
 	    	}
