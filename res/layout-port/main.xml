@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
-    
+    android:orientation="vertical" >
     <LinearLayout
         android:id="@+id/topView"
         android:layout_width="fill_parent"
@@ -16,7 +15,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/pressureValue"
-            android:textSize="68dp" />
+            android:textSize="78dp" />
         <momenso.barometrum2.gui.ChangeView
             android:id="@+id/tendencyArrow"
             android:layout_width="fill_parent"

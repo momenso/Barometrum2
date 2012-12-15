@@ -10,40 +10,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/pressureValue"
-        android:textSize="48dp" />
-
-    <!-- LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <momenso.barometrum2.gui.BorderedTextView
-            android:id="@+id/minimumReading"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical|center_horizontal"
-            android:layout_weight="1"
-            android:textSize="28dp"
-            android:text="@string/altitudeValue" />
-
-        <momenso.barometrum2.gui.BorderedTextView
-            android:id="@+id/maximumReading"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical|center_horizontal"
-            android:layout_weight="1"
-            android:textSize="28dp"
-            android:text="@string/altitudeValue" />
-    </LinearLayout>
-    
-    <momenso.barometrum2.gui.BorderedTextView
-        android:id="@+id/altitudeReading"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="@string/altitudeValue"
-        android:textSize="28dp" /-->
+        android:textSize="50dp" />
     
     <momenso.barometrum2.gui.ChartView
         android:id="@+id/historyChart"

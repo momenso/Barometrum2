@@ -68,19 +68,11 @@ public class Barometrum2Activity extends Activity implements Observer {
         final TextView currentReading = (TextView) findViewById(R.id.currentReading);
         if (currentReading != null) {
         	currentReading.setTextColor(Color.BLACK);
-	        //final Typeface digitalFont = Typeface.createFromAsset(getAssets(), "font/digital.ttf");
-        	final Typeface digitalFont = Typeface.createFromAsset(getAssets(), "font/lcdphone.ttf");
+	        final Typeface digitalFont = Typeface.createFromAsset(getAssets(), "font/digital.ttf");
+        	//final Typeface digitalFont = Typeface.createFromAsset(getAssets(), "font/lcdphone.ttf");
 	        currentReading.setTypeface(digitalFont);
 	        currentReading.setTextColor(Color.WHITE);
         }
-
-        // initialize altimeter display
-//        final BorderedTextView altitudeReading = (BorderedTextView) findViewById(R.id.altitudeReading);
-//        if (altitudeReading != null) {
-//	        final Typeface normalFont = Typeface.createFromAsset(getAssets(), "font/normal.ttf");
-//	        altitudeReading.setTypeface(normalFont);
-//	        altitudeReading.setText(String.format("%sm", preferences.getString("KnownAltitude", "0")));
-//        }
     }
 
     public void clearReadings(View view) {
