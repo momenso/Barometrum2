@@ -41,6 +41,8 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
         	updateElevationSetting(pressureData);
         } else if (key.equals("SensorCorrection")) {
         	updateCorrectionSetting(pressureData);
+        } else if (key.equals("SensorPrecision")) {
+        	updatePrecisionSetting(pressureData);
         }
     }
     
@@ -58,6 +60,16 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
     	try {
     		String correction = sharedPreferences.getString("SensorCorrection", "0");
             pressureData.setCorrection(Float.valueOf(correction));
+    	} catch (Exception e) {
+    		// TODO notify failure to adjust settings
+    		e.printStackTrace();
+    	}
+    }
+    
+    private void updatePrecisionSetting(ReadingsData pressureData) {
+    	try {
+    		String precision = sharedPreferences.getString("SensorPrecision", "1");
+            pressureData.setPrecision(Integer.valueOf(precision));
     	} catch (Exception e) {
     		// TODO notify failure to adjust settings
     		e.printStackTrace();

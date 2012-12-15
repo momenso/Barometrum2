@@ -129,9 +129,9 @@ public class ChartView extends TextView {
 		paint.setTypeface(Typeface.MONOSPACE);
 		paint.setTextSize(13 + rect.width() / 50);
 
-		canvas.drawText(String.format("%.2f", data.getMinimum()), 6,
+		canvas.drawText(data.getMinimumDisplayValue(), 6,
 				rect.bottom - axisMargin - paint.descent(), paint);
-		String maxValue = String.format("%.2f", data.getMaximum());
+		String maxValue = data.getMaximumDisplayValue();
 		canvas.drawText(maxValue, 6, paint.getTextSize() + axisMargin, paint);
 		int yMargin = Math.round(paint.measureText(maxValue));
 		//paint.setTextSize(originalSize);

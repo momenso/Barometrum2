@@ -25,10 +25,12 @@ public class ReadingsData {
     private PressureDataPoint minValue;
     private PressureDataPoint maxValue;
     private PressureDataPoint average;
+    
     private static PressureMode mode = PressureMode.Absolute;
     private static PressureUnit unit = PressureUnit.mBar;
     private static float currentElevation = 0;
     private static float correction = 0;
+    private static int precision = 1;
     private static int loggingInterval = 60000;
     private static ReadingsData instance;
     private float change = 0;
@@ -202,8 +204,12 @@ public class ReadingsData {
         updateStatistics();
     }
 
-    public float getMinimum() {
+    private float getMinimum() {
         return minValue.getValue(mode, unit, currentElevation, correction);
+    }
+    
+    public String getMinimumDisplayValue() {
+    	return formatDisplayValue(getMinimum());
     }
 
     public Date getDateMinimum() {
@@ -212,8 +218,12 @@ public class ReadingsData {
         return date;
     }
 
-    public float getMaximum() {
+    private float getMaximum() {
         return maxValue.getValue(mode, unit, currentElevation, correction);
+    }
+    
+    public String getMaximumDisplayValue() {
+    	return formatDisplayValue(getMaximum());
     }
 
     public PressureDataPoint getMaximumValue() {
@@ -230,9 +240,22 @@ public class ReadingsData {
     }
 
     public float getAverage() {
-    	//Log.i("Readings", "Corr="+ correction);
         return average.getValue(mode, unit, currentElevation, correction);
     }
+    
+	public String getAverageDisplayValue() {
+    	return formatDisplayValue(getAverage());
+	}
+	
+	private String formatDisplayValue(float value) {
+		float factor = (float) Math.pow(10, ReadingsData.precision);
+		
+    	String result = (factor == 1) ?
+        		String.valueOf(Math.round(value)) :            		
+                String.valueOf(Math.round(value * factor) / factor);
+        	
+        return result;
+	}
 
     public static float getReadingValue(PressureDataPoint value) {
         return value.getValue(mode, unit, currentElevation, correction);
@@ -251,6 +274,14 @@ public class ReadingsData {
     
     public void setCorrection(float correction) {
     	ReadingsData.correction = correction;
+    }
+    
+    public void setPrecision(int digits) {
+    	ReadingsData.precision = digits;
+    }
+    
+    public int getPrecision() {
+    	return ReadingsData.precision;
     }
     
     public float getCurrentElevation() {
@@ -379,4 +410,5 @@ public class ReadingsData {
 
         return data;
     }
+    	
 }

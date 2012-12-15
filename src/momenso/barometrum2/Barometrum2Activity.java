@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
@@ -51,6 +52,7 @@ public class Barometrum2Activity extends Activity implements Observer {
 	                Integer.valueOf(preferences.getString("KnownAltitude", "0")));
 	        pressureData.setUnit(PressureUnit.valueOf(preferences.getString("BarometerUnit", "Bar")));
 	        pressureData.setCorrection(Float.valueOf(preferences.getString("SensorCorrection", "0")));
+	        pressureData.setPrecision(Integer.valueOf(preferences.getString("SensorPrecision", "1")));
 	        int interval = Integer.valueOf(preferences.getString("GraphTimeScale", "1")) * 60000;
 	        pressureData.setHistoryInterval(interval);
         } catch (Exception e) {
@@ -132,37 +134,11 @@ public class Barometrum2Activity extends Activity implements Observer {
             float pressure = (Float) data;
             pressureData.add(pressure);
 
-            // update minimum pressure display
-//            final BorderedTextView minPressureReading = (BorderedTextView) findViewById(R.id.minimumReading);
-//            minPressureReading.setText(String.format("%.2f",
-//                    Math.round(pressureData.getMinimum() * 100.0) / 100.0));
-
-            // update maximum pressure display
-//            final BorderedTextView maxPressureReading = (BorderedTextView) findViewById(R.id.maximumReading);
-//            maxPressureReading.setText(String.format("%.2f",
-//                    Math.round(pressureData.getMaximum() * 100.0) / 100.0));
-
             // update current pressure value
             final BorderedTextView currentValueText = (BorderedTextView) findViewById(R.id.currentReading);
             if (currentValueText != null) {
-	            currentValueText.setText(String.format("%.2f", 
-	                    Math.round(pressureData.getAverage() * 100.0) / 100.0));
+            	currentValueText.setText(pressureData.getAverageDisplayValue());
             }
-            
-//            final TextView tendencyArrow = (TextView) findViewById(R.id.tendencyArrow);
-//            if (tendencyArrow != null) {
-//            	tendencyArrow.setY(-10);
-//            	String arrow = "";
-//            	if (pressureData.getChange() > 0.025) {
-//            		arrow = "\u279a"; //"\u2197";
-//            	} else if (pressureData.getChange() < -0.025) {
-//            		arrow = "\u2798"; // "\u2198";
-//            	} else {
-//            		arrow = "\u2799"; //"\u21e8"; //"\u2192";
-//            	}
-//            	
-//            	tendencyArrow.setText(arrow);
-//            }
             
             Gauge gauge = (Gauge) this.findViewById(R.id.pressureGauge);
             if (gauge != null) {
@@ -174,11 +150,6 @@ public class Barometrum2Activity extends Activity implements Observer {
             	changer.update(pressureData);
             }
 
-            // update altimeter display
-//            final BorderedTextView altitudeReading = (BorderedTextView) findViewById(R.id.altitudeReading);
-//            if (altitudeReading != null) {
-//            	altitudeReading.setText(String.format("%sm", Math.round(pressureData.getCurrentElevation())));
-//            }
             updateHistoryChart();
         }
     }

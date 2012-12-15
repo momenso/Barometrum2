@@ -18,6 +18,13 @@
             android:entries="@array/pressureUnit" 
             android:defaultValue="@string/default_unit"
             android:entryValues="@array/pressureUnitValues"/>
+        <ListPreference
+            android:title="Pressure Format"
+            android:key="SensorPrecision"
+            android:summary="Number of digits for pressure values"
+            android:entries="@array/sensorPrecision"
+            android:defaultValue="@string/default_precision"
+            android:entryValues="@array/sensorPrecisionValues" />
 		<EditTextPreference
             android:key="SensorCorrection"
             android:title="Sensor Correction"
@@ -37,14 +44,15 @@
     <PreferenceCategory android:title="Local Altitude"
         android:layout="@layout/preference_category_summary"
         android:summary="Configure your local altitude. This is important to calculate the correct Mean sea leavel pressure (MSLP).">
-        <Preference android:title="Detect altitude automatically"
+        <Preference android:title="Automatic"
                 android:key="UseGPSAltimeter"
                 android:summary="Determines the local altitude using location service.">
         </Preference>
         <EditTextPreference
             android:key="KnownAltitude"
-            android:title="Defines the current altitude manually (in meters)"
-            android:inputType="number"  
+            android:title="Manual"
+            android:inputType="number"
+            android:summary="Enter local altitude (in meters) manually."
             android:defaultValue="0"/>
     </PreferenceCategory>
 </PreferenceScreen>
