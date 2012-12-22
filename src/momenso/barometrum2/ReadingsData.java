@@ -247,12 +247,7 @@ public class ReadingsData {
 	}
 	
 	private String formatDisplayValue(float value) {
-		float factor = (float) Math.pow(10, ReadingsData.precision);
-		
-    	String result = (factor == 1) ?
-        		String.valueOf(Math.round(value)) :            		
-                String.valueOf(Math.round(value * factor) / factor);
-        	
+    	String result = String.format("%." + precision + "f", value);
         return result;
 	}
 
